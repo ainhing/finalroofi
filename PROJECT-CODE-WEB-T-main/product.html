@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>PRODUCTS - ROOFI</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/products.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header - GIỐNG INDEX.HTML -->
+    <header id="header">
+        <div class="container">
+            <div class="row-flex">
+                <div class="header-bar-icon">
+                    <i class="ri-menu-line"></i>
+                </div>
+                
+                <div class="header-logo">
+                    <a href="index.html">
+                        <img src="asset/images/Banner_Logo/LogoRoofi.png" alt="ROOFI Logo">
+                    </a>
+                </div>
+                
+                <div class="header-logo-mobile">
+                    <a href="index.html">
+                        <img src="asset/images/Banner_Logo/LogoRoofi_Mobile.png" alt="ROOFI">
+                    </a>
+                </div>
+                
+                <div class="header-nav">
+                    <nav>
+                        <ul>
+                            <li class="has-dropdown single-column">
+                                <a href="index.html" class="main-nav-link">HOMEPAGE</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html#why-choose-us">Why Choose Us?</a></li>
+                                    <li><a href="index.html#hot-products">Hot Products</a></li>
+                                    <li><a href="index.html#reviews">Customers' Reviews</a></li>
+                                    <li><a href="index.html#contact">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class="has-dropdown single-column">
+                                <a href="product.html" class="main-nav-link">PRODUCTS</a>
+                                <ul class="dropdown-menu">
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=hobo">Hobo <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=hobo&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=hobo&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=streetwear">Streetwear <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=streetwear&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=streetwear&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=casual">Casual <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=casual&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=casual&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=minimal">Minimal <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=minimal&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=minimal&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="product.html?category=giay">Giày/Sandals</a></li>
+                                    
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?category=phukien">Phụ kiện <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?category=tui">Khăn</a></li>
+                                            <li><a href="product.html?category=vi">Ví</a></li>
+                                            <li><a href="product.html?category=non">Nón</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li><a href="page/hot-offers.html">HOT OFFERS</a></li>
+                            <li><a href="page/qna.html">QnA</a></li>
+                            <li><a href="page/blog.html">BLOG</a></li>
+                            <li><a href="page/about.html">ABOUT US</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="header-search">
+                    <input type="text" placeholder="Tìm kiếm">
+                    <i class="ri-search-line"></i>
+                </div>
+                
+                <div class="header-user">
+                    <a href="page/auth/login.html">
+                        <i class="ri-user-line"></i>
+                    </a>
+                </div>
+                
+                <div class="header-cart">
+                    <a href="cart.html">
+                        <i class="ri-shopping-cart-fill" number="0"></i>
+                    </a>
+                </div>
+            </div>
+        </div>   
+    </header>
+
+    <!-- PRODUCTS PAGE -->
+    <section class="products-page p-to-top">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <i class="ri-arrow-right-s-line"></i>
+                <span id="breadcrumb-text">Sản phẩm</span>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <!-- Filter Left: Type -->
+                <div class="filter-group">
+                    <label>Loại sản phẩm:</label>
+                    <select id="filter-type">
+                        <option value="all">Tất cả</option>
+                        <option value="hobo">Hobo</option>
+                        <option value="streetwear">Streetwear</option>
+                        <option value="casual">Casual</option>
+                        <option value="minimal">Minimal</option>
+                        <option value="giay">Giày/Sandals</option>
+                        <option value="phukien">Phụ kiện</option>
+                    </select>
+                </div>
+
+                <!-- Filter Right: Price -->
+                <div class="filter-group">
+                    <label>Sắp xếp giá:</label>
+                    <select id="filter-price">
+                        <option value="default">Mọi loại giá</option>
+                        <option value="low-high">Từ thấp đến cao</option>
+                        <option value="high-low">Từ cao đến thấp</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-container">
+                <!-- HOBO ÁO -->
+                <div class="product-category" data-category="hobo" data-type="ao">
+                    <div class="category-header">
+                        <h2 class="category-title">HOBO - ÁO</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg" alt="Áo Voan Thêu Hoa">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Voan Thêu Hoa EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu2/Hobo_Aokieu2.1.jpg" alt="Áo Ren EcoLace">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Ren EcoLace Satin</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu3/Hobo_Aokieu3.1.jpg" alt="Áo Voan Hoa">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Voan Hoa ReBloom</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu4/Hobo_Aokieu4.1.jpg" alt="Áo Tay Phồng">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Tay Phồng Voan Airy</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu5/Hobo_Aokieu5.1.jpg" alt="Áo Voan Tầng">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Voan Tầng CreamWave</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOBO QUẦN -->
+                <div class="product-category" data-category="hobo" data-type="quan">
+                    <div class="category-header">
+                        <h2 class="category-title">HOBO - QUẦN</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_quan/Hobo_Quan1/Hobo_Quan1.1.jpg" alt="Quần Linen Dáng Suông EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Linen Dáng Suông EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_quan/Hobo_Quan2/Hobo_Quan2.1.jpg" alt="Quần Lụa Hữu Cơ EcoLace Satin">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Lụa Hữu Cơ EcoLace Satin</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_quan/Hobo_Quan3/Hobo_Quan3.1.jpg" alt="Quần Hoa Voan ReBloom">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Hoa Voan ReBloom</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_quan/Hobo_Quan4/Hobo_Quan4.1.jpg" alt="Quần Nhung Tay Phồng AiryVelvet">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Nhung Tay Phồng AiryVelvet</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/hobo/hobo_quan/Hobo_Quan5/Hobo_Quan5.1.jpg" alt="Quần Lụa Họa Tiết CreamWave">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Lụa Họa Tiết CreamWave</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STREETWEAR ÁO -->
+                <div class="product-category" data-category="streetwear" data-type="ao">
+                    <div class="category-header">
+                        <h2 class="category-title">STREETWEAR - ÁO</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_aokieu/streetwear_aokieu1/streetwear_aokieu1.1.jpg" alt="Áo Thun Oversize EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Thun Oversize EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_aokieu/streetwear_aokieu2/streetwear_aokieu2.1.jpg" alt="Áo Hoodie Unisex EcoLace Satin">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Hoodie Unisex EcoLace Satin</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_aokieu/streetwear_aokieu3/streetwear_aokieu3.1.jpg" alt="Áo Denim Tái Chế ReBloom">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Denim Tái Chế ReBloom</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_aokieu/streetwear_aokieu4/streetwear_aokieu4.1.jpg" alt="Áo Len Street Knit Airy">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Len Street Knit Airy</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_aokieu/streetwear_aokieu5/streetwear_aokieu5.1.jpg" alt="Áo Khoác Track Jacket CreamWave">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Khoác Track Jacket CreamWave</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STREETWEAR QUẦN -->
+                <div class="product-category" data-category="streetwear" data-type="quan">
+                    <div class="category-header">
+                        <h2 class="category-title">STREETWEAR - QUẦN</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_quan/streetwear_quan1/streetwear_quan1.1.jpg" alt="Quần Army Dáng Suông EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Army Dáng Suông EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_quan/streetwear_quan2/streetwear_quan2.1.jpg" alt="Quần Lụa Cargo EcoLace Satin">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Lụa Cargo EcoLace Satin</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_quan/streetwear_quan3/streetwear_quan3.1.jpg" alt="Quần Voan Sọc ReBloom">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Voan Sọc ReBloom</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_quan/streetwear_quan4/streetwear_quan4.1.jpg" alt="Quần Jean Ngắn AiryVelvet">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Jean Ngắn AiryVelvet</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/streetwear/streetwear_quan/streetwear_quan5/streetwear_quan5.1.jpg" alt="Quần Lụa Cargo CreamWave">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Lụa Cargo CreamWave</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASUAL ÁO -->
+                <div class="product-category" data-category="casual" data-type="ao">
+                    <div class="category-header">
+                        <h2 class="category-title">CASUAL - ÁO</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_aokieu/casual_aokieu1/casual_aokieu1.1.jpg" alt="Áo Thun In Họa Tiết EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Thun In Họa Tiết EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_aokieu/casual_aokieu2/casual_aokieu2.1.jpg" alt="Áo Thun Be Organic EcoLace Satin">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Thun Be Organic EcoLace Satin</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_aokieu/casual_aokieu3/casual_aokieu3.1.jpg" alt="Áo Thun Trơn ReBloom">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Thun Trơn ReBloom</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_aokieu/casual_aokieu4/casual_aokieu4.1.jpg" alt="Áo Thun Cổ Tròn Airy">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Thun Cổ Tròn Airy</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_aokieu/casual_aokieu5/casual_aokieu5.1.jpg" alt="Áo Sơ Mi Denim CreamWave">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Sơ Mi Denim CreamWave</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CASUAL QUẦN -->
+                <div class="product-category" data-category="casual" data-type="quan">
+                    <div class="category-header">
+                        <h2 class="category-title">CASUAL - QUẦN</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_quan/casual_quan1/casual_quan1.1.jpg" alt="Quần Jean Suông EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Jean Suông EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_quan/casual_quan2/casual_quan2.1.jpg" alt="Quần Linen Be EcoLace Satin">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Linen Be EcoLace Satin</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_quan/casual_quan3/casual_quan3.1.jpg" alt="Quần Jean Xanh ReBloom">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Jean Xanh ReBloom</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_quan/casual_quan4/casual_quan4.1.jpg" alt="Quần Denim Tối AiryFit">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Denim Tối AiryFit</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/casual/casual_quan/casual_quan5/casual_quan5.1.jpg" alt="Quần Jean Ống Rộng CreamWave">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Jean Ống Rộng CreamWave</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MINIMAL ÁO -->
+                <div class="product-category" data-category="minimal" data-type="ao">
+                    <div class="category-header">
+                        <h2 class="category-title">MINIMAL - ÁO</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_aokieu/minimal_aokieu1/minimal_aokieu1.1.jpg" alt="Áo Voan Lụa EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Voan Lụa EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_aokieu/minimal_aokieu2/minimal_aokieu2.1.jpg" alt="Áo Tay Ngắn Cổ Trụ EcoLace">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Tay Ngắn Cổ Trụ EcoLace</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_aokieu/minimal_aokieu3/minimal_aokieu3.1.jpg" alt="Áo Kẻ Nhẹ ReBloom Stripe">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Kẻ Nhẹ ReBloom Stripe</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_aokieu/minimal_aokieu4/minimal_aokieu4.1.jpg" alt="Áo Dệt Kim Tay Ngắn Airy Knit">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Dệt Kim Tay Ngắn Airy Knit</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_aokieu/minimal_aokieu5/minimal_aokieu5.1.jpg" alt="Áo Gile Tay Lửng CreamWave">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Áo Gile Tay Lửng CreamWave</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MINIMAL QUẦN -->
+                <div class="product-category" data-category="minimal" data-type="quan">
+                    <div class="category-header">
+                        <h2 class="category-title">MINIMAL - QUẦN</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_quan/minimal_quan1/minimal_quan1.1.jpg" alt="Quần Short Lưng Cao EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Short Lưng Cao EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_quan/minimal_quan2/minimal_quan2.1.jpg" alt="Quần Linen Trắng EcoLace Satin">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Linen Trắng EcoLace Satin</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_quan/minimal_quan3/minimal_quan3.1.jpg" alt="Quần Lụa Dệt ReBloom">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Lụa Dệt ReBloom</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_quan/minimal_quan4/minimal_quan4.1.jpg" alt="Quần Layer Tối AiryKnit">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Layer Tối AiryKnit</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/minimal/minimal_quan/minimal_quan5/minimal_quan5.1.jpg" alt="Quần Đắp Chéo CreamWave Wrap">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Quần Đắp Chéo CreamWave Wrap</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GIÀY/SANDALS -->
+                <div class="product-category" data-category="giay">
+                    <div class="category-header">
+                        <h2 class="category-title">GIÀY/SANDALS</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/giay/giay1/giay1.1.jpeg" alt="Dép Lưới Tre Đan EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Dép Lưới Tre Đan EcoSoft</a></h3>
+                                    <span class="product-material">100% Natural Fiber & Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/giay/giay2/giay2.1.webp" alt="Dép Quai Chéo Suede">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Dép Quai Chéo Suede</a></h3>
+                                    <span class="product-material">100% Natural Fiber & Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/giay/giay3/giay3.1.webp" alt="Dép Kẹp Canvas ReBloom">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Dép Kẹp Canvas ReBloom</a></h3>
+                                    <span class="product-material">100% Natural Fiber & Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/giay/giay4/giay4.1.webp" alt="Giày Loafer Da Bóng EcoShine">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Giày Loafer Da Bóng EcoShine</a></h3>
+                                    <span class="product-material">100% Natural Fiber & Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/giay/giay5/giay5.1.webp" alt="Sandal Quai Dán CreamWave">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Sandal Quai Dán CreamWave</a></h3>
+                                    <span class="product-material">100% Natural Fiber & Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHỤ KIỆN - KHĂN -->
+                <div class="product-category" data-category="phukien" data-type="tui">
+                    <div class="category-header">
+                        <h2 class="category-title">PHỤ KIỆN - KHĂN</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_khan/phukien_khan1/phukien_khan1.1.jpg" alt="Khăn Lụa Pha Cotton EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Khăn Lụa Pha Cotton EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_khan/phukien_khan2/phukien_khan2.1.jpg" alt="Khăn Linen Hữu Cơ EcoLace">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Khăn Linen Hữu Cơ EcoLace</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_khan/phukien_khan3/phukien_khan3.1.jpg" alt="Khăn In Lá ReBloom Nature">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Khăn In Lá ReBloom Nature</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHỤ KIỆN - NÓN -->
+                <div class="product-category" data-category="phukien" data-type="non">
+                    <div class="category-header">
+                        <h2 class="category-title">PHỤ KIỆN - NÓN</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_non/phukien_non1/phukien_non1.1 (1).webp" alt="Mũ Fedora Len Tre EcoSoft">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Mũ Fedora Len Tre EcoSoft</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_non/phukien_non2/phukien_non2.1.webp" alt="Mũ Lưỡi Trai Thêu (Đỏ Mận)">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Lưỡi Trai Thêu (Đỏ Mận)</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_non/phukien_non3/phukien_non3.1.webp" alt="Mũ Lưỡi Trai Patch ReBloom (Xanh Rêu)">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Mũ Lưỡi Trai Patch ReBloom (Xanh Rêu)</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_non/phukien_non4/phukien_non4.1.jpg" alt="Mũ Bucket Organic AiryKnit (Đen Than)">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Mũ Bucket Organic AiryKnit (Đen Than)</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-item" data-price="620000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_non/phukien_non5/phukien_non5.1.jpg" alt="Mũ Len CreamWave Beanie">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Mũ Len CreamWave Beanie</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">620,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PHỤ KIỆN - VÍ -->
+                <div class="product-category" data-category="phukien" data-type="vi">
+                    <div class="category-header">
+                        <h2 class="category-title">PHỤ KIỆN - VÍ</h2>
+                        <div class="category-nav">
+                            <i class="ri-arrow-left-s-line nav-prev"></i>
+                            <i class="ri-arrow-right-s-line nav-next"></i>
+                        </div>
+                    </div>
+                    <div class="products-slider">
+                        <div class="products-row">
+                            <!-- Product 1 -->
+                            <div class="product-item" data-price="560000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_vi/phukien_vi1/phukien_vi1.1.jpg" alt="Ví Cầm Tay EcoSoft Classic">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Ví Cầm Tay EcoSoft Classic</a></h3>
+                                    <span class="product-material">100% Vegan Leather & Organic Cotton Lining</span>
+                                    <div class="product-price">
+                                        <span class="price-current">560,000đ</span>
+                                        <span class="price-old">720,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-item" data-price="520000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_vi/phukien_vi2/phukien_vi2.1.jpg" alt="Ví Dài EcoLace Satin Organizer">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Ví Dài EcoLace Satin Organizer</a></h3>
+                                    <span class="product-material">100% Vegan Leather & Organic Cotton Lining</span>
+                                    <div class="product-price">
+                                        <span class="price-current">520,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-item" data-price="480000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_vi/phukien_vi3/phukien_vi3.1.jpg" alt="Ví Mini ReBloom Clutch">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Ví Mini ReBloom Clutch</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">480,000đ</span>
+                                        <span class="price-old">650,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-item" data-price="590000">
+                                <div class="product-image">
+                                    <a href="product-detail.html">
+                                        <img src="asset/images/phukien/phukien_vi/phukien_vi4/phukien_vi4.1.jpg" alt="Ví Lưới Trong CreamWave Mesh Wallet">
+                                    </a>
+                                    <button class="favorite-btn">
+                                        <i class="ri-heart-line"></i>
+                                    </button>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="product-detail.html">Ví Lưới Trong CreamWave Mesh Wallet</a></h3>
+                                    <span class="product-material">100% Organic Cotton</span>
+                                    <div class="product-price">
+                                        <span class="price-current">590,000đ</span>
+                                        <span class="price-old">600,000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER - GIỐNG INDEX.HTML -->
+    <footer>
+        <div class="container">
+            <div class="row-grid">
+                <div class="footer-item">
+                    <p>ROOFYTEAM</p>
+                    <p>Đăng ký thành viên</p>
+                    <p>Ưu đãi & Đặc quyền</p>
+                </div>
+                <div class="footer-item">
+                    <p>CHÍNH SÁCH</p>
+                    <p>Chính sách đổi trả 30 ngày</p>
+                    <p>Chính sách khuyến mãi</p>
+                    <p>Chính sách bảo mật</p>
+                    <p>Chính sách giao hàng</p>
+                </div>
+                <div class="footer-item">
+                    <p>CHĂM SÓC KHÁCH HÀNG</p>
+                    <p>Trải nghiệm mua sắm 100% hài lòng</p>
+                    <p>Hỏi đáp - FAQs</p>
+                </div>
+                <div class="footer-item">
+                    <p>ĐỊA CHỈ LIÊN HỆ</p>
+                    <p>Cơ sở Thủ Đức: Trường Đại học Kinh tế - Luật, ĐHQG-HCM - 669 Đỗ Mười, khu phố 13, phường Linh Xuân, TP.HCM</p>
+                    <p>Cơ sở Quận 1: Trường Đại học Kinh tế - Luật - 45 Đinh Tiên Hoàng, P. Bến Nghé, Quận 1, TP.HCM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="asset/js/script.js"></script>
+    <script src="asset/js/products.js"></script>
+</body>
+</html>

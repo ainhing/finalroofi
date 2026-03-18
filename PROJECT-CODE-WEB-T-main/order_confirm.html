@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Xác nhận đơn hàng - ROOFI</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="row-flex">
+                <div class="header-bar-icon">
+                    <i class="ri-menu-line"></i>
+                </div>
+                <div class="header-logo">
+                    <a href="index.html">
+                        <img src="asset/images/Banner_Logo/LogoRoofi.png" alt="ROOFI Logo">
+                    </a>
+                </div>
+                <div class="header-logo-mobile">
+                    <a href="index.html">
+                        <img src="asset/images/Banner_Logo/LogoRoofi_Mobile.png" alt="ROOFI">
+                    </a>
+                </div>
+                <div class="header-nav">
+                    <nav>
+                        <ul>
+                            <li class="has-dropdown single-column">
+                                <a href="index.html" class="main-nav-link">HOMEPAGE</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html#why-choose-us">Why Choose Us?</a></li>
+                                    <li><a href="index.html#hot-products">Hot Products</a></li>
+                                    <li><a href="index.html#reviews">Customers' Reviews</a></li>
+                                    <li><a href="index.html#contact">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown single-column">
+                                <a href="product.html" class="main-nav-link">PRODUCTS</a>
+                                <ul class="dropdown-menu">
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=hobo">Hobo <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=hobo&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=hobo&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=streetwear">Streetwear <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=streetwear&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=streetwear&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=casual">Casual <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=casual&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=casual&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=minimal">Minimal <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=minimal&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=minimal&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="product.html?category=giay">Giày/Sandals</a></li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?category=phukien">Phụ kiện <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?category=tui">Khăn</a></li>
+                                            <li><a href="product.html?category=vi">Ví</a></li>
+                                            <li><a href="product.html?category=non">Nón</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="page/hot-offers.html">HOT OFFERS</a></li>
+                            <li><a href="page/qna.html">QnA</a></li>
+                            <li><a href="page/blog.html">BLOG</a></li>
+                            <li><a href="page/about.html">ABOUT US</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Tìm kiếm">
+                    <i class="ri-search-line"></i>
+                </div>
+                <div class="header-user">
+                    <a href="page/auth/login.html">
+                        <i class="ri-user-line"></i>
+                    </a>
+                </div>
+                <div class="header-cart">
+                    <a href="cart.html">
+                        <i class="ri-shopping-cart-fill" number="0"></i>
+                    </a>
+                </div>
+            </div>
+        </div>   
+    </header>
+
+    <!-- Order Confirm Section -->
+    <section class="order-confirm p-to-top">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <i class="ri-arrow-right-s-line"></i>
+                <a href="cart.html">Giỏ hàng</a>
+                <i class="ri-arrow-right-s-line"></i>
+                <span>Xác nhận đơn hàng</span>
+            </div>
+
+            <!-- Order Confirm Content -->
+            <div class="order-confirm-wrapper">
+                <!-- Success Icon -->
+                <div class="order-confirm-icon">
+                    <div class="success-checkmark">
+                        <div class="check-icon">
+                            <span class="icon-line line-tip"></span>
+                            <span class="icon-line line-long"></span>
+                            <div class="icon-circle"></div>
+                            <div class="icon-fix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Info -->
+                <div class="order-confirm-content">
+                    <h1>Đặt hàng thành công!</h1>
+                    <p class="order-number">Mã đơn hàng: <strong id="order-id">#RF2025001</strong></p>
+                    <p class="order-message">
+                        Cảm ơn bạn đã tin tưởng ROOFI! 🌿<br>
+                        Đơn hàng của bạn đã được ghi nhận và đang chờ xác nhận.<br>
+                        <span class="email-notice">Chúng tôi đã gửi thông tin đơn hàng đến email: <strong id="customer-email">example@email.com</strong></span>
+                    </p>
+
+                    <!-- Order Summary -->
+                    <div class="order-summary-box">
+                        <h3><i class="ri-file-list-3-line"></i> Thông tin đơn hàng</h3>
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span>Người nhận:</span>
+                                <strong id="customer-name">Trần Thanh Huyền</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Số điện thoại:</span>
+                                <strong id="customer-phone">0912345678</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Địa chỉ:</span>
+                                <strong id="customer-address">123 Đường ABC, Phường XYZ, Quận 1, TP.HCM</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Tổng tiền:</span>
+                                <strong class="total-price" id="order-total">2,040,000đ</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Phương thức thanh toán:</span>
+                                <strong>Thanh toán khi nhận hàng (COD)</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Thời gian giao hàng dự kiến:</span>
+                                <strong>2-3 ngày làm việc</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="order-actions">
+                        <a href="product.html" class="main-btn">
+                            <i class="ri-shopping-bag-line"></i> Tiếp tục mua sắm
+                        </a>
+                        <a href="index.html" class="main-btn secondary-btn">
+                            <i class="ri-home-line"></i> Về trang chủ
+                        </a>
+                    </div>
+
+                    <!-- Help Text -->
+                    <p class="help-text">
+                        <i class="ri-information-line"></i>
+                        Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ hotline: <strong>0912 345 678</strong> hoặc email: <strong>support@roofi.vn</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hot Products -->
+    <section class="hot-products">
+        <div class="container">
+            <div class="row-grid">
+                <p class="heading-text">CÓ THỂ BẠN QUAN TÂM</p>
+            </div>
+            <!-- Hot Products 5 sản phẩm demo -->
+            <div class="row-grid row-grid-hot-products">
+                <div class="hot-product-item">
+                    <a href="product-detail.html?id=1">
+                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg" alt="Áo Voan Thêu Hoa">
+                    </a>
+                    <p><a href="product-detail.html?id=1">Áo Voan Thêu Hoa EcoSoft</a></p>
+                    <span>100% Organic Cotton</span>
+                    <div class="product-item-price">
+                        <p>560,000<sup>đ</sup> <span>720,000<sup>đ</sup></span></p>
+                    </div>
+                </div>
+                <div class="hot-product-item">
+                    <a href="product-detail.html?id=2">
+                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu2/Hobo_Aokieu2.1.jpg" alt="Áo Ren EcoLace">
+                    </a>
+                    <p><a href="product-detail.html?id=2">Áo Ren EcoLace Satin</a></p>
+                    <span>100% Organic Cotton</span>
+                    <div class="product-item-price">
+                        <p>520,000<sup>đ</sup> <span>650,000<sup>đ</sup></span></p>
+                    </div>
+                </div>
+                <div class="hot-product-item">
+                    <a href="product-detail.html?id=3">
+                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu3/Hobo_Aokieu3.1.jpg" alt="Áo Voan Hoa">
+                    </a>
+                    <p><a href="product-detail.html?id=3">Áo Voan Hoa ReBloom</a></p>
+                    <span>100% Organic Cotton</span>
+                    <div class="product-item-price">
+                        <p>480,000<sup>đ</sup> <span>650,000<sup>đ</sup></span></p>
+                    </div>
+                </div>
+                <div class="hot-product-item">
+                    <a href="product-detail.html?id=4">
+                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu4/Hobo_Aokieu4.1.jpg" alt="Áo Tay Phồng">
+                    </a>
+                    <p><a href="product-detail.html?id=4">Áo Tay Phồng Voan Airy</a></p>
+                    <span>100% Organic Cotton</span>
+                    <div class="product-item-price">
+                        <p>590,000<sup>đ</sup> <span>600,000<sup>đ</sup></span></p>
+                    </div>
+                </div>
+                <div class="hot-product-item">
+                    <a href="product-detail.html?id=5">
+                        <img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu5/Hobo_Aokieu5.1.jpg" alt="Áo Voan Tầng">
+                    </a>
+                    <p><a href="product-detail.html?id=5">Áo Voan Tầng CreamWave</a></p>
+                    <span>100% Organic Cotton</span>
+                    <div class="product-item-price">
+                        <p>620,000<sup>đ</sup> <span>720,000<sup>đ</sup></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row-grid">
+                <div class="footer-item">
+                    <p>ROOFYTEAM</p>
+                    <p>Đăng ký thành viên</p>
+                    <p>Ưu đãi & Đặc quyền</p>
+                </div>
+                <div class="footer-item">
+                    <p>CHÍNH SÁCH</p>
+                    <p>Chính sách đổi trả 30 ngày</p>
+                    <p>Chính sách khuyến mãi</p>
+                    <p>Chính sách bảo mật</p>
+                    <p>Chính sách giao hàng</p>
+                </div>
+                <div class="footer-item">
+                    <p>CHĂM SÓC KHÁCH HÀNG</p>
+                    <p>Trải nghiệm mua sắm 100% hài lòng</p>
+                    <p>Hỏi đáp - FAQs</p>
+                </div>
+                <div class="footer-item">
+                    <p>ĐỊA CHỈ LIÊN HỆ</p>
+                    <p>Cơ sở Thủ Đức: Trường Đại học Kinh tế - Luật, ĐHQG-HCM - 669 Đỗ Mười, khu phố 13, phường Linh Xuân, TP.HCM</p>
+                    <p>Cơ sở Quận 1: Trường Đại học Kinh tế - Luật - 45 Đinh Tiên Hoàng, P. Bến Nghé, Quận 1, TP.HCM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="asset/js/script.js"></script>
+    <script src="asset/js/order.js"></script>
+</body>
+</html>

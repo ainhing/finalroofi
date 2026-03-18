@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Giỏ hàng - ROOFI</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="row-flex">
+                <div class="header-bar-icon">
+                    <i class="ri-menu-line"></i>
+                </div>
+                <div class="header-logo">
+                    <a href="index.html">
+                        <img src="asset/images/Banner_Logo/LogoRoofi.png" alt="ROOFI Logo">
+                    </a>
+                </div>
+                <div class="header-logo-mobile">
+                    <a href="index.html">
+                        <img src="asset/images/Banner_Logo/LogoRoofi_Mobile.png" alt="ROOFI">
+                    </a>
+                </div>
+                <div class="header-nav">
+                    <nav>
+                        <ul>
+                            <li class="has-dropdown single-column">
+                                <a href="index.html" class="main-nav-link">HOMEPAGE</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="index.html#why-choose-us">Why Choose Me?</a></li>
+                                    <li><a href="index.html#hot-products">Hot Products</a></li>
+                                    <li><a href="index.html#reviews">Customers' Reviews</a></li>
+                                    <li><a href="index.html#contact">Contact Us</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-dropdown single-column">
+                                <a href="product.html" class="main-nav-link">PRODUCTS</a>
+                                <ul class="dropdown-menu">
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=hobo">Hobo <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=hobo&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=hobo&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=streetwear">Streetwear <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=streetwear&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=streetwear&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=casual">Casual <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=casual&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=casual&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?style=minimal">Minimal <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?style=minimal&type=ao">Áo</a></li>
+                                            <li><a href="product.html?style=minimal&type=quan">Quần</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="product.html?category=giay">Giày/Sandals</a></li>
+                                    <li class="has-sub-dropdown">
+                                        <a href="product.html?category=phukien">Phụ kiện <i class="ri-arrow-right-s-line"></i></a>
+                                        <ul class="sub-dropdown">
+                                            <li><a href="product.html?category=tui">Khăn</a></li>
+                                            <li><a href="product.html?category=vi">Ví</a></li>
+                                            <li><a href="product.html?category=non">Nón</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="page/hot-offers.html">HOT OFFERS</a></li>
+                            <li><a href="page/qna.html">QnA</a></li>
+                            <li><a href="page/blog.html">BLOG</a></li>
+                            <li><a href="page/about.html">ABOUT US</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-search">
+                    <input type="text" placeholder="Tìm kiếm">
+                    <i class="ri-search-line"></i>
+                </div>
+                <div class="header-user">
+                    <a href="page/auth/login.html">
+                        <i class="ri-user-line"></i>
+                    </a>
+                </div>
+                <div class="header-cart">
+                    <a href="cart.html">
+                        <i class="ri-shopping-cart-fill" number="3"></i>
+                    </a>
+                </div>
+            </div>
+        </div>   
+    </header>
+
+    <!-- Cart Section -->
+    <section class="cart-section p-to-top">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <i class="ri-arrow-right-s-line"></i>
+                <span>Giỏ hàng</span>
+            </div>
+
+            <div class="row-grid">
+                <!-- LEFT: Cart Items -->
+                <div class="cart-section-left">
+                    <h2 class="main-h2">Chi tiết đơn hàng (<span id="cart-count">3</span> sản phẩm)</h2>
+                    <div class="cart-section-left-detail">
+                        <table id="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Ảnh</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Đơn giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-items">
+                                <!-- Cart items sẽ được load bằng JS -->
+                                <tr data-product-id="1">
+                                    <td><img style="width: 70px;" src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg" alt="Sản phẩm 1"></td>
+                                    <td>
+                                        <div class="cart-product-info">
+                                            <h3>Áo Voan Thêu Hoa EcoSoft</h3>
+                                            <p class="product-size">Size: M</p>
+                                            <p class="product-material">100% Organic Cotton</p>
+                                        </div>
+                                    </td>
+                                    <td class="product-unit-price">560,000đ</td>
+                                    <td>
+                                        <div class="product-detail-right-quantity-input">
+                                            <i class="ri-subtract-line qty-minus"></i>
+                                            <input onKeyDown="return false" class="quantity-input" type="number" value="1" min="1" data-price="560000">
+                                            <i class="ri-add-line qty-plus"></i>
+                                        </div>
+                                    </td>
+                                    <td class="product-total-price">560,000đ</td>
+                                    <td><button class="delete-btn" data-product-id="1"><i class="ri-delete-bin-line"></i></button></td>
+                                </tr>
+
+                                <tr data-product-id="2">
+                                    <td><img style="width: 70px;" src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu2/Hobo_Aokieu2.1.jpg" alt="Sản phẩm 2"></td>
+                                    <td>
+                                        <div class="cart-product-info">
+                                            <h3>Áo Ren EcoLace Satin</h3>
+                                            <p class="product-size">Size: L</p>
+                                            <p class="product-material">100% Organic Cotton</p>
+                                        </div>
+                                    </td>
+                                    <td class="product-unit-price">520,000đ</td>
+                                    <td>
+                                        <div class="product-detail-right-quantity-input">
+                                            <i class="ri-subtract-line qty-minus"></i>
+                                            <input onKeyDown="return false" class="quantity-input" type="number" value="1" min="1" data-price="520000">
+                                            <i class="ri-add-line qty-plus"></i>
+                                        </div>
+                                    </td>
+                                    <td class="product-total-price">520,000đ</td>
+                                    <td><button class="delete-btn" data-product-id="2"><i class="ri-delete-bin-line"></i></button></td>
+                                </tr>
+
+                                <tr data-product-id="3">
+                                    <td><img style="width: 70px;" src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu3/Hobo_Aokieu3.1.jpg" alt="Sản phẩm 3"></td>
+                                    <td>
+                                        <div class="cart-product-info">
+                                            <h3>Áo Voan Hoa ReBloom</h3>
+                                            <p class="product-size">Size: M</p>
+                                            <p class="product-material">100% Organic Cotton</p>
+                                        </div>
+                                    </td>
+                                    <td class="product-unit-price">480,000đ</td>
+                                    <td>
+                                        <div class="product-detail-right-quantity-input">
+                                            <i class="ri-subtract-line qty-minus"></i>
+                                            <input onKeyDown="return false" class="quantity-input" type="number" value="2" min="1" data-price="480000">
+                                            <i class="ri-add-line qty-plus"></i>
+                                        </div>
+                                    </td>
+                                    <td class="product-total-price">960,000đ</td>
+                                    <td><button class="delete-btn" data-product-id="3"><i class="ri-delete-bin-line"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="cart-actions">
+                            <a href="product.html" class="continue-shopping">
+                                <i class="ri-arrow-left-line"></i> Tiếp tục mua hàng
+                            </a>
+                            <button class="main-btn clear-cart-btn">
+                                <i class="ri-delete-bin-line"></i> Xóa giỏ hàng
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Order Summary & Shipping Info -->
+                <div class="cart-section-right">
+                    <h2 class="main-h2">Tổng đơn hàng</h2>
+                    <div class="order-summary">
+                        <div class="summary-row">
+                            <span>Tạm tính:</span>
+                            <span id="subtotal">2,040,000đ</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Giảm giá:</span>
+                            <span id="discount" class="discount-amount">-0đ</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Phí vận chuyển:</span>
+                            <span id="shipping">Miễn phí</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Tổng cộng:</span>
+                            <span id="total">2,040,000đ</span>
+                        </div>
+                    </div>
+
+                    <h2 class="main-h2" style="margin-top: 30px;">Thông tin giao hàng</h2>
+                    <form id="checkout-form">
+                        <div class="cart-section-right-input-name-phone">
+                            <input type="text" placeholder="Họ và tên *" name="name" id="name" required>
+                            <input type="tel" placeholder="Số điện thoại *" name="phone" id="phone" required>
+                        </div>
+                        <div class="cart-section-right-input-email">
+                            <input type="email" placeholder="Email *" name="email" id="email" required>
+                        </div>
+
+                        <div class="cart-section-right-select">
+                            <select name="city" id="city" required>
+                                <option value="">Tỉnh/Thành phố</option>
+                            </select>
+                            <select name="district" id="district" required>
+                                <option value="">Quận/Huyện</option>
+                            </select>
+                            <select name="ward" id="ward" required>
+                                <option value="">Phường/Xã</option>
+                            </select>
+                        </div>
+
+                        <div class="cart-section-right-input-address">
+                            <input type="text" placeholder="Địa chỉ cụ thể *" name="address" id="address" required>
+                        </div>
+                        <div class="cart-section-right-input-note">
+                            <textarea placeholder="Ghi chú đơn hàng (tùy chọn)" name="note" id="note" rows="3"></textarea>
+                        </div>
+
+                        <a href="order_confirm.html" class="main-btn full-width">
+                            <i class="ri-secure-payment-line"></i> Đặt hàng
+                        </a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row-grid">
+                <div class="footer-item">
+                    <p>ROOFYTEAM</p>
+                    <p>Đăng ký thành viên</p>
+                    <p>Ưu đãi & Đặc quyền</p>
+                </div>
+                <div class="footer-item">
+                    <p>CHÍNH SÁCH</p>
+                    <p>Chính sách đổi trả 30 ngày</p>
+                    <p>Chính sách khuyến mãi</p>
+                    <p>Chính sách bảo mật</p>
+                    <p>Chính sách giao hàng</p>
+                </div>
+                <div class="footer-item">
+                    <p>CHĂM SÓC KHÁCH HÀNG</p>
+                    <p>Trải nghiệm mua sắm 100% hài lòng</p>
+                    <p>Hỏi đáp - FAQs</p>
+                </div>
+                <div class="footer-item">
+                    <p>ĐỊA CHỈ LIÊN HỆ</p>
+                    <p>Cơ sở Thủ Đức: Trường Đại học Kinh tế - Luật, ĐHQG-HCM - 669 Đỗ Mười, khu phố 13, phường Linh Xuân, TP.HCM</p>
+                    <p>Cơ sở Quận 1: Trường Đại học Kinh tế - Luật - 45 Đinh Tiên Hoàng, P. Bến Nghé, Quận 1, TP.HCM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="asset/js/apiprovince.js"></script>
+    <script src="asset/js/script.js"></script>
+    <script src="asset/js/cart.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HOMEPAGE - ROOFI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary CSS -->
+  <link id="main-style" rel="stylesheet" href="asset/css/style.css">
+
+  <!-- Icons + Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS Fallback Loader (không ảnh hưởng file khác) -->
+  <script>
+    (function() {
+      // Danh sách đường dẫn dự phòng thường gặp
+      const fallbacks = [
+        './asset/css/style.css',
+        '../asset/css/style.css',
+        '../LogoRoofi/asset/css/style.css',
+        '/asset/css/style.css' // khi deploy lên root domain
+      ];
+
+      function ensureStylesheet() {
+        const link = document.getElementById('main-style');
+        const tried = new Set([link.getAttribute('href')]);
+
+        // Kiểm tra thô: nếu sau 400ms vẫn chưa có stylesheet nào áp dụng, thử fallback
+        setTimeout(() => {
+          // Có ít nhất 1 stylesheet nội bộ load thành công?
+          const ok = Array.from(document.styleSheets).some(ss => {
+            try {
+              // Bỏ qua stylesheet cross-origin (có thể lỗi SecurityError khi truy cập cssRules)
+              if (!ss.href) return false;
+              const isOurCss = /asset\/css\/style\.css/i.test(ss.href);
+              if (!isOurCss) return false;
+              // Truy cập length để xác nhận có rule (có thể ném lỗi nếu cross-origin)
+              const len = (ss.cssRules || ss.rules || []).length;
+              return len >= 0; // chỉ cần không throw là coi như đã nạp
+            } catch (e) {
+              // Nếu throw nhưng href match của mình thì cũng coi như đã nạp (trình duyệt chặn read)
+              return true;
+            }
+          });
+
+          if (ok) return; // đã có CSS, không cần fallback
+
+          // Thử tuần tự các fallback
+          (function tryNext(i) {
+            if (i >= fallbacks.length) return;
+            const href = fallbacks[i];
+            if (tried.has(href)) return tryNext(i + 1);
+
+            const alt = document.createElement('link');
+            alt.rel = 'stylesheet';
+            alt.href = href;
+            alt.onload = () => { /* OK, dừng lại */ };
+            alt.onerror = () => tryNext(i + 1);
+            document.head.appendChild(alt);
+          })(0);
+        }, 400);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', ensureStylesheet);
+      } else {
+        ensureStylesheet();
+      }
+    })();
+  </script>
+
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header id="header">
+    <div class="container">
+      <div class="row-flex">
+        <div class="header-bar-icon"><i class="ri-menu-line"></i></div>
+
+        <div class="header-logo">
+          <a href="index.html"><img src="asset/images/Banner_Logo/LogoRoofi.png" alt="ROOFI Logo"></a>
+        </div>
+
+        <div class="header-logo-mobile">
+          <a href="index.html"><img src="asset/images/Banner_Logo/LogoRoofi_Mobile.png" alt="ROOFI"></a>
+        </div>
+
+        <div class="header-nav">
+          <nav>
+            <ul>
+              <li class="has-dropdown single-column">
+                <a href="index.html" class="main-nav-link">HOMEPAGE</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#why-choose-us">Why Choose Us?</a></li>
+                  <li><a href="#hot-products">Hot Products</a></li>
+                  <li><a href="#reviews">Customers' Reviews</a></li>
+                  <li><a href="#contact">Contact Us</a></li>
+                </ul>
+              </li>
+
+              <li class="has-dropdown single-column">
+                <a href="product.html" class="main-nav-link">PRODUCTS</a>
+                <ul class="dropdown-menu">
+                  <li class="has-sub-dropdown">
+                    <a href="product.html?style=hobo">Hobo <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="product.html?style=hobo&type=ao">Áo</a></li>
+                      <li><a href="product.html?style=hobo&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-sub-dropdown">
+                    <a href="product.html?style=streetwear">Streetwear <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="product.html?style=streetwear&type=ao">Áo</a></li>
+                      <li><a href="product.html?style=streetwear&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-sub-dropdown">
+                    <a href="product.html?style=casual">Casual <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="product.html?style=casual&type=ao">Áo</a></li>
+                      <li><a href="product.html?style=casual&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-sub-dropdown">
+                    <a href="product.html?style=minimal">Minimal <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="product.html?style=minimal&type=ao">Áo</a></li>
+                      <li><a href="product.html?style=minimal&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="product.html?category=giay">Giày/Sandals</a></li>
+                  <li class="has-sub-dropdown">
+                    <a href="product.html?category=phukien">Phụ kiện <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="product.html?category=tui">Khăn</a></li>
+                      <li><a href="product.html?category=vi">Ví</a></li>
+                      <li><a href="product.html?category=non">Nón</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li><a href="page/hot-offers.html">HOT OFFERS</a></li>
+              <li><a href="page/qna.html">QnA</a></li>
+              <li><a href="page/blog.html">BLOG</a></li>
+              <li><a href="page/about.html">ABOUT US</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="header-search">
+          <input type="text" placeholder="Tìm kiếm">
+          <i class="ri-search-line"></i>
+        </div>
+
+        <div class="header-user">
+          <a href="page/auth/login.html"><i class="ri-user-line"></i></a>
+        </div>
+
+        <div class="header-cart">
+          <a href="cart.html"><i class="ri-shopping-cart-fill" number="0"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== SLIDER ========== -->
+  <section class="slider">
+    <div class="slider-items">
+      <div class="slider-item"><img src="asset/images/Banner_Logo/Banner_1.jpg" alt="Banner 1"></div>
+      <div class="slider-item"><img src="asset/images/Banner_Logo/Banner_2.jpg" alt="Banner 2"></div>
+      <div class="slider-item"><img src="asset/images/Banner_Logo/Banner_3.jpg" alt="Banner 3"></div>
+      <div class="slider-item"><img src="asset/images/Banner_Logo/Banner_4.jpg" alt="Banner 4"></div>
+      <div class="slider-item"><img src="asset/images/Banner_Logo/Banner_5.jpg" alt="Banner 5"></div>
+      <div class="slider-item"><img src="asset/images/Banner_Logo/Banner_6.jpg" alt="Banner 6"></div>
+    </div>
+    <div class="slider-arrow">
+      <i class="ri-skip-left-fill"></i>
+      <i class="ri-skip-right-fill"></i>
+    </div>
+  </section>
+
+  <!-- ========== SHOPPING NOW ========== -->
+  <section class="shopping-now-btn">
+    <div class="container">
+      <a href="product.html" class="main-btn btn-large">
+        <i class="ri-shopping-bag-line"> </i> SHOPPING NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="why-choose-us" id="why-choose-us">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose <span>Us?</span></h2>
+        <p class="section-subtitle">Thời trang có tâm – sống xanh có tầm!</p>
+        <p class="section-subtitle">“From Nature, For Nature.”</p>
+      </div>
+
+      <div class="why-choose-grid">
+        <div class="why-choose-left">
+          <div class="best-seller-badge">
+            <img src="asset/images/homepage/Whychooseus1.jpg" alt="Mission Homepage">
+            <h3>Sustainable Craft</h3>
+          </div>
+          <div class="best-seller-badge">
+            <img src="asset/images/homepage/Whychooseus2.jpg" alt="Mission Homepage">
+            <h3>Natural Essence</h3>
+          </div>
+          <div class="best-seller-badge">
+            <img src="asset/images/homepage/Whychooseus3.jpg" alt="Mission Homepage">
+            <h3>Timeless Design</h3>
+          </div>
+          <div class="best-seller-badge">
+            <img src="asset/images/homepage/Whychooseus4.jpg" alt=Mission Homepage">
+            <h3>Kind Living</h3>
+          </div>
+        </div>
+
+        <div class="why-choose-right">
+          <h3>ROOFI – Wear the Change</h3>
+          <p class="intro-text">Chúng tôi tin rằng thời trang không chỉ là cách bạn mặc – mà là cách bạn sống, thở và lan tỏa giá trị. Tại ROOFI, mỗi chiếc áo, mỗi sợi chỉ đều mang trong mình một câu chuyện về sự tôn trọng hành tinh này. Chúng tôi không chạy theo xu hướng ngắn hạn; thay vào đó, chúng tôi tạo nên những thiết kế vượt thời gian – vừa tinh giản, vừa bền vững, và đủ tinh tế để đồng hành cùng bạn qua nhiều năm tháng.</p>
+          <h3>Be Kind to Earth, Be True to Style</h3>
+          <p class="detail-text">ROOFI hướng đến phong cách Minimal – Eco – Timeless, phù hợp cho những ai yêu sự giản dị nhưng tinh tế, hiện đại nhưng có chiều sâu. Chúng tôi chọn đường may tinh gọn, form dáng tự nhiên, và bảng màu được lấy cảm hứng từ thiên nhiên – màu đất, lá, mây và nắng.</p>
+          <br>
+          <p>Mỗi thiết kế là lời nhắc nhẹ nhàng rằng: "Bạn có thể đẹp – mà vẫn tử tế với Trái Đất."</p>
+          <a href="page/about.html" class="learn-more-btn">Learn More</a>
+        </div>
+      </div>
+
+      <div class="features-row">
+        <div class="feature-item">
+          <div class="feature-icon"><img src="asset/images/homepage/Icon_whychooseus1.png" alt="Free Shipping"></div>
+          <h4>Free Shipping</h4><p>On All Orders</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><img src="asset/images/homepage/Icon_whychooseus2.png" alt="Returns"></div>
+          <h4>10 Days Returns</h4><p>Moneyback Guarantee</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><img src="asset/images/homepage/Icon_whychooseus3.png" alt="Offer & Gift"></div>
+          <h4>Offer & Gift</h4><p>On All Orders</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><img src="asset/images/homepage/Icon_whychooseus4.png" alt="Secure Payment"></div>
+          <h4>Secure Payment</h4><p>Protected By Paypal</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOT PRODUCTS ========== -->
+  <section class="hot-products" id="hot-products">
+    <div class="container">
+      <div class="row-grid">
+            <p class="heading-text">HOT PRODUCTS</p>
+            <!-- Hot offer countdown (used by asset/js/ajax-features.js) -->
+            <div class="hot-offer-banner" style="display:flex;align-items:center;gap:16px;margin-left:8px;">
+              <div style="font-weight:700;color:var(--eco-green);">Hot Offer ends in</div>
+              <div class="deal-timer" id="dealTimerHomepage" data-end-time="2026-01-01T00:00:00Z"></div>
+            </div>
+      </div>
+
+      <div class="row-grid row-grid-hot-products">
+        <div class="hot-product-item">
+          <div class="product-image"><a href="product.html"><img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg" alt="Áo Voan Thêu Hoa"></a></div>
+          <p><a href="product.html">Áo Voan Thêu Hoa EcoSoft</a></p>
+          <span>100% Organic Cotton</span>
+          <div class="product-item-price"><p>560,000<sup>đ</sup> <span>720,000<sup>đ</sup></span></p></div>
+        </div>
+        <div class="hot-product-item">
+          <div class="product-image"><a href="product.html"><img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu2/Hobo_Aokieu2.1.jpg" alt="Áo Ren EcoLace"></a></div>
+          <p><a href="product.html">Áo Ren EcoLace Satin</a></p>
+          <span>100% Organic Cotton</span>
+          <div class="product-item-price"><p>520,000<sup>đ</sup> <span>650,000<sup>đ</sup></span></p></div>
+        </div>
+        <div class="hot-product-item">
+          <div class="product-image"><a href="product.html"><img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu3/Hobo_Aokieu3.1.jpg" alt="Áo Voan Hoa"></a></div>
+          <p><a href="product.html">Áo Voan Hoa ReBloom</a></p>
+          <span>100% Organic Cotton</span>
+          <div class="product-item-price"><p>480,000<sup>đ</sup> <span>650,000<sup>đ</sup></span></p></div>
+        </div>
+        <div class="hot-product-item">
+          <div class="product-image"><a href="product.html"><img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu4/Hobo_Aokieu4.1.jpg" alt="Áo Tay Phồng"></a></div>
+          <p><a href="product.html">Áo Tay Phồng Voan Airy</a></p>
+          <span>100% Organic Cotton</span>
+          <div class="product-item-price"><p>590,000<sup>đ</sup> <span>600,000<sup>đ</sup></span></p></div>
+        </div>
+        <div class="hot-product-item">
+          <div class="product-image"><a href="product.html"><img src="asset/images/hobo/hobo_aokieu/Hobo_Aokieu5/Hobo_Aokieu5.1.jpg" alt="Áo Voan Tầng"></a></div>
+          <p><a href="product.html">Áo Voan Tầng CreamWave</a></p>
+          <span>100% Organic Cotton</span>
+          <div class="product-item-price"><p>620,000<sup>đ</sup> <span>720,000<sup>đ</sup></span></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REVIEWS ========== -->
+  <section class="customers-reviews" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Customers' <span>Reviews</span></h2>
+        <p class="section-subtitle">Hàng ngàn khách hàng đã tin tưởng và yêu thích ROOFI - Hãy nghe câu chuyện của họ!</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+          <p class="review-text">Chất lượng sản phẩm vượt ngoài mong đợi! Vải cotton rất mềm mại, thoáng mát. Đặc biệt là thiết kế Hobo mà tôi yêu thích!</p>
+          <div class="review-author">
+            <img src="asset/images/homepage/avtreview1.jpg" alt="Nguyễn Minh Anh">
+            <div class="author-info"><h4>Nguyễn Minh Anh</h4><p>Happy Customer</p></div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+          <p class="review-text">Lần đầu mua hàng ở ROOFI và tôi rất hài lòng. Đóng gói, giao hàng và sản phẩm đều tuyệt vời!</p>
+          <div class="review-author">
+            <img src="asset/images/homepage/avtreview2.jpg" alt="Trần Thu Hà">
+            <div class="author-info"><h4>Trần Thu Hà</h4><p>Happy Customer</p></div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i></div>
+          <p class="review-text">Shop phục vụ tận tình, sản phẩm đúng mô tả, form dáng đẹp, mặc thoải mái!</p>
+          <div class="review-author">
+            <img src="asset/images/homepage/avtreview3.jpg" alt="Lê Hoàng Nam">
+            <div class="author-info"><h4>Lê Hoàng Nam</h4><p>Happy Customer</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact-us" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Contact <span>Us</span></h2>
+        <p class="section-subtitle">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn!</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group"><input type="text" placeholder="Họ và tên" required></div>
+            <div class="form-group"><input type="email" placeholder="Email của bạn" required></div>
+            <div class="form-group"><input type="tel" placeholder="Số điện thoại" required></div>
+            <div class="form-group"><textarea rows="5" placeholder="Nội dung tin nhắn..." required></textarea></div>
+            <button type="submit" class="main-btn">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-info-wrapper">
+          <div class="contact-illustration">
+            <img src="asset/images/homepage/Icon_contact1.png" alt="Contact Illustration">
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item"><i class="ri-phone-fill"></i><div><h4>Hotline</h4><p>0912 345 678</p></div></div>
+            <div class="contact-item"><i class="ri-mail-fill"></i><div><h4>Email</h4><p>support@roofi.vn</p></div></div>
+            <div class="contact-item"><i class="ri-time-fill"></i><div><h4>Giờ làm việc</h4><p>Thứ 2 - Chủ nhật: 8:00 - 22:00</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER (for ajax-features.js) ========== -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Subscribe <span>Newsletter</span></h2>
+        <p class="section-subtitle">Nhận thông tin khuyến mãi và ưu đãi mới nhất từ ROOFI</p>
+      </div>
+
+      <div class="newsletter-wrapper" style="display:flex;justify-content:center;padding:20px 0;">
+        <form id="newsletterForm" style="display:flex;gap:10px;max-width:520px;width:100%;">
+          <input type="email" placeholder="Email của bạn" required style="flex:1;padding:12px;border-radius:8px;border:1px solid #ddd;">
+          <button type="submit" class="main-btn" style="padding:12px 20px;border-radius:8px;">Đăng ký</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Recently viewed section removed per user request -->
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="row-grid">
+        <div class="footer-item">
+          <p>ROOFYTEAM</p>
+          <p>Đăng ký thành viên</p>
+          <p>Ưu đãi & Đặc quyền</p>
+        </div>
+        <div class="footer-item">
+          <p>CHÍNH SÁCH</p>
+          <p>Chính sách đổi trả 30 ngày</p>
+          <p>Chính sách khuyến mãi</p>
+          <p>Chính sách bảo mật</p>
+          <p>Chính sách giao hàng</p>
+        </div>
+        <div class="footer-item">
+          <p>CHĂM SÓC KHÁCH HÀNG</p>
+          <p>Trải nghiệm mua sắm 100% hài lòng</p>
+          <p>Hỏi đáp - FAQs</p>
+        </div>
+        <div class="footer-item">
+          <p>ĐỊA CHỈ LIÊN HỆ</p>
+          <p>Cơ sở Thủ Đức: Trường Đại học Kinh tế - Luật, ĐHQG-HCM - 669 Đỗ Mười, khu phố 13, phường Linh Xuân, TP.HCM</p>
+          <p>Cơ sở Quận 1: Trường Đại học Kinh tế - Luật - 45 Đinh Tiên Hoàng, P. Bến Nghé, Quận 1, TP.HCM</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script chính (defer) + Fallback -->
+  <script src="asset/js/script.js" defer></script>
+  <script src="asset/js/ajax-features.js" defer></script>
+  <script>
+    // Fallback JS (nếu script.js không tải được vì sai đường dẫn riêng trang index)
+    (function() {
+      const tried = new Set();
+      function tryLoad(srcs, i=0) {
+        if (i >= srcs.length) return;
+        const src = srcs[i];
+        if (tried.has(src)) return tryLoad(srcs, i+1);
+        tried.add(src);
+        const s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        s.onerror = () => tryLoad(srcs, i+1);
+        document.body.appendChild(s);
+      }
+      // chờ một nhịp; nếu chưa có global init nào, thử fallback
+      setTimeout(() => {
+        // Ví dụ kiểm tra 1 selector có trong script để quyết định 
+        // Hiện tại đang là luôn thử fallback an toàn, không gây hại nếu script chính đã load.
+        tryLoad([
+          './asset/js/script.js',
+          '../asset/js/script.js',
+          '../LogoRoofi/asset/js/script.js',
+          '/asset/js/script.js',
+          './asset/js/ajax-features.js',
+          '../asset/js/ajax-features.js',
+          '../LogoRoofi/asset/js/ajax-features.js',
+          '/asset/js/ajax-features.js'
+        ]);
+      }, 500);
+    })();
+  </script>
+</body>
+</html>

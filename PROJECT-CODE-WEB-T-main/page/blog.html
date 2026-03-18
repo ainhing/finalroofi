@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Blog - ROOFI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS & Fonts -->
+  <link rel="stylesheet" href="../asset/css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- ========================= HEADER ========================= -->
+  <header id="header">
+    <div class="container">
+      <div class="row-flex">
+        <div class="header-bar-icon"><i class="ri-menu-line"></i></div>
+
+        <div class="header-logo">
+          <a href="../index.html"><img src="../asset/images/Banner_Logo/LogoRoofi.png" alt="ROOFI Logo"></a>
+        </div>
+        <div class="header-logo-mobile">
+          <a href="../index.html"><img src="../asset/images/Banner_Logo/LogoRoofi_Mobile.png" alt="ROOFI"></a>
+        </div>
+
+        <div class="header-nav">
+          <nav>
+            <ul>
+              <li class="has-dropdown single-column">
+                <a href="../index.html" class="main-nav-link">HOMEPAGE</a>
+                <ul class="dropdown-menu">
+                  <li><a href="../index.html#why-choose-us">Why Choose Us?</a></li>
+                  <li><a href="../index.html#hot-products">Hot Products</a></li>
+                  <li><a href="../index.html#reviews">Customers' Reviews</a></li>
+                  <li><a href="../index.html#contact">Contact Us</a></li>
+                </ul>
+              </li>
+
+              <li class="has-dropdown single-column">
+                <a href="../product.html" class="main-nav-link">PRODUCTS</a>
+                <ul class="dropdown-menu">
+                  <li class="has-sub-dropdown">
+                    <a href="../product.html?style=hobo">Hobo <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="../product.html?style=hobo&type=ao">Áo</a></li>
+                      <li><a href="../product.html?style=hobo&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-sub-dropdown">
+                    <a href="../product.html?style=streetwear">Streetwear <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="../product.html?style=streetwear&type=ao">Áo</a></li>
+                      <li><a href="../product.html?style=streetwear&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-sub-dropdown">
+                    <a href="../product.html?style=casual">Casual <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="../product.html?style=casual&type=ao">Áo</a></li>
+                      <li><a href="../product.html?style=casual&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li class="has-sub-dropdown">
+                    <a href="../product.html?style=minimal">Minimal <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="../product.html?style=minimal&type=ao">Áo</a></li>
+                      <li><a href="../product.html?style=minimal&type=quan">Quần</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="../product.html?category=giay">Giày/Sandals</a></li>
+                  <li class="has-sub-dropdown">
+                    <a href="../product.html?category=phukien">Phụ kiện <i class="ri-arrow-right-s-line"></i></a>
+                    <ul class="sub-dropdown">
+                      <li><a href="../product.html?category=tui">Khăn</a></li>
+                      <li><a href="../product.html?category=vi">Ví</a></li>
+                      <li><a href="../product.html?category=non">Nón</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li><a href="hot-offers.html">HOT OFFERS</a></li>
+              <li><a href="qna.html">QnA</a></li>
+              <li><a class="active" href="blog.html">BLOG</a></li>
+              <li><a href="about.html">ABOUT US</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="header-search">
+          <input type="text" placeholder="Tìm kiếm" />
+          <i class="ri-search-line"></i>
+        </div>
+
+        <div class="header-user">
+          <a href="../page/auth/login.html"><i class="ri-user-line"></i></a>
+        </div>
+
+        <div class="header-cart">
+          <a href="../cart.html"><i class="ri-shopping-cart-fill" number="0"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================= BANNER (reuse phong cách Hot Offers) ========================= -->
+  <section class="blog-banner hot-banner">
+    <div class="hot-banner-content">
+      <h1>ROOFI JOURNAL</h1>
+      <p>Chia sẻ cảm hứng sống xanh & thời trang bền vững mỗi tuần!</p>
+      <a href="#blog-section" class="main-btn">Khám phá bài viết</a>
+    </div>
+  </section>
+
+  <!-- ========================= BLOG SECTION ========================= -->
+  <section id="blog-section" class="blog-section container">
+    <div class="blog-toolbar">
+      <div class="section-header">
+        <h2 class="section-title">Bài viết nổi bật</h2>
+        <p class="section-subtitle">Tin, mẹo phối đồ, câu chuyện chất liệu tại ROOFI!</p>
+      </div>
+
+      <div class="blog-actions">
+        <label for="sort" class="sr-only">Sắp xếp</label>
+        <select id="sort" class="sort-select" aria-label="Sắp xếp">
+          <option value="newest">Mới nhất</option>
+          <option value="oldest">Cũ nhất</option>
+          <option value="all">Tất cả</option>
+        </select>
+        <div class="slide-controls">
+          <button class="slide-btn prev" aria-label="Trước"><i class="ri-arrow-left-s-line"></i></button>
+          <button class="slide-btn next" aria-label="Sau"><i class="ri-arrow-right-s-line"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider khung ngoài (ẩn overflow để trượt ngang) -->
+    <div class="blog-slider">
+      <div class="blog-track" id="blogTrack">
+        <!-- 8 thẻ blog-card; data-id dùng cho sort & modal -->
+        <article class="blog-card" data-id="8">
+          <img src="../asset/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg" alt="Blog 8" />
+          <div class="blog-info">
+            <span class="blog-meta">Oct 24, 2025</span>
+            <h3>Chất liệu thiên nhiên & làn da nhạy cảm</h3>
+            <p>Vì sao cotton hữu cơ và linen là lựa chọn an toàn cho da nhạy cảm?</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+
+        <article class="blog-card" data-id="7">
+          <img src="../asset/images/hobo/hobo_quan/Hobo_Quan2/Hobo_Quan2.1.jpg" alt="Blog 7" />
+          <div class="blog-info">
+            <span class="blog-meta">Oct 20, 2025</span>
+            <h3>Gu phối đồ tối giản cho người bận rộn</h3>
+            <p>3 công thức phối nhanh trong 30 giây vẫn giữ khí chất.</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+
+        <article class="blog-card" data-id="6">
+          <img src="../asset/images/hobo/hobo_aokieu/Hobo_Aokieu4/Hobo_Aokieu4.1.jpg" alt="Blog 6" />
+          <div class="blog-info">
+            <span class="blog-meta">Oct 12, 2025</span>
+            <h3>Chung tay cộng đồng: Tái chế vải vụn thành tác phẩm</h3>
+            <p>Hành trình biến những mảnh vụn thành phụ kiện độc bản.</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+
+        <article class="blog-card" data-id="5">
+          <img src="../asset/images/phukien/phukien_khan/phukien_khan2/phukien_khan2.1.jpg" alt="Blog 5" />
+          <div class="blog-info">
+            <span class="blog-meta">Oct 02, 2025</span>
+            <h3>Từ sợi vải đến phong cách sống xanh</h3>
+            <p>Câu chuyện trách nhiệm phía sau mỗi sản phẩm ROOFI.</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+
+        <article class="blog-card" data-id="4">
+          <img src="../asset/images/minimal/minimal_aokieu/minimal_aokieu1/minimal_aokieu1.1.jpg" alt="Blog 4" />
+          <div class="blog-info">
+            <span class="blog-meta">Sep 25, 2025</span>
+            <h3>Mix đồ Xuân – Thu theo tinh thần Eco</h3>
+            <p>Nhẹ, thoáng, ấm vừa đủ với tông be & olive.</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+
+        <article class="blog-card" data-id="3">
+          <img src="../asset/images/hobo/hobo_aokieu/Hobo_Aokieu3/Hobo_Aokieu3.1.jpg" alt="Blog 3" />
+          <div class="blog-info">
+            <span class="blog-meta">Sep 15, 2025</span>
+            <h3>Hobo tối giản: Tự do & kỷ luật</h3>
+            <p>“Less is more” – tinh thần đứng sau các đường cắt.</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+
+        <article class="blog-card" data-id="2">
+          <img src="../asset/images/casual/casual_quan/casual_quan2/casual_quan2.5.jpg" alt="Blog 2" />
+          <div class="blog-info">
+            <span class="blog-meta">Sep 06, 2025</span>
+            <h3>Bảo quản đồ linen đúng cách</h3>
+            <p>Giặt, phơi, ủi — 3 bước giữ phom bền lâu.</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+
+        <article class="blog-card" data-id="1">
+          <img src="../asset/images/phukien/phukien_non/phukien_non2/phukien_non2.1.webp" alt="Blog 1" />
+          <div class="blog-info">
+            <span class="blog-meta">Aug 29, 2025</span>
+            <h3>5 lỗi phối màu hay gặp</h3>
+            <p>Cách sửa nhanh để outfit “đỡ chói”.</p>
+            <button class="main-btn small" data-open>Đọc tiếp</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= MODAL BÀI VIẾT ========================= -->
+  <div class="blog-modal" id="blogModal" aria-hidden="true">
+    <div class="blog-modal-content" role="dialog" aria-modal="true" aria-labelledby="blogTitle">
+      <button class="close-btn" aria-label="Đóng"><i class="ri-close-line"></i></button>
+      <button class="back-btn" id="backBtn"><i class="ri-arrow-left-line"></i> Quay lại danh sách</button>
+
+      <img id="blogImage" src="" alt="" />
+      <h2 id="blogTitle"></h2>
+      <div id="blogBody" class="blog-body"></div>
+
+      <div class="detail-actions">
+        <a class="main-btn outline" href="blog-detail.html">Xem phiên bản bài mẫu dài</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer>
+    <div class="container">
+      <div class="row-grid">
+        <div class="footer-item">
+          <p>ROOFYTEAM</p>
+          <p>Đăng ký thành viên</p>
+          <p>Ưu đãi & Đặc quyền</p>
+        </div>
+        <div class="footer-item">
+          <p>CHÍNH SÁCH</p>
+          <p>Chính sách đổi trả 30 ngày</p>
+          <p>Chính sách khuyến mãi</p>
+          <p>Chính sách bảo mật</p>
+          <p>Chính sách giao hàng</p>
+        </div>
+        <div class="footer-item">
+          <p>CHĂM SÓC KHÁCH HÀNG</p>
+          <p>Trải nghiệm mua sắm 100% hài lòng</p>
+          <p>Hỏi đáp - FAQs</p>
+        </div>
+        <div class="footer-item">
+          <p>ĐỊA CHỈ LIÊN HỆ</p>
+          <p>Cơ sở Thủ Đức: Trường Đại học Kinh tế - Luật, ĐHQG-HCM - 669 Đỗ Mười, khu phố 13, phường Linh Xuân, TP.HCM</p>
+          <p>Cơ sở Quận 1: Trường Đại học Kinh tế - Luật - 45 Đinh Tiên Hoàng, P. Bến Nghé, Quận 1, TP.HCM</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================= JS ========================= -->
+  <script>
+    /* ===== NAV MOBILE & DROPDOWN ===== */
+    const bar = document.querySelector('.header-bar-icon');
+    const nav = document.querySelector('.header-nav');
+    if (bar && nav) bar.addEventListener('click', () => nav.classList.toggle('active'));
+    // mở dropdown bằng tap ở mobile
+    document.querySelectorAll('.has-dropdown > a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        if (window.innerWidth <= 750){
+          e.preventDefault();
+          a.parentElement.classList.toggle('active');
+        }
+      });
+    });
+    document.querySelectorAll('.has-sub-dropdown > a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        if (window.innerWidth <= 750){
+          e.preventDefault();
+          a.parentElement.classList.toggle('active');
+        }
+      });
+    });
+
+    /* ===== BLOG DATA (nội dung demo) ===== */
+    const blogData = {
+      8: {
+        title: "Chất liệu thiên nhiên & làn da nhạy cảm",
+        img: "../asset/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg",
+        body: `
+          <p>Vải cotton hữu cơ & linen loại bỏ phần lớn hóa chất kích ứng. Bề mặt sợi đan thưa, thoáng khí, hạn chế tích nhiệt — lý tưởng cho khí hậu Việt Nam.</p>
+          <ul>
+            <li><b>Cotton hữu cơ:</b> thấm hút, mềm, ít gây ngứa.</li>
+            <li><b>Linen:</b> mát, nhanh khô, càng giặt càng lì đẹp.</li>
+          </ul>
+          <p><i>Mẹo:</i> giặt túi giặt – phơi nơi râm mát – là ở nhiệt trung bình.</p>`
+      },
+      7: {
+        title: "Gu tối giản cho người bận rộn",
+        img: "../asset/images/hobo/hobo_quan/Hobo_Quan2/Hobo_Quan2.1.jpg",
+        body: `
+          <p>3 công thức 30 giây: (1) T-shirt trắng + quần culottes olive; (2) Áo 2 dây linen + blazer xám; (3) Tank top + quần suông đen + sneaker trắng.</p>`
+      },
+      6: {
+        title: "Tái chế vải vụn thành tác phẩm",
+        img: "../asset/images/hobo/hobo_aokieu/Hobo_Aokieu4/Hobo_Aokieu4.1.jpg",
+        body: `
+          <p>ROOFI gom vải vụn theo màu & kết cấu để ghép patchwork, làm túi mini & ví thẻ. Vừa giảm thải, vừa tạo bản sắc.</p>`
+      },
+      5: {
+        title: "Từ sợi vải đến phong cách sống xanh",
+        img: "../asset/images/phukien/phukien_khan/phukien_khan2/phukien_khan2.1.jpg",
+        body: `
+          <p>Chuỗi cung ứng minh bạch: nguyên liệu bền vững, nhuộm tiết kiệm nước, bao bì tái chế. Thời trang là lựa chọn sống.</p>`
+      },
+      4: {
+        title: "Mix đồ Xuân – Thu theo tinh thần Eco",
+        img: "../asset/images/minimal/minimal_aokieu/minimal_aokieu1/minimal_aokieu1.1.jpg",
+        body: `
+          <p>Tầng lớp nhẹ: áo 2 lớp + cardigan mỏng; bảng màu be/olive/nâu đất; phụ kiện gỗ & vải.</p>`
+      },
+      3: {
+        title: "Hobo tối giản: Tự do & kỷ luật",
+        img: "../asset/images/hobo/hobo_aokieu/Hobo_Aokieu3/Hobo_Aokieu3.1.jpg",
+        body: `
+          <p>“Less is more”: cắt tối giản, form thoải mái, tập trung vào chất liệu & độ rơi.</p>`
+      },
+      2: {
+        title: "Bảo quản đồ linen đúng cách",
+        img: "../asset/images/casual/casual_quan/casual_quan2/casual_quan2.5.jpg",
+        body: `
+          <ol>
+            <li>Giặt máy chế độ nhẹ, dùng túi giặt.</li>
+            <li>Không vắt xoắn mạnh, phơi ngang.</li>
+            <li>Ủi khi còn hơi ẩm để phẳng nhanh.</li>
+          </ol>`
+      },
+      1: {
+        title: "5 lỗi phối màu hay gặp",
+        img: "../asset/images/phukien/phukien_non/phukien_non2/phukien_non2.1.webp",
+        body: `
+          <p>Quá 3 màu chủ đạo, tương phản sai tông, bỏ qua sắc độ da… Sửa nhanh bằng bảng 60–30–10.</p>`
+      }
+    };
+
+    /* ===== MODAL ===== */
+    const modal = document.getElementById('blogModal');
+    const closeBtn = document.querySelector('.close-btn');
+    const backBtn = document.getElementById('backBtn');
+    const blogImg = document.getElementById('blogImage');
+    const blogTitle = document.getElementById('blogTitle');
+    const blogBody = document.getElementById('blogBody');
+    const blogCards = document.querySelectorAll('.blog-card [data-open]');
+    let scrollY = 0;
+
+    blogCards.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const card = e.currentTarget.closest('.blog-card');
+        const id = card.getAttribute('data-id');
+        const data = blogData[id];
+        scrollY = window.scrollY;
+
+        blogImg.src = data.img;
+        blogImg.alt = data.title;
+        blogTitle.textContent = data.title;
+        blogBody.innerHTML = data.body;
+
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal(){
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    }
+    closeBtn.addEventListener('click', closeModal);
+    backBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+    /* ===== SLIDER (3 card/khung desktop, responsive auto-fit) ===== */
+    const track = document.getElementById('blogTrack');
+    const prev = document.querySelector('.slide-btn.prev');
+    const next = document.querySelector('.slide-btn.next');
+    let index = 0;
+    const CARD_W = 340;   // chiều rộng card + gap (đồng bộ với CSS)
+
+    function updateSlider(){
+      track.style.transform = `translateX(-${index * CARD_W}px)`;
+    }
+    next.addEventListener('click', ()=>{
+      const maxIndex = Math.max(0, track.children.length - 3);
+      if(index < maxIndex) index++;
+      updateSlider();
+    });
+    prev.addEventListener('click', ()=>{
+      if(index > 0) index--;
+      updateSlider();
+    });
+
+    /* ===== SORT by id ===== */
+    const sortSelect = document.getElementById('sort');
+    sortSelect.addEventListener('change', ()=>{
+      const items = [...track.children];
+      if (sortSelect.value === 'newest'){
+        items.sort((a,b)=> b.dataset.id - a.dataset.id).forEach(el=> track.appendChild(el));
+      } else if (sortSelect.value === 'oldest'){
+        items.sort((a,b)=> a.dataset.id - b.dataset.id).forEach(el=> track.appendChild(el));
+      } else { /* all: giữ nguyên */ }
+      index = 0; updateSlider();
+    });
+  </script>
+</body>
+</html>
