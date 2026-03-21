@@ -1,0 +1,152 @@
+<div class="admin-page-root">
+<aside class="admin-sidebar">
+  <div class="admin-sidebar-header">
+    <div class="admin-logo">
+      <div class="admin-logo-icon">
+        <i class="ri-store-2-fill"></i>
+      </div>
+      <span class="admin-logo-text">Trang quản trị</span>
+    </div>
+  </div>
+
+  <nav class="admin-nav-menu">
+    <a class="admin-nav-item" routerLink="/admin" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+      <i class="ri-dashboard-line"></i>
+      <span>Dashboard</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/users" routerLinkActive="active">
+      <i class="ri-team-line"></i>
+      <span>Quản lý Users</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/products" routerLinkActive="active">
+      <i class="ri-shopping-bag-line"></i>
+      <span>Sản phẩm</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/blogs" routerLinkActive="active">
+      <i class="ri-article-line"></i>
+      <span>Blogs</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/orders" routerLinkActive="active">
+      <i class="ri-shopping-cart-line"></i>
+      <span>Đơn hàng</span>
+    </a>
+
+    <div class="admin-nav-divider"></div>
+
+    <button class="admin-nav-item" (click)="onLogout()">
+      <i class="ri-logout-box-line"></i>
+      <span>Đăng xuất</span>
+    </button>
+  </nav>
+</aside>
+
+<section class="admin-wrap">
+  <main class="admin-main">
+
+    <!-- Header -->
+    <div class="admin-header">
+      <h1><i class="ri-shopping-bag-line"></i> Quản lý Sản phẩm</h1>
+      <div class="admin-header-actions">
+        <button class="admin-action-btn admin-action-btn-add" (click)="onAddProduct()">
+          <i class="ri-add-line"></i> Thêm sản phẩm
+        </button>
+        <button class="admin-action-btn admin-action-btn-add"
+                (click)="loadProducts(true)"
+                [disabled]="isLoading"
+                style="background:#f3f5f4;color:#374151;border-color:#e2e8e5;box-shadow:none">
+          <i class="ri-refresh-line"></i> Tải lại
+        </button>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <i class="ri-search-line"></i>
+      <input type="text"
+             [(ngModel)]="filterSearch"
+             (ngModelChange)="onFilterChange()"
+             placeholder="Tìm theo tên sản phẩm, mã, danh mục...">
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="admin-empty-state">
+      <i class="ri-loader-4-line spin" style="font-size:28px;margin-bottom:12px"></i>
+      Đang tải sản phẩm...
+    </div>
+
+    <!-- Table -->
+    <div class="admin-table-wrap" *ngIf="!isLoading">
+      <table class="admin-table" *ngIf="filteredProducts.length > 0; else noProducts">
+        <thead>
+          <tr>
+            <th>Mã SP</th>
+            <th>Sản phẩm</th>
+            <th>Giá gốc</th>
+            <th>Giá bán</th>
+            <th>Tồn kho</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of filteredProducts">
+            <td>
+              <span class="product-id">{{ p.ProductId }}</span>
+            </td>
+            <td>
+              <div class="product-info">
+                <img *ngIf="p.Images?.[0]" [src]="p.Images[0]" class="product-thumb" [alt]="p.ProductName">
+                <div class="product-thumb-placeholder" *ngIf="!p.Images?.[0]">
+                  <i class="ri-t-shirt-line"></i>
+                </div>
+                <div class="product-name-group">
+                  <span class="product-name">{{ p.ProductName }}</span>
+                  <span class="product-category">{{ p.CategoryName || '-' }}</span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="price-original">{{ formatCurrency(p.OriginalPrice) }}</span>
+            </td>
+            <td>
+              <span class="price-sale">{{ formatCurrency(p.Price) }}</span>
+            </td>
+            <td>
+              <span class="stock-count"
+                    [class.stock-low]="p.StockQuantity <= 5"
+                    [class.stock-ok]="p.StockQuantity > 5">
+                {{ p.StockQuantity }}
+              </span>
+            </td>
+            <td>
+              <span class="status-badge"
+                    [class]="'status-badge--' + (p.IsActive ? 'active' : 'inactive')">
+                {{ p.IsActive ? 'Đang bán' : 'Ngừng bán' }}
+              </span>
+            </td>
+            <td>
+              <div class="action-group">
+                <button class="admin-action-btn admin-action-btn-edit" (click)="onEditProduct(p)">
+                  <i class="ri-edit-line"></i> Sửa
+                </button>
+                <button class="admin-action-btn admin-action-btn-delete" (click)="onDeleteProduct(p)">
+                  <i class="ri-delete-bin-line"></i> Xóa
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #noProducts>
+        <div class="admin-empty-state">
+          <div class="admin-empty-icon"><i class="ri-shopping-bag-line"></i></div>
+          <p>{{ filterSearch ? 'Không tìm thấy sản phẩm phù hợp.' : 'Chưa có sản phẩm nào.' }}</p>
+        </div>
+      </ng-template>
+    </div>
+
+  </main>
+</section>
+</div>

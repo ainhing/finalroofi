@@ -1,0 +1,159 @@
+/* Product Component Styles - Using Tailwind @apply */
+
+/* Product Item Container */
+.product-item {
+  @apply flex-shrink-0 w-64 rounded-xl 
+         shadow-md hover:shadow-2xl 
+         transition-all duration-300 
+         overflow-hidden 
+         border border-[#fdfbf7] /* Viền đậm hơn chút để tách biệt */
+         bg-[#fdfbf7];
+}
+
+/* Product Image Container */
+.product-image {
+  @apply relative aspect-square overflow-hidden bg-[#f7f1e7];
+}
+
+.product-image img {
+  @apply w-full h-full object-cover hover:scale-105 transition-transform;
+}
+
+/* Favorite Button */
+.favorite-btn {
+  @apply absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors;
+}
+
+.favorite-btn i {
+  @apply text-gray-600;
+}
+
+/* Product Info */
+.product-info {
+  @apply p-4;
+}
+
+.product-info h3 {
+  @apply font-semibold text-gray-800 mb-1;
+}
+
+.product-info h3 a {
+  @apply hover:text-green-600 transition-colors;
+}
+
+/* Product Material */
+.product-material {
+  @apply text-sm text-gray-600 block mb-2;
+}
+
+/* Product Price Container */
+.product-price {
+  @apply flex items-center gap-2;
+}
+
+.price-current {
+  @apply text-lg font-bold text-green-600;
+}
+
+.price-old {
+  @apply text-sm text-gray-500 line-through;
+}
+
+/* Product Category Container */
+.product-category {
+  @apply mb-12;
+}
+
+/* Category Header */
+.category-header {
+  @apply flex items-center justify-between mb-6;
+}
+
+.category-title {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+.category-nav {
+  @apply flex gap-2;
+}
+
+.category-nav i {
+  @apply text-xl cursor-pointer hover:text-green-600 transition-colors;
+}
+
+/* Products Slider */
+.products-slider {
+  @apply overflow-x-auto;
+}
+
+.products-row {
+  @apply flex gap-6 pb-4;
+}
+
+/* =========================
+   Eco Dropdown Filter
+========================= */
+.eco-dropdown {
+  position: relative;
+  width: 220px;
+}
+
+.eco-dropdown-btn {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--eco-green);
+  border-radius: 0.6rem;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.eco-dropdown-btn:hover {
+  background-color: #ecfdf5;
+}
+
+.eco-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 2px solid var(--eco-green);
+  border-radius: 0.6rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: none;
+  z-index: 50;
+}
+
+.eco-dropdown.open .eco-dropdown-menu {
+  display: block;
+}
+
+.eco-dropdown-menu li {
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.eco-dropdown-menu li:hover {
+  background-color: #bbf7d0;
+}
+
+.eco-dropdown-menu li.active {
+  background-color: var(--eco-green);
+  color: white;
+}
+/* Animation Toast lướt từ phải qua */
+@keyframes slideInRight {
+  0% { transform: translateX(100%); opacity: 0; }
+  60% { transform: translateX(-10px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.toast-slide-in {
+  animation: slideInRight 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}

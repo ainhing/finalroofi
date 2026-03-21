@@ -1,0 +1,40 @@
+/* ========================================
+   TERMS OF USE PAGE STYLES
+   ======================================== */
+@import url('../policy.css');
+
+:root {
+    --terms-accent: #2E7D32;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.mb-12 .bg-gray-50 {
+    position: relative;
+    padding-left: 28px;
+}
+
+.mb-12 .bg-gray-50:before {
+    content: "✅";
+    position: absolute;
+    left: 12px;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .text-2xl {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+    }
+
+    .mb-12 .bg-gray-50 {
+        padding-left: 24px;
+    }
+}

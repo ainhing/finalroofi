@@ -1,0 +1,95 @@
+<section class="py-20 bg-gray-50 min-h-screen">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between mb-8 pb-6 border-b">
+      <div class="flex items-center gap-3">
+        <button (click)="router.navigate(['/'])" class="p-2 hover:bg-gray-200 rounded-full transition">
+          <i class="ri-arrow-left-line text-2xl text-gray-600"></i>
+        </button>
+        <h1 class="text-3xl font-bold text-gray-800 flex items-center gap-2">
+          <i class="ri-heart-3-line text-red-500"></i>
+          Sản phẩm yêu thích
+        </h1>
+      </div>
+      <div class="flex gap-3">
+        <button 
+          (click)="loadWishlist()"
+          class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition">
+          <i class="ri-refresh-line mr-2"></i>Làm mới
+        </button>
+        <button 
+          *ngIf="products.length"
+          (click)="clearAll()"
+          class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition">
+          <i class="ri-delete-bin-line mr-2"></i>Xóa tất cả
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="text-center py-12">
+      <i class="ri-loader-4-line text-4xl text-green-600 animate-spin"></i>
+      <p class="mt-4 text-gray-600">Đang tải danh sách yêu thích...</p>
+    </div>
+
+    <div *ngIf="!isLoading && products.length === 0" class="text-center py-16 bg-white rounded-lg shadow">
+      <i class="ri-heart-line text-6xl text-gray-300 mb-4"></i>
+      <h2 class="text-2xl font-semibold text-gray-700 mb-2">Chưa có sản phẩm yêu thích</h2>
+      <p class="text-gray-500 mb-6">Hãy nhấn vào icon trái tim ở sản phẩm để lưu vào danh sách.</p>
+      <a routerLink="/product" class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+        Tiếp tục mua sắm
+      </a>
+    </div>
+
+    <div *ngIf="!isLoading && products.length > 0" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div 
+        *ngFor="let product of products" 
+        class="product-item group bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden cursor-pointer"
+        (click)="viewDetail(product)">
+        <div class="relative aspect-square overflow-hidden">
+          <img [src]="product.image" [alt]="product.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <button 
+            (click)="toggleWishlist($event, product)"
+            class="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors z-10">
+            <i class="ri-heart-fill text-red-500"></i>
+          </button>
+          <span *ngIf="product.originalPrice && product.originalPrice > product.price" 
+                class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+            -{{ ((product.originalPrice - product.price) / product.originalPrice * 100) | number:'1.0-0' }}%
+          </span>
+        </div>
+
+        <div class="p-4">
+          <h3 class="font-semibold text-gray-800 mb-1 truncate">{{ product.name }}</h3>
+          <p class="text-sm text-gray-600 truncate">{{ product.material }}</p>
+          <div class="flex items-center justify-between mt-3">
+            <div class="flex items-center gap-2">
+              <span class="text-lg font-bold text-green-600">{{ product.price | number:'1.0-0' }}đ</span>
+              <span *ngIf="product.originalPrice" class="text-xs text-gray-400 line-through">{{ product.originalPrice | number:'1.0-0' }}đ</span>
+            </div>
+            <button 
+              (click)="addToCart($event, product)"
+              class="w-8 h-8 flex items-center justify-center rounded-full bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-colors duration-200 shadow-sm"
+              title="Thêm vào giỏ">
+              <i class="ri-shopping-bag-3-line text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="showNotification" 
+     class="toast-slide-in fixed top-24 right-5 z-[9999] min-w-[350px] max-w-md transition-all duration-300">
+    <div class="relative flex items-start p-4 rounded bg-green-50 shadow-lg border-l-4 border-green-600">
+        <div class="flex-shrink-0 mr-3">
+            <i class="ri-checkbox-circle-fill text-2xl text-green-600"></i>
+        </div>
+        <div class="flex-1 pt-1">
+            <h3 class="font-bold text-sm text-green-800">Thành công</h3>
+            <p class="mt-1 text-sm text-gray-700 leading-tight">{{ notificationMessage }}</p>
+        </div>
+        <button (click)="closeToast()" class="ml-4 flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+            <i class="ri-close-line text-xl"></i>
+        </button>
+    </div>
+</div>

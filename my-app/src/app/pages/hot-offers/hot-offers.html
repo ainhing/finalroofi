@@ -1,0 +1,139 @@
+<!-- Thông báo khi thêm sản phẩm vào giỏ hàng -->
+<div *ngIf="showNotification" 
+     class="toast-slide-in fixed top-24 right-5 z-[9999] min-w-[350px] max-w-md transition-all duration-300">
+    <div class="relative flex items-start p-4 rounded-lg bg-green-50 shadow-xl border-l-4 border-green-600">
+        <div class="flex-shrink-0 mr-3">
+            <i class="ri-checkbox-circle-fill text-2xl text-green-600"></i>
+        </div>
+        <div class="flex-1 pt-1">
+            <h3 class="font-bold text-sm text-green-800">
+                Thành công
+            </h3>
+            <p class="mt-1 text-sm text-gray-700 leading-tight">
+                {{ notificationMessage }}
+            </p>
+        </div>
+        <button (click)="closeToast()" class="ml-4 flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+            <i class="ri-close-line text-xl"></i>
+        </button>
+    </div>
+</div>
+
+<!-- ===== BANNER ===== -->
+<section class="bg-gradient-to-br from-green-50 to-green-100 py-20">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">HOT DEALS THIS SEASON</h1>
+    <p class="text-lg text-gray-600 mb-8">Ưu đãi lớn cho những sản phẩm bền vững và thời trang nhất!</p>
+    <a href="#voucher" class="inline-block px-6 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">Xem Voucher Ngay</a>
+  </div>
+</section>
+
+<!-- ===== VOUCHERS ===== -->
+<section id="voucher" class="py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Danh sách Voucher</h2>
+      <p class="text-gray-600">Lưu ngay ưu đãi – Áp dụng cho mọi đơn hàng trong tháng!</p>
+    </div>
+
+    <!-- Grid voucher với card đồng đều chiều cao -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div 
+        *ngFor="let voucher of vouchers" 
+        class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col h-full overflow-hidden">
+
+        <div class="p-6 flex flex-col flex-1 justify-between">
+          <!-- Phần nội dung trên -->
+          <div class="text-center">
+            <h3 class="font-semibold text-lg mb-3 leading-tight">{{ voucher.title }}</h3>
+            <p class="text-2xl font-bold text-green-600 mb-3">{{ voucher.discount }}</p>
+            <p class="text-sm text-gray-600">
+              Mã: <span class="font-mono bg-gray-100 px-3 py-1 rounded">{{ voucher.code }}</span>
+            </p>
+          </div>
+
+          <!-- Phần nút luôn ở đáy -->
+          <div class="mt-6">
+            <button 
+              [disabled]="voucher.saved" 
+              (click)="saveVoucher(voucher)"
+              class="w-full px-6 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 transition-all duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed">
+              {{ voucher.saved ? 'Đã Lưu' : 'Lưu Voucher' }}
+            </button>
+
+            <p *ngIf="voucher.saved" class="text-green-600 text-center mt-3 text-sm font-medium">
+              ✓ Voucher đã được lưu!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEAL OF THE DAY ===== -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Deal Of The Day</h2>
+      <p class="text-gray-600">Nhanh tay săn sale – Số lượng có hạn!</p>
+    </div>
+
+    <!-- Grid sản phẩm Deal of the Day -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <article 
+        *ngFor="let product of dealOfTheDayProducts"
+        class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+        (click)="openQuickView(product)">
+
+        <!-- Ảnh sản phẩm -->
+        <div class="relative overflow-hidden">
+          <img 
+            [src]="product.image" 
+            [alt]="product.name" 
+            class="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-500">
+
+          <!-- Nhãn giảm giá -->
+          <div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+            -{{ ((product.oldPrice - product.price) / product.oldPrice * 100) | number:'1.0-0' }}%
+          </div>
+
+          <!-- Nút yêu thích -->
+          <button 
+            (click)="$event.stopPropagation(); toggleLike($event, product)"
+            class="absolute top-4 right-4 bg-white/90 backdrop-blur p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all">
+            <i [class]="product.liked ? 'ri-heart-fill text-red-500' : 'ri-heart-line text-gray-700'" class="text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Thông tin sản phẩm -->
+        <div class="p-6">
+          <h3 class="font-semibold text-lg text-gray-800 mb-3 line-clamp-2">{{ product.name }}</h3>
+          
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl font-bold text-green-600">{{ product.price | number:'1.0-0' }}đ</span>
+            <s class="text-gray-500">{{ product.oldPrice | number:'1.0-0' }}đ</s>
+          </div>
+
+          <p class="text-sm text-gray-600 mb-4">Chất liệu: {{ product.material }}</p>
+
+          <!-- Thanh tiến trình deal giả lập -->
+          <div class="w-full bg-gray-200 rounded-full h-2.5 mb-3">
+            <div class="bg-green-600 h-2.5 rounded-full transition-all duration-1000" style="width: 75%"></div>
+          </div>
+          <p class="text-sm text-gray-600 flex items-center">
+            <i class="ri-timer-line mr-2"></i>
+            <span style="transform: scale(0.7); transform-origin: left; display: inline-block;">Còn lại: <app-countdown-timer [endTime]="'2026-04-04T00:00:00Z'"></app-countdown-timer></span>
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- QuickView Modal - Giống hệt trang Home -->
+<app-quickview 
+  *ngIf="selectedProduct"
+  [product]="selectedProduct"
+  (close)="closeQuickView()">
+</app-quickview>

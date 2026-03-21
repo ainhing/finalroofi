@@ -1,0 +1,59 @@
+/* ========================================
+   PRIVACY PAGE STYLES
+   ======================================== */
+@import url('../policy.css');
+
+/* Page-specific customizations for Privacy Policy */
+:root {
+    --privacy-accent: #F57C00;
+}
+
+/* Custom animations for privacy section */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Privacy info cards with subtle icon treatment */
+.mb-12 .bg-gray-50 {
+    position: relative;
+    padding-left: 28px;
+}
+
+.mb-12 .bg-gray-50:before {
+    content: "🔒";
+    position: absolute;
+    left: 12px;
+    font-size: 1.5rem;
+}
+
+/* Data security emphasis */
+.bg-gray-50 strong {
+    color: #D32F2F;
+}
+
+/* Highlight security measures */
+.mb-12:nth-child(5) .bg-gray-50 {
+    border-left-color: #D32F2F;
+    background-color: #FFF3E0;
+}
+
+/* Responsive typography for privacy */
+@media (max-width: 768px) {
+    .text-2xl {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+    }
+
+    .mb-12 .bg-gray-50 {
+        padding-left: 24px;
+    }
+}

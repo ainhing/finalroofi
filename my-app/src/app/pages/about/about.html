@@ -1,0 +1,421 @@
+<!-- ========================= STYLES ========================= -->
+<style>
+  .team-card {
+    transition: all 0.3s ease;
+  }
+  .team-card:hover {
+    transform: translateY(-10px);
+  }
+  .team-card img {
+    transition: all 0.3s ease;
+  }
+  .team-card:hover img {
+    transform: scale(1.05);
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
+
+<!-- ========================= BANNER ========================= -->
+<section class="relative bg-gradient-to-br from-green-50 via-white to-green-50 py-24 overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-10 left-10 w-72 h-72 bg-green-400 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-green-300 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="relative max-w-6xl mx-auto px-4 text-center">
+    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+      <span class="gradient-text">Về Chúng Tôi</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+      Chúng tôi là một nhóm sinh viên đam mê công nghệ web, <br>
+      đang học môn <strong>Phát triển Web Nâng cao</strong> tại trường Đại học Kinh tế - Luật
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <div class="px-6 py-2 bg-green-100 rounded-full">
+        <span class="text-green-700 font-semibold">🎓 Web Development</span>
+      </div>
+      <div class="px-6 py-2 bg-green-100 rounded-full">
+        <span class="text-green-700 font-semibold">💚 Sustainable Fashion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PROJECT INTRO ========================= -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">Dự Án ROOFI</h2>
+      <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        ROOFI là dự án cuối kỳ của chúng tôi - một trang web thương mại điện tử 
+        chuyên về thời trang bền vững, được xây dựng với công nghệ Angular hiện đại.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">🎯 Mục Tiêu Dự Án</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <i class="ri-check-line text-2xl text-green-600 mt-1"></i>
+            <div>
+              <strong class="text-gray-800">Xây dựng E-commerce Website:</strong>
+              <p class="text-gray-600">Tích hợp đầy đủ tính năng mua sắm online, giỏ hàng, thanh toán và quản lý dành cho admin</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="ri-check-line text-2xl text-green-600 mt-1"></i>
+            <div>
+              <strong class="text-gray-800">Áp dụng Angular Framework:</strong>
+              <p class="text-gray-600">Component-based architecture, routing, services, và reactive forms</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="ri-check-line text-2xl text-green-600 mt-1"></i>
+            <div>
+              <strong class="text-gray-800">Responsive Design:</strong>
+              <p class="text-gray-600">Giao diện thân thiện trên mọi thiết bị với Tailwind CSS</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="ri-check-line text-2xl text-green-600 mt-1"></i>
+            <div>
+              <strong class="text-gray-800">UX/UI Hiện Đại:</strong>
+              <p class="text-gray-600">Trải nghiệm người dùng mượt mà với animations và transitions</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">🛠️ Công Nghệ Sử Dụng</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <i class="ri-angularjs-line text-3xl text-red-600 mb-2"></i>
+            <p class="font-semibold text-gray-800">Angular</p>
+            <p class="text-sm text-gray-600">Frontend Framework</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <i class="ri-code-line text-3xl text-blue-600 mb-2"></i>
+            <p class="font-semibold text-gray-800">TypeScript</p>
+            <p class="text-sm text-gray-600">Programming Language</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <i class="ri-palette-line text-3xl text-cyan-600 mb-2"></i>
+            <p class="font-semibold text-gray-800">Tailwind CSS</p>
+            <p class="text-sm text-gray-600">Styling Framework</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <i class="ri-layout-line text-3xl text-purple-600 mb-2"></i>
+            <p class="font-semibold text-gray-800">Responsive</p>
+            <p class="text-sm text-gray-600">Mobile-First Design</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= TEAM SECTION ========================= -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">Đội Ngũ Phát Triển</h2>
+      <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600">
+        Nhóm sinh viên đầy nhiệt huyết và sáng tạo
+      </p>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      
+      <!-- Member 1: Nguyễn Võ Như Ngọc -->
+      <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-green-100 to-green-50">
+          <img src="assets/images/avatar/hinhngoc.jpg" alt="Nguyễn Võ Như Ngọc"
+          class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">Nguyễn Võ Như Ngọc</h3>
+          <p class="text-green-600 font-semibold mb-3">Team Leader & Frontend + Backend Developer</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Chịu trách nhiệm chính về UI/UX design, backend dashboard và quản lý dự án và phát triển các component chính của website.
+          </p>
+          <div class="flex gap-3">
+            <!-- Thay YOUR_FACEBOOK_URL bằng link Facebook thật -->
+            <a href="https://www.facebook.com/nhungocngot" target="_blank" rel="noopener noreferrer" 
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-facebook-circle-fill text-2xl"></i>
+            </a>
+            <!-- Thay YOUR_INSTAGRAM_USERNAME bằng username Instagram thật -->
+            <a href="https://www.instagram.com/nu_noc_/" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-instagram-fill text-2xl"></i>
+            </a>
+            <!-- Thay YOUR_GITHUB_USERNAME bằng username GitHub thật -->
+            <a href="https://github.com/ngoc-prog" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-github-fill text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 2: Đào Thảo Uyên -->
+      <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-blue-100 to-blue-50">
+          <img src="assets/images/avatar/hinhthaouyen.jpg" alt="Đào Thảo Uyên"
+          class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">Đào Thảo Uyên</h3>
+          <p class="text-green-600 font-semibold mb-3">Frontend Developer & Content</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Phát triển các trang product listing, detail product page và thiết kế logo.
+          </p>
+          <div class="flex gap-3">
+            <a href="https://www.facebook.com/aothaouyen.2025" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-facebook-circle-fill text-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/_yune.qo_/" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-instagram-fill text-2xl"></i>
+            </a>
+            <a href="https://github.com/uyen1904" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-github-fill text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 3: Trần Khánh Ly -->
+      <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-pink-100 to-pink-50">
+          <img src="assets/images/avatar/hinhkhanhly.jpg" alt="Trần Khánh Ly"
+          class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">Trần Khánh Ly</h3>
+          <p class="text-green-600 font-semibold mb-3">Frontend Developer & Content</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Xây dựng login/signup, theo dõi đơn hàng và các trang lưu sản phẩm yêu thích của khách hàng.
+          </p>
+           <div class="flex gap-3">
+            <a href="https://www.facebook.com/tran.khanh.ly.921763" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-facebook-circle-fill text-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/lilychenkii/" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-instagram-fill text-2xl"></i>
+            </a>
+            <a href="https://github.com/lilychenkii" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-github-fill text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 4: Ngô Thị Phương Thảo -->
+      <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-purple-100 to-purple-50">
+          <img src="assets/images/avatar/hinhphuongthao.jpg" alt="Ngô Thị Phương Thảo"
+          class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">Ngô Thị Phương Thảo</h3>
+          <p class="text-green-600 font-semibold mb-3">Frontend Developer & Content</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Phụ trách thiết kế giỏ hàng và viết nội dung cho website.
+          </p>
+          <div class="flex gap-3">
+            <a href="https://www.facebook.com/ngo.phuongthao24" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-facebook-circle-fill text-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-instagram-fill text-2xl"></i>
+            </a>
+            <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-github-fill text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Member 5: Nguyễn Thị Ái Nhi -->
+      <div class="team-card bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-yellow-100 to-yellow-50">
+          <img src="assets/images/avatar/hinhainhi.jpg" alt="Nguyễn Thị Ái Nhi"
+          class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-1">Nguyễn Thị Ái Nhi</h3>
+          <p class="text-green-600 font-semibold mb-3">Frontend + Backend Developer & Tester</p>
+          <p class="text-gray-600 text-sm mb-4">
+            Thiết kế homepage, backend cho các trang quản lý về khách hàng, sản phẩm và testing.
+          </p>
+          <div class="flex gap-3">
+            <a href="https://www.facebook.com/ngnhiai" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-facebook-circle-fill text-2xl"></i>
+            </a>
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-instagram-fill text-2xl"></i>
+            </a>
+            <a href="https://github.com/ainhing" target="_blank" rel="noopener noreferrer"
+               class="text-green-600 hover:text-green-700 transition">
+              <i class="ri-github-fill text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= BRAND VALUES ========================= -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">Giá Trị Thương Hiệu ROOFI</h2>
+      <div class="w-24 h-1 bg-green-600 mx-auto mb-6"></div>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Dự án không chỉ là bài tập - mà là tầm nhìn về tương lai thời trang bền vững
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+          <i class="ri-leaf-line text-3xl text-green-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Sống Xanh</h3>
+        <p class="text-gray-600">
+          Lan tỏa tinh thần bảo vệ môi trường qua từng sản phẩm thời trang bền vững
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+          <i class="ri-recycle-line text-3xl text-blue-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Tái Chế</h3>
+        <p class="text-gray-600">
+          Sử dụng chất liệu tự nhiên và tái chế, giảm thiểu rác thải trong sản xuất
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+          <i class="ri-heart-2-line text-3xl text-purple-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Tối Giản</h3>
+        <p class="text-gray-600">
+          Thiết kế tinh giản nhưng đầy ý nghĩa, phong cách lâu bền không theo trend
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-yellow-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+          <i class="ri-hand-heart-line text-3xl text-yellow-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Đạo Đức</h3>
+        <p class="text-gray-600">
+          Sản xuất công bằng, tôn trọng người lao động và quyền lợi cộng đồng
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6">
+          <i class="ri-shield-check-line text-3xl text-pink-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Chất Lượng</h3>
+        <p class="text-gray-600">
+          Cam kết chất lượng sản phẩm cao, bền bỉ và an toàn cho sức khỏe
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-indigo-50 to-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
+        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-6">
+          <i class="ri-lightbulb-line text-3xl text-indigo-600"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Sáng Tạo</h3>
+        <p class="text-gray-600">
+          Kết hợp truyền thống và hiện đại, tạo nên phong cách độc đáo riêng biệt
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PROJECT STATS ========================= -->
+<section class="py-16 bg-gradient-to-br from-green-600 to-green-700 text-white">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      
+      <div>
+        <i class="ri-code-box-line text-5xl mb-4 opacity-90"></i>
+        <div class="text-4xl font-bold mb-2">5000+</div>
+        <div class="text-green-100">Lines of Code</div>
+      </div>
+
+      <div>
+        <i class="ri-pages-line text-5xl mb-4 opacity-90"></i>
+        <div class="text-4xl font-bold mb-2">15+</div>
+        <div class="text-green-100">Pages Developed</div>
+      </div>
+
+      <div>
+        <i class="ri-gift-line text-5xl mb-4 opacity-90"></i>
+        <div class="text-4xl font-bold mb-2">50+</div>
+        <div class="text-green-100">Products Listed</div>
+      </div>
+
+      <div>
+        <i class="ri-team-line text-5xl mb-4 opacity-90"></i>
+        <div class="text-4xl font-bold mb-2">5</div>
+        <div class="text-green-100">Team Members</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================= CALL TO ACTION ========================= -->
+<section class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-gray-800 mb-6">
+      Khám Phá Website ROOFI
+    </h2>
+    <p class="text-xl text-gray-600 mb-8">
+      Trải nghiệm mua sắm thời trang bền vững với giao diện hiện đại và dễ sử dụng
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a routerLink="/product" 
+         class="px-8 py-4 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+        Xem Sản Phẩm <i class="ri-arrow-right-line ml-2"></i>
+      </a>
+      <a routerLink="/blog" 
+         class="px-8 py-4 bg-white text-green-600 border-2 border-green-600 rounded-xl font-semibold hover:bg-green-50 transition-all duration-300">
+        Đọc Blog <i class="ri-article-line ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>

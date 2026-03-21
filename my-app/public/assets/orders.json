@@ -1,0 +1,156 @@
+[
+  {
+    "OrderId": "RF7412831042",
+    "Email": "lan.nguyen@email.com",
+    "FullName": "Nguyễn Thị Lan",
+    "Phone": "0912345678",
+    "ShippingAddress": "123 Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+    "Items": [
+      {
+        "ProductId": "hobo-ao-1",
+        "ProductName": "Áo Voan Thêu Hoa EcoSoft",
+        "Size": "M",
+        "Quantity": 2,
+        "Price": 560000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg"
+      },
+      {
+        "ProductId": "hobo-ao-3",
+        "ProductName": "Áo Voan Hoa ReBloom",
+        "Size": "S",
+        "Quantity": 1,
+        "Price": 480000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu3/Hobo_Aokieu3.1.jpg"
+      }
+    ],
+    "SubTotal": 1600000,
+    "Discount": 100000,
+    "ShippingFee": 0,
+    "TotalAmount": 1500000,
+    "PaymentMethod": "qr",
+    "Note": "Giao giờ hành chính, gọi trước 30 phút",
+    "Status": "confirmed",
+    "CreatedAt": "2024-03-10T08:24:13.000Z",
+    "UpdatedAt": "2024-03-10T09:10:00.000Z"
+  },
+  {
+    "OrderId": "RF7398201573",
+    "Email": "minh.tran@email.com",
+    "FullName": "Trần Văn Minh",
+    "Phone": "0987654321",
+    "ShippingAddress": "45 Lê Lợi, Phường Bến Thành, Quận 3, TP. Hồ Chí Minh",
+    "Items": [
+      {
+        "ProductId": "hobo-ao-2",
+        "ProductName": "Áo Ren EcoLace Satin",
+        "Size": "L",
+        "Quantity": 1,
+        "Price": 520000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu2/Hobo_Aokieu2.1.jpg"
+      }
+    ],
+    "SubTotal": 520000,
+    "Discount": 0,
+    "ShippingFee": 30000,
+    "TotalAmount": 550000,
+    "PaymentMethod": "cod",
+    "Note": "",
+    "Status": "delivered",
+    "CreatedAt": "2024-03-07T14:05:47.000Z",
+    "UpdatedAt": "2024-03-10T11:30:00.000Z"
+  },
+  {
+    "OrderId": "RF7405119284",
+    "Email": "hang.pham@email.com",
+    "FullName": "Phạm Thu Hằng",
+    "Phone": "0905111222",
+    "ShippingAddress": "78 Võ Văn Tần, Phường 6, Quận 3, TP. Hồ Chí Minh",
+    "Items": [
+      {
+        "ProductId": "hobo-ao-4",
+        "ProductName": "Áo Tay Phồng Voan Airy",
+        "Size": "XL",
+        "Quantity": 1,
+        "Price": 590000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu4/Hobo_Aokieu4.1.jpg"
+      },
+      {
+        "ProductId": "hobo-ao-5",
+        "ProductName": "Áo Voan Tầng CreamWave",
+        "Size": "M",
+        "Quantity": 2,
+        "Price": 620000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu5/Hobo_Aokieu5.1.jpg"
+      }
+    ],
+    "SubTotal": 1830000,
+    "Discount": 200000,
+    "ShippingFee": 0,
+    "TotalAmount": 1630000,
+    "PaymentMethod": "qr",
+    "Note": "Gói quà sinh nhật",
+    "Status": "shipping",
+    "CreatedAt": "2024-03-11T09:47:22.000Z",
+    "UpdatedAt": "2024-03-11T10:15:00.000Z"
+  },
+  {
+    "OrderId": "RF7389004412",
+    "Email": "bao.le@email.com",
+    "FullName": "Lê Quốc Bảo",
+    "Phone": "0933999888",
+    "ShippingAddress": "12 Đinh Tiên Hoàng, Phường 3, Quận Bình Thạnh, TP. Hồ Chí Minh",
+    "Items": [
+      {
+        "ProductId": "hobo-ao-1",
+        "ProductName": "Áo Voan Thêu Hoa EcoSoft",
+        "Size": "S",
+        "Quantity": 2,
+        "Price": 560000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu1/Hobo_Aokieu1.1.jpg"
+      }
+    ],
+    "SubTotal": 1120000,
+    "Discount": 0,
+    "ShippingFee": 0,
+    "TotalAmount": 1120000,
+    "PaymentMethod": "cod",
+    "Note": "",
+    "Status": "cancelled",
+    "CreatedAt": "2024-03-05T16:32:09.000Z",
+    "UpdatedAt": "2024-03-06T08:00:00.000Z"
+  },
+  {
+    "OrderId": "RF7412998801",
+    "Email": "thu.vo@email.com",
+    "FullName": "Võ Minh Thư",
+    "Phone": "0978332211",
+    "ShippingAddress": "99 Cách Mạng Tháng 8, Phường 5, Quận Tân Bình, TP. Hồ Chí Minh",
+    "Items": [
+      {
+        "ProductId": "hobo-ao-2",
+        "ProductName": "Áo Ren EcoLace Satin",
+        "Size": "M",
+        "Quantity": 1,
+        "Price": 520000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu2/Hobo_Aokieu2.1.jpg"
+      },
+      {
+        "ProductId": "hobo-ao-5",
+        "ProductName": "Áo Voan Tầng CreamWave",
+        "Size": "L",
+        "Quantity": 1,
+        "Price": 620000,
+        "Image": "assets/images/hobo/hobo_aokieu/Hobo_Aokieu5/Hobo_Aokieu5.1.jpg"
+      }
+    ],
+    "SubTotal": 1140000,
+    "Discount": 0,
+    "ShippingFee": 0,
+    "TotalAmount": 1140000,
+    "PaymentMethod": "cod",
+    "Note": "",
+    "Status": "pending",
+    "CreatedAt": "2024-03-12T07:12:44.000Z",
+    "UpdatedAt": "2024-03-12T07:12:44.000Z"
+  }
+]

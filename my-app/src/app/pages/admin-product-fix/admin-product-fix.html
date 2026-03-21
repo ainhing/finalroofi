@@ -1,0 +1,210 @@
+<div class="admin-page-root">
+<aside class="admin-sidebar">
+  <div class="admin-sidebar-header">
+    <div class="admin-logo">
+      <div class="admin-logo-icon">
+        <i class="ri-store-2-fill"></i>
+      </div>
+      <span class="admin-logo-text">Trang quản trị</span>
+    </div>
+  </div>
+
+  <nav class="admin-nav-menu">
+    <a class="admin-nav-item" routerLink="/admin" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+      <i class="ri-dashboard-line"></i>
+      <span>Dashboard</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/users" routerLinkActive="active">
+      <i class="ri-team-line"></i>
+      <span>Quản lý Users</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/products" routerLinkActive="active">
+      <i class="ri-shopping-bag-line"></i>
+      <span>Sản phẩm</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/blogs" routerLinkActive="active">
+      <i class="ri-article-line"></i>
+      <span>Blogs</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/orders" routerLinkActive="active">
+      <i class="ri-shopping-cart-line"></i>
+      <span>Đơn hàng</span>
+    </a>
+
+    <div class="admin-nav-divider"></div>
+
+    <button class="admin-nav-item" (click)="onLogout()">
+      <i class="ri-logout-box-line"></i>
+      <span>Đăng xuất</span>
+    </button>
+  </nav>
+</aside>
+
+<section class="admin-wrap">
+  <main class="admin-main">
+
+    <!-- Header -->
+    <div class="admin-header">
+      <h1>
+        <i class="ri-shopping-bag-line"></i>
+        <span *ngIf="!product?.ProductId">Tạo sản phẩm mới</span>
+        <span *ngIf="product?.ProductId">
+          Sản phẩm <span class="header-product-id">{{ product.ProductId }}</span>
+        </span>
+      </h1>
+      <div class="admin-header-actions">
+        <button class="admin-action-btn" (click)="goBack()">
+          <i class="ri-arrow-left-line"></i> Quay lại
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="admin-empty-state">
+      <i class="ri-loader-4-line spin" style="font-size:28px;margin-bottom:12px"></i>
+      Đang tải sản phẩm...
+    </div>
+
+    <ng-container *ngIf="!isLoading && product">
+      <div class="product-grid">
+
+        <!-- Col trái -->
+        <div class="product-col-left">
+
+          <!-- Card: Thông tin cơ bản -->
+          <div class="detail-card">
+            <h2 class="card-title"><i class="ri-information-line"></i> Thông tin sản phẩm</h2>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Mã sản phẩm</label>
+                <input type="text" [value]="product.ProductId || ''" readonly placeholder="Tự động tạo">
+              </div>
+              <div class="form-group">
+                <label>Tên sản phẩm</label>
+                <input type="text" [(ngModel)]="product.ProductName" placeholder="Nhập tên sản phẩm">
+              </div>
+              <div class="form-group">
+                <label>Danh mục</label>
+                <select [(ngModel)]="product.CategoryId">
+                  <option value="">-- Chọn danh mục --</option>
+                  <option *ngFor="let cat of categoryList" [value]="cat.id">{{ cat.name }}</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Giá gốc (VNĐ)</label>
+                  <input type="number" [(ngModel)]="product.OriginalPrice" placeholder="0" min="0">
+                </div>
+                <div class="form-group">
+                  <label>Giá bán (VNĐ)</label>
+                  <input type="number" [(ngModel)]="product.Price" placeholder="0" min="0">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Số lượng tồn kho</label>
+                <input type="number" [(ngModel)]="product.StockQuantity" placeholder="0" min="0">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Hình ảnh -->
+          <div class="detail-card">
+            <h2 class="card-title"><i class="ri-image-add-line"></i> Hình ảnh sản phẩm ({{ product.Images?.length || 0 }})</h2>
+            <div class="card-body">
+              <div class="image-upload-row">
+                <input type="file" #fileInput (change)="onFileChange($event)" accept="image/*">
+                <button class="btn-upload" (click)="uploadImage()" [disabled]="isUploading">
+                  <i class="ri-loader-4-line spin" *ngIf="isUploading"></i>
+                  <i class="ri-upload-cloud-line" *ngIf="!isUploading"></i>
+                  {{ isUploading ? 'Đang tải...' : 'Upload' }}
+                </button>
+              </div>
+
+              <div class="image-gallery" *ngIf="product.Images?.length">
+                <div class="image-item" *ngFor="let img of product.Images; let i = index">
+                  <img [src]="img" [alt]="'Ảnh ' + (i+1)">
+                  <button class="image-remove-btn" (click)="removeImage(i)">
+                    <i class="ri-close-line"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="image-empty" *ngIf="!product.Images?.length">
+                <i class="ri-image-line" style="font-size:24px;margin-bottom:8px;display:block"></i>
+                Chưa có hình ảnh. Hãy upload ảnh cho sản phẩm.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Col phải: Cài đặt & lưu -->
+        <div class="product-col-right">
+
+          <!-- Card: Cài đặt -->
+          <div class="detail-card">
+            <h2 class="card-title"><i class="ri-settings-3-line"></i> Cài đặt</h2>
+
+            <div class="toggle-row">
+              <div>
+                <div class="toggle-label">Hiển thị sản phẩm</div>
+                <div class="toggle-sub">Bật để đăng bán trên cửa hàng</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" [(ngModel)]="product.IsActive">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-row">
+              <div>
+                <div class="toggle-label">Sản phẩm nổi bật</div>
+                <div class="toggle-sub">Hiển thị ở trang chủ</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" [(ngModel)]="product.IsFeatured">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button class="admin-action-btn admin-action-btn-delete"
+                      *ngIf="product.ProductId"
+                      (click)="deleteProduct()"
+                      [disabled]="isDeleting || isSaving">
+                <i class="ri-loader-4-line spin" *ngIf="isDeleting"></i>
+                <i class="ri-delete-bin-line" *ngIf="!isDeleting"></i>
+                {{ isDeleting ? 'Đang xóa...' : 'Xóa' }}
+              </button>
+
+              <button class="admin-action-btn admin-action-btn-edit"
+                      (click)="saveProduct()"
+                      [disabled]="isSaving || isDeleting">
+                <i class="ri-loader-4-line spin" *ngIf="isSaving"></i>
+                <i class="ri-save-line" *ngIf="!isSaving"></i>
+                {{ isSaving ? 'Đang lưu...' : (product.ProductId ? 'Lưu thay đổi' : 'Tạo sản phẩm') }}
+              </button>
+            </div>
+          </div>
+
+          <!-- Card: Ghi chú -->
+          <div class="detail-card">
+            <h2 class="card-title"><i class="ri-sticky-note-line"></i> Ghi chú nội bộ</h2>
+            <div class="card-body">
+              <div class="form-group" style="margin-bottom:0">
+                <textarea [(ngModel)]="product.Note"
+                          rows="5"
+                          placeholder="Ghi chú về sản phẩm này..."></textarea>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </ng-container>
+
+  </main>
+</section>
+</div>

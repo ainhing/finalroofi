@@ -1,0 +1,380 @@
+<!-- ========== SLIDER ========== -->
+<section class="relative overflow-hidden">
+  <div class="flex transition-transform duration-500 ease-in-out" id="slider-container">
+    <div class="flex-shrink-0 w-full"><img src="assets/images/Banner_Logo/Banner_1.jpg" alt="Banner 1" class="w-full h-96 md:h-[500px] object-cover"></div>
+    <div class="flex-shrink-0 w-full"><img src="assets/images/Banner_Logo/Banner_2.jpg" alt="Banner 2" class="w-full h-96 md:h-[500px] object-cover"></div>
+    <div class="flex-shrink-0 w-full"><img src="assets/images/Banner_Logo/Banner_3.jpg" alt="Banner 3" class="w-full h-96 md:h-[500px] object-cover"></div>
+    <div class="flex-shrink-0 w-full"><img src="assets/images/Banner_Logo/Banner_4.jpg" alt="Banner 4" class="w-full h-96 md:h-[500px] object-cover"></div>
+    <div class="flex-shrink-0 w-full"><img src="assets/images/Banner_Logo/Banner_5.jpg" alt="Banner 5" class="w-full h-96 md:h-[500px] object-cover"></div>
+    <div class="flex-shrink-0 w-full"><img src="assets/images/Banner_Logo/Banner_6.jpg" alt="Banner 6" class="w-full h-96 md:h-[500px] object-cover"></div>
+  </div>
+  <div class="absolute inset-y-0 left-4 flex items-center">
+    <button class="bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 text-gray-800" (click)="prevSlide()">
+      <i class="ri-skip-left-fill text-xl"></i>
+    </button>
+  </div>
+  <div class="absolute inset-y-0 right-4 flex items-center">
+    <button class="bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 text-gray-800" (click)="nextSlide()">
+      <i class="ri-skip-right-fill text-xl"></i>
+    </button>
+  </div>
+</section>
+
+<!-- ========== SHOPPING NOW ========== -->
+<section class="py-12 bg-gray-50 text-center">
+  <a routerLink="/product" class="px-8 py-4 bg-green-700 text-white rounded-lg font-semibold">
+    MUA NGAY
+  </a>
+</section>
+
+<!-- ========== WHY CHOOSE US ========== -->
+<section class="py-16" id="why-choose-us">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Why Choose <span class="text-green-600">Us?</span></h2>
+      <p class="text-gray-600 text-lg">Thời trang có tâm – sống xanh có tầm!</p>
+      <p class="text-gray-600 italic">"From Nature, For Nature."</p>
+    </div>
+
+    <!-- Fix cấu trúc grid ở đây: 2 cột ảnh + 1 cột text -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+      <!-- 2 cột ảnh (chiếm 2/3) -->
+      <div class="lg:col-span-3">
+        <div class="lg:col-span-3 grid grid-cols-2 gap-6">
+          <div class="space-y-6">
+            <div class="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <img src="assets/images/homepage/Whychooseus1.jpg" alt="Mission Homepage" class="w-full h-64 object-cover">
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <h3 class="text-white text-xl font-bold">Thủ công bền vững</h3>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <img src="assets/images/homepage/Whychooseus2.jpg" alt="Mission Homepage" class="w-full h-64 object-cover">
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <h3 class="text-white text-xl font-bold">Tinh chất thiên nhiên</h3>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <img src="assets/images/homepage/Whychooseus3.jpg" alt="Mission Homepage" class="w-full h-64 object-cover">
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <h3 class="text-white text-xl font-bold">Thiết kế vượt thời gian</h3>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <img src="assets/images/homepage/Whychooseus4.jpg" alt="Mission Homepage" class="w-full h-64 object-cover">
+              <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <h3 class="text-white text-xl font-bold">Sống tử tế</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 cột text (chiếm 1/3) -->
+      <div class="lg:col-span-2">
+        <div class="bg-white p-8 rounded-lg shadow-md h-full">
+          <h3 class="text-2xl font-bold mb-4 text-green-600">ROOFI – Wear the Change</h3>
+          <p class="text-gray-700 mb-6 leading-relaxed">Chúng tôi tin rằng thời trang không chỉ là cách bạn mặc – mà là cách bạn sống, thở và lan tỏa giá trị. Tại ROOFI, mỗi chiếc áo, mỗi sợi chỉ đều mang trong mình một câu chuyện về sự tôn trọng hành tinh này. Chúng tôi không chạy theo xu hướng ngắn hạn; thay vào đó, chúng tôi tạo nên những thiết kế vượt thời gian – vừa tinh giản, vừa bền vững, và đủ tinh tế để đồng hành cùng bạn qua nhiều năm tháng.</p>
+          <h3 class="text-xl font-semibold mb-4 text-green-600">Be Kind to Earth, Be True to Style</h3>
+          <p class="text-gray-700 mb-6 leading-relaxed">ROOFI hướng đến phong cách Minimal – Eco – Timeless, phù hợp cho những ai yêu sự giản dị nhưng tinh tế, hiện đại nhưng có chiều sâu. Chúng tôi chọn đường may tinh gọn, form dáng tự nhiên, và bảng màu được lấy cảm hứng từ thiên nhiên – màu đất, lá, mây và nắng.</p>
+          <p class="text-gray-700 italic mb-6">Mỗi thiết kế là lời nhắc nhẹ nhàng rằng: "Bạn có thể đẹp – mà vẫn tử tế với Trái Đất."</p>
+          <a routerLink="/about" class="inline-block px-6 py-3 bg-green-700 text-white rounded-lg font-semibold hover:bg-green-800 transition-colors">Tìm hiểu thêm</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 features -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
+      <div class="text-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        <div class="mb-3">
+          <img src="assets/images/homepage/Icon_whychooseus1.png" alt="Free Shipping" class="w-14 h-14 mx-auto">
+        </div>
+        <h4 class="font-semibold text-base mb-1">Miễn phí vận chuyển</h4>
+        <p class="text-gray-600 text-sm">Tất cả đơn hàng</p>
+      </div>
+      <div class="text-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        <div class="mb-3">
+          <img src="assets/images/homepage/Icon_whychooseus3.png" alt="Quality Guarantee" class="w-14 h-14 mx-auto">
+        </div>
+        <h4 class="font-semibold text-base mb-1">Chất lượng cao</h4>
+        <p class="text-gray-600 text-sm">Chuẩn quốc tế</p>
+      </div>
+      <div class="text-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        <div class="mb-3">
+          <img src="assets/images/homepage/Icon_whychooseus2.png" alt="24/7 Support" class="w-14 h-14 mx-auto">
+        </div>
+        <h4 class="font-semibold text-base mb-1">Hỗ trợ 24/7</h4>
+        <p class="text-gray-600 text-sm">Sẵn sàng giúp</p>
+      </div>
+      <div class="text-center bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+        <div class="mb-3">
+          <img src="assets/images/homepage/Icon_whychooseus4.png" alt="Easy Returns" class="w-14 h-14 mx-auto">
+        </div>
+        <h4 class="font-semibold text-base mb-1">Đổi trả dễ</h4>
+        <p class="text-gray-600 text-sm">Trong 30 ngày</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOT PRODUCTS ========== -->
+<section class="py-16 bg-gray-50" id="hot-products">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+      <p class="text-3xl font-bold text-center md:text-left text-gray-800 mb-4 md:mb-0">HOT PRODUCTS</p>
+      <div class="flex items-center gap-4 ml-2">
+        <div class="font-bold text-green-600">Hot Offer ends in</div>
+        <!-- sửa thời gian muốn giảm giá -->
+        <app-countdown-timer [endTime]="'2026-04-04T00:00:00Z'"></app-countdown-timer>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div *ngFor="let product of hotProducts" 
+           class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden group relative">
+        <div class="aspect-square overflow-hidden relative">
+          <img [src]="product.image" [alt]="product.name" 
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <button 
+            (click)="toggleLike($event, product)"
+            class="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors z-10">
+            <i [class]="product.liked ? 'ri-heart-fill text-red-500' : 'ri-heart-line text-gray-600 hover:text-red-500'"></i>
+          </button>
+          <button 
+            (click)="openQuickView(product)"
+            class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-semibold text-lg">
+            XEM NHANH
+          </button>
+        </div>
+        <div class="p-4">
+          <p class="font-semibold text-gray-800 mb-1">
+            <a routerLink="/product" class="hover:text-green-600 transition-colors">{{ product.name }}</a>
+          </p>
+          <span class="text-sm text-gray-600 block mb-2">{{ product.material }}</span>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <p class="text-lg font-bold text-green-600">{{ product.price | number }}đ</p>
+              <span class="text-sm text-gray-500 line-through">{{ product.oldPrice | number }}đ</span>
+            </div>
+            <button (click)="addToCart($event, product)" class="w-8 h-8 flex items-center justify-center rounded-full bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-colors duration-200 shadow-sm" title="Thêm vào giỏ">
+              <i class="ri-shopping-bag-3-line text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- ========== REVIEWS ========== -->
+  <section class="py-16 bg-white" id="reviews">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Customers' <span class="text-green-600">Reviews</span></h2>
+        <p class="text-gray-600 text-lg">Hàng ngàn khách hàng đã tin tưởng và yêu thích ROOFI - Hãy nghe câu chuyện của họ!</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"Chất lượng sản phẩm vượt ngoài mong đợi! Vải cotton rất mềm mại, thoáng mát. Đặc biệt là thiết kế Hobo mà tôi yêu thích!"</p>
+          <div class="flex items-center gap-4">
+            <img src="assets/images/homepage/avtreview1.jpg" alt="Nguyễn Minh Anh" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="font-semibold text-gray-800">Nguyễn Minh Anh</h4>
+              <p class="text-gray-600 text-sm">Happy Customer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"Lần đầu mua hàng ở ROOFI và tôi rất hài lòng. Đóng gói, giao hàng và sản phẩm đều tuyệt vời!"</p>
+          <div class="flex items-center gap-4">
+            <img src="assets/images/homepage/avtreview2.jpg" alt="Trần Thu Hà" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="font-semibold text-gray-800">Trần Thu Hà</h4>
+              <p class="text-gray-600 text-sm">Happy Customer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+          </div>
+          <p class="text-gray-700 mb-6 italic">"Shop phục vụ tận tình, sản phẩm đúng mô tả, form dáng đẹp, mặc thoải mái!"</p>
+          <div class="flex items-center gap-4">
+            <img src="assets/images/homepage/avtreview3.jpg" alt="Lê Hoàng Nam" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="font-semibold text-gray-800">Lê Hoàng Nam</h4>
+              <p class="text-gray-600 text-sm">Happy Customer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="py-16 bg-gray-50" id="contact">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Contact <span class="text-green-600">Us</span></h2>
+        <p class="text-gray-600 text-lg">Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn!</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <form class="space-y-6" (ngSubmit)="onContactSubmit($event)" novalidate>
+            <div>
+              <input 
+                type="text" 
+                placeholder="Họ và tên" 
+                required 
+                [(ngModel)]="contactName"
+                name="contactName"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+            </div>
+            <div>
+              <input 
+                type="email" 
+                placeholder="Email của bạn" 
+                required 
+                [(ngModel)]="contactEmail"
+                name="contactEmail"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+            </div>
+            <div>
+              <input 
+                type="tel" 
+                placeholder="Số điện thoại" 
+                required 
+                [(ngModel)]="contactPhone"
+                name="contactPhone"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+            </div>
+            <div>
+              <textarea 
+                rows="5" 
+                placeholder="Nội dung tin nhắn..." 
+                required 
+                [(ngModel)]="contactMessage"
+                name="contactMessage"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"></textarea>
+            </div>
+            <button 
+              type="submit" 
+              [disabled]="isSubmittingContact"
+              class="px-6 py-3 bg-green-700 text-white rounded font-semibold hover:bg-amber-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+              <span *ngIf="!isSubmittingContact">Gửi tin nhắn</span>
+              <span *ngIf="isSubmittingContact">
+                <i class="ri-loader-4-line animate-spin"></i> Đang gửi...
+              </span>
+            </button>
+          </form>
+        </div>
+
+        <div class="flex flex-col justify-center">
+          <div class="text-center mb-8">
+            <img src="assets/images/homepage/Icon_contact1.png" alt="Contact Illustration" class="w-48 h-48 mx-auto">
+          </div>
+
+          <div class="space-y-6">
+            <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md">
+              <i class="ri-phone-fill text-2xl text-green-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Hotline</h4>
+                <p class="text-gray-600">0912 345 678</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md">
+              <i class="ri-mail-fill text-2xl text-green-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Email</h4>
+                <p class="text-gray-600">support@roofi.vn</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-white rounded-lg shadow-md">
+              <i class="ri-time-fill text-2xl text-green-600"></i>
+              <div>
+                <h4 class="font-semibold text-gray-800">Giờ làm việc</h4>
+                <p class="text-gray-600">Thứ 2 - Chủ nhật: 8:00 - 22:00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER (for ajax-features.js) ========== -->
+  <section class="py-16 bg-green-600" id="newsletter">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-white mb-4">Subscribe <span class="text-amber-300">Newsletter</span></h2>
+        <p class="text-green-100 text-lg">Nhận thông tin khuyến mãi và ưu đãi mới nhất từ ROOFI</p>
+      </div>
+
+      <div class="flex justify-center py-8">
+        <form (ngSubmit)="onNewsletterSubmit($event)" class="flex gap-4 max-w-md w-full">
+          <input 
+            type="email" 
+            placeholder="Email của bạn" 
+            required 
+            [(ngModel)]="newsletterEmail"
+            [disabled]="isSubmitting"
+            name="newsletterEmail"
+            class="flex-1 px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-amber-300">
+          <button 
+            type="submit" 
+            [disabled]="isSubmitting"
+            class="px-6 py-3 bg-amber-500 text-white rounded font-semibold hover:bg-amber-600 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+            <span *ngIf="!isSubmitting">Đăng ký</span>
+            <span *ngIf="isSubmitting">
+              <i class="ri-loader-4-line animate-spin"></i> Đang xử lý...
+            </span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Recently viewed section removed per user request -->
+   
+<!-- Quick View Modal -->
+<app-quickview 
+  *ngIf="selectedProduct"
+  [product]="selectedProduct"
+  (close)="closeQuickView()">
+</app-quickview>
+
+<!-- Toast Notification -->
+<div *ngIf="showNotification" 
+     class="toast-slide-in fixed top-24 right-5 z-[9999] min-w-[350px] max-w-md transition-all duration-300">
+    
+    <div class="relative flex items-start p-4 rounded bg-green-50 shadow-lg border-l-4 border-green-600">
+        
+        <div class="flex-shrink-0 mr-3">
+            <i class="ri-checkbox-circle-fill text-2xl text-green-600"></i>
+        </div>
+
+        <div class="flex-1 pt-1">
+            <h3 class="font-bold text-sm text-green-800">
+                Thành công
+            </h3>
+            <p class="mt-1 text-sm text-gray-700 leading-tight">
+                {{ notificationMessage }}
+            </p>
+        </div>
+
+        <button (click)="closeToast()" class="ml-4 flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+            <i class="ri-close-line text-xl"></i>
+        </button>
+    </div>
+</div>

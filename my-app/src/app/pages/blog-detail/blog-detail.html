@@ -1,0 +1,64 @@
+<section class="py-16 px-4 bg-gray-50 min-h-screen" *ngIf="post; else notFound">
+  <div class="max-w-4xl mx-auto">
+    <article class="bg-white rounded-2xl shadow-xl overflow-hidden">
+      <img [src]="post!.headerImage" [alt]="post!.title" class="w-full h-96 md:h-[500px] object-cover">
+
+      <div class="p-8 md:p-12 lg:p-16">
+        <div class="text-center mb-10">
+          <p class="text-green-600 font-medium text-sm mb-3">
+            <i class="ri-calendar-line mr-2"></i> {{ post!.date }}
+          </p>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight mb-6">
+            {{ post!.title }}
+          </h1>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {{ post!.description }}
+          </p>
+        </div>
+
+        <div class="prose prose-lg max-w-none text-gray-700" [innerHTML]="post!.contentHtml"></div>
+
+        <div class="mt-16 flex flex-col md:flex-row justify-between items-center gap-6">
+          <a routerLink="/blog"
+            class="inline-flex items-center px-8 py-4 bg-green-700 text-white rounded-xl font-semibold hover:bg-green-800 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <i class="ri-arrow-left-line mr-3 text-xl"></i> Quay lại Journal
+          </a>
+
+          <div class="flex gap-4 items-center">
+  <span class="text-gray-600 font-medium">Chia sẻ:</span>
+  
+  <!-- Facebook -->
+  <a [href]="'https://www.facebook.com/sharer/sharer.php?u=' + currentUrl" 
+     target="_blank" 
+     class="p-3 bg-gray-100 hover:bg-blue-100 rounded-full transition">
+    <i class="ri-facebook-fill text-2xl text-blue-600"></i>
+  </a>
+  
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/roofi.official/" 
+     target="_blank"
+     class="p-3 bg-gray-100 hover:bg-pink-100 rounded-full transition">
+    <i class="ri-instagram-line text-2xl text-pink-600"></i>
+  </a>
+  
+  <!-- Zalo - dùng logo thật -->
+    <a [href]="'zalo://share/?url=' + currentUrl" 
+      target="_blank"
+      class="p-3 bg-gray-100 hover:bg-blue-100 rounded-full transition flex items-center justify-center">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" 
+        alt="Chia sẻ qua Zalo" 
+        class="w-6 h-6 object-contain">
+    </a>
+</div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<ng-template #notFound>
+  <section class="py-32 text-center">
+    <h2 class="text-4xl font-bold text-gray-800">Không tìm thấy bài viết</h2>
+    <a routerLink="/blog" class="mt-8 inline-block px-8 py-4 bg-green-700 text-white rounded-xl">Quay lại Journal</a>
+  </section>
+</ng-template>

@@ -1,0 +1,94 @@
+<!-- ========== SCROLL TO TOP ========== -->
+<!-- ========== SCROLL TO TOP ========== -->
+<button
+  (click)="scrollTop()"
+  *ngIf="showScrollTop"
+  [ngStyle]="{
+    position: 'fixed',
+    bottom: '20px',
+    right: '20px',
+    width: '50px',
+    height: '50px',
+    borderRadius: '50%',
+    backgroundColor: 'rgba(255, 255, 255, 0.6)', 
+    color: '#16a34a',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    boxShadow: '0 4px 6px rgba(0,0,0,0.2)',
+    cursor: 'pointer',
+    opacity: showScrollTop ? 1 : 0,
+    transition: 'opacity 0.4s ease-in-out',
+    zIndex: 999,
+    left: '50%',
+    transform: 'translateX(-50%)'
+  }"
+>
+  <i class="ri-arrow-up-line" style="font-size: 22px;"></i>
+</button>
+
+
+<!-- ========== CONTACT BUTTONS ========== -->
+<a href="https://zalo.me/0859395478"
+   class="fixed bottom-7 left-6
+          bg-[#FFFFFF] text-white
+          w-14 h-14 flex items-center justify-center
+          rounded-full shadow-xl
+          hover:scale-110 transition"
+   style="z-index: 1000;"
+   target="_blank">
+  <img src="assets/images/Banner_Logo/Logozalo.png" alt="Zalo" class="w-14">
+</a>
+
+<a href="https://www.facebook.com/nhungocngot"
+   class="fixed bottom-24 left-6
+          bg-[#FFFFFF] text-white
+          w-14 h-14 flex items-center justify-center
+          rounded-full shadow-xl
+          hover:scale-110 transition"
+   style="z-index: 1000;"
+   target="_blank">
+  <img src="assets/images/Banner_Logo/LogoFb.png" alt="Facebook" class="w-14">
+</a>
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-4">
+
+    <!-- Logo -->
+    <div>
+      <img src="assets/images/Banner_Logo/logo_roofi.png" class="w-32 mb-4" alt="ROOFI">
+      <p class="text-sm">Thời trang bền vững – Tử tế với Trái Đất.</p>
+    </div>
+
+    <!-- Menu -->
+    <div>
+      <h4 class="font-semibold text-white mb-4">Danh mục</h4>
+      <ul class="space-y-2">
+        <li><a routerLink="/" class="hover:text-green-400">Trang chủ</a></li>
+        <li><a routerLink="/product" class="hover:text-green-400">Sản phẩm</a></li>
+        <li><a routerLink="/about" class="hover:text-green-400">Giới thiệu</a></li>
+        <li><a routerLink="/blog" class="hover:text-green-400">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- Chính sách -->
+    <div>
+      <h4 class="font-semibold text-white mb-4">Chính sách</h4>
+      <ul class="space-y-2">
+        <li><a routerLink="/policy/shipping">Chính sách giao hàng</a></li>
+        <li><a routerLink="/policy/return">Chính sách đổi trả</a></li>
+        <li><a routerLink="/policy/privacy">Chính sách bảo mật</a></li>
+        <li><a routerLink="/policy/terms">Điều khoản sử dụng</a></li>
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <h4 class="font-semibold text-white mb-4">Kết nối</h4>
+      <div class="flex gap-4 text-2xl">
+        <a href="https://facebook.com" target="_blank"><i class="ri-facebook-circle-fill"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="ri-instagram-fill"></i></a>
+        <a href="https://tiktok.com" target="_blank"><i class="ri-tiktok-fill"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>

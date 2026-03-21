@@ -1,0 +1,114 @@
+<div class="admin-page-root">
+
+<aside class="admin-sidebar">
+  <div class="admin-sidebar-header">
+    <div class="admin-logo">
+      <div class="admin-logo-icon"><i class="ri-store-2-fill"></i></div>
+      <span class="admin-logo-text">Trang quản trị</span>
+    </div>
+  </div>
+  <nav class="admin-nav-menu">
+    <a class="admin-nav-item" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <i class="ri-dashboard-line"></i><span>Dashboard</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/users" routerLinkActive="active">
+      <i class="ri-team-line"></i><span>Quản lý Users</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/products" routerLinkActive="active">
+      <i class="ri-shopping-bag-line"></i><span>Sản phẩm</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/blogs" routerLinkActive="active">
+      <i class="ri-article-line"></i><span>Blogs</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/orders" routerLinkActive="active">
+      <i class="ri-shopping-cart-line"></i><span>Đơn hàng</span>
+    </a>
+    <div class="admin-nav-divider"></div>
+    <button class="admin-nav-item" (click)="onLogout()">
+      <i class="ri-logout-box-line"></i><span>Đăng xuất</span>
+    </button>
+  </nav>
+</aside>
+
+<section class="admin-wrap">
+  <main class="admin-main">
+
+    <!-- Header -->
+    <div class="admin-header">
+      <h1><i class="ri-team-line"></i> Quản lý Users</h1>
+      <div class="admin-header-actions">
+        <button class="admin-action-btn admin-action-btn-edit" (click)="onAddUser()">
+          <i class="ri-add-line"></i> Thêm user
+        </button>
+        <button class="admin-action-btn" (click)="loadUsers(true)" [disabled]="isLoading">
+          <i class="ri-refresh-line"></i> Tải lại
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="admin-empty-state">
+      <i class="ri-loader-4-line spin" style="font-size:28px;margin-bottom:12px"></i>
+      Đang tải users...
+    </div>
+
+    <!-- Table -->
+    <div class="admin-table-wrap" *ngIf="!isLoading">
+      <table class="admin-table" *ngIf="users.length > 0; else noUsers">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Họ tên</th>
+            <th>Role</th>
+            <th>Provider</th>
+            <th>Trạng thái</th>
+            <th>Ngày tạo</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of users">
+            <td><span class="user-email">{{ u.email }}</span></td>
+            <td>{{ u.fullname || '-' }}</td>
+            <td>
+              <span class="badge"
+                    [class.badge-admin]="u.role === 'admin'"
+                    [class.badge-customer]="u.role !== 'admin'">
+                {{ u.role }}
+              </span>
+            </td>
+            <td>{{ u.provider || 'email' }}</td>
+            <td>
+              <span class="badge"
+                    [class.badge-active]="u.isActive"
+                    [class.badge-inactive]="!u.isActive">
+                {{ u.isActive ? 'Hoạt động' : 'Đã khóa' }}
+              </span>
+            </td>
+            <td class="date-cell">{{ formatDate(u.createdAt) }}</td>
+            <td>
+              <div class="action-group">
+                <button class="admin-action-btn admin-action-btn-edit" (click)="onEditUser(u)">
+                  <i class="ri-edit-line"></i> Sửa
+                </button>
+                <button class="admin-action-btn admin-action-btn-delete" (click)="onDeleteUser(u)">
+                  <i class="ri-delete-bin-line"></i> Xóa
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #noUsers>
+        <div class="admin-empty-state">
+          <div class="admin-empty-icon"><i class="ri-team-line"></i></div>
+          <p>Chưa có user nào.</p>
+        </div>
+      </ng-template>
+    </div>
+
+  </main>
+</section>
+
+</div>

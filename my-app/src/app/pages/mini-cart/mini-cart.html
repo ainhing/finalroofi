@@ -1,0 +1,46 @@
+<div class="mini-cart relative group">
+  <!-- Icon giỏ hàng + badge số lượng -->
+  <div class="cursor-pointer flex items-center gap-1">
+    <i class="ri-shopping-cart-line text-2xl text-gray-700"></i>
+    <span *ngIf="totalQuantity > 0"
+          class="bg-green-600 text-white text-xs font-bold rounded-full px-2 py-0.5 min-w-[20px] text-center">
+      {{ totalQuantity }}
+    </span>
+  </div>
+
+  <!-- Dropdown giỏ hàng (hiện khi hover icon) -->
+  <div class="cart-dropdown absolute right-0 mt-3 w-80 bg-white shadow-2xl rounded-lg overflow-hidden z-50 hidden group-hover:block border border-gray-200">
+    <div class="p-4 max-h-96 overflow-y-auto">
+      <div *ngIf="items.length === 0" class="text-center py-8 text-gray-500">
+        Giỏ hàng của bạn đang trống
+      </div>
+
+      <ng-container *ngIf="items.length > 0">
+        <div *ngFor="let item of items" class="flex items-center gap-4 py-3 border-b last:border-b-0">
+          <img [src]="item.image" alt="{{item.name}}" class="w-16 h-16 object-cover rounded">
+          <div class="flex-1">
+            <p class="font-medium text-gray-800">{{ item.name }}</p>
+            <p class="text-sm text-gray-600">Size: {{ item.size }} • SL: {{ item.quantity }}</p>
+          </div>
+          <div class="text-right">
+            <p class="font-bold text-green-700">{{ (item.price * item.quantity) | currency:'VND':'symbol':'1.0-0' }}</p>
+            <button (click)="remove(item.productId, item.size)" class="text-red-500 hover:text-red-700 text-sm mt-1">
+              Xóa
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t flex justify-between items-center font-bold text-lg">
+          <span>Tổng cộng:</span>
+          <span class="text-green-700">{{ totalPrice | currency:'VND':'symbol':'1.0-0' }}</span>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="p-4 bg-gray-50 border-t">
+      <a routerLink="/cart" class="block w-full text-center bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition">
+        Xem giỏ hàng & Thanh toán
+      </a>
+    </div>
+  </div>
+</div>

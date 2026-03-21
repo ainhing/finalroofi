@@ -1,0 +1,22 @@
+[
+  {
+    "UserId": "U001",
+    "email": "admin@roofi.com",
+    "password": "admin123",
+    "fullname": "Administrator",
+    "role": "admin",
+    "provider": "email",
+    "createdAt": "2026-03-06T00:00:00.000Z",
+    "avatarUrl": ""
+  },
+  {
+    "UserId": "U002",
+    "email": "khach1@test.com",
+    "password": "123456",
+    "fullname": "Nguyễn Văn A",
+    "role": "customer",
+    "provider": "email",
+    "createdAt": "2026-03-06T00:00:00.000Z",
+    "avatarUrl": ""
+  }
+]

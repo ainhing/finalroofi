@@ -1,0 +1,80 @@
+/* Blog Component Styles - Using Tailwind @apply */
+
+/* =========================
+   Blog Track Scrollbar Hide
+========================= */
+#blogTrack::-webkit-scrollbar {
+  display: none;
+}
+
+#blogTrack {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#blogTrack > div {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#blogTrack article {
+  transition: order 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================
+   Eco Dropdown Filter
+========================= */
+.eco-dropdown {
+  position: relative;
+  width: 220px;
+}
+
+.eco-dropdown-btn {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid #16a34a;
+  border-radius: 0.6rem;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.eco-dropdown-btn:hover {
+  background-color: #ecfdf5;
+}
+
+.eco-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 2px solid #16a34a;
+  border-radius: 0.6rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: none;
+  z-index: 50;
+}
+
+.eco-dropdown.open .eco-dropdown-menu {
+  display: block;
+}
+
+.eco-dropdown-menu li {
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.eco-dropdown-menu li:hover {
+  background-color: #bbf7d0;
+}
+
+.eco-dropdown-menu li.active {
+  background-color: #16a34a;
+  color: white;
+}

@@ -1,0 +1,42 @@
+<section class="py-16 bg-gray-50 min-h-screen">
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-3xl font-bold text-gray-800">Voucher đã lưu</h1>
+        <p class="text-gray-600 mt-2">Danh sách voucher bạn đã lưu. Mỗi tài khoản có danh sách riêng.</p>
+      </div>
+      <button (click)="refresh()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition">
+        <i class="ri-refresh-line mr-1"></i>Làm mới
+      </button>
+    </div>
+
+    <div *ngIf="saved.length === 0" class="bg-white border border-dashed border-gray-200 rounded-lg p-8 text-center text-gray-600">
+      Bạn chưa lưu voucher nào. Hãy vào trang HOT OFFERS để lưu voucher.
+    </div>
+
+    <div *ngIf="saved.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article *ngFor="let v of saved" class="bg-white rounded-xl shadow-md hover:shadow-lg transition overflow-hidden border border-gray-100">
+        <div class="p-5 space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-lg font-semibold text-gray-800 leading-tight">{{ v.title }}</h3>
+            <span class="px-3 py-1 text-sm font-semibold bg-green-100 text-green-700 rounded">{{ v.discount }}</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase text-gray-500">Mã</p>
+              <p class="font-mono text-lg font-bold bg-gray-100 px-3 py-1 rounded inline-block">{{ v.code }}</p>
+            </div>
+          </div>
+          <div class="flex gap-2 pt-2">
+            <button (click)="copyCode(v.code)" class="flex-1 px-3 py-2 bg-gray-100 text-gray-800 rounded hover:bg-gray-200 transition text-sm font-medium">
+              <i class="ri-file-copy-line mr-1"></i>Sao chép mã
+            </button>
+            <button (click)="goToCartWithCode(v.code)" class="flex-1 px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition text-sm font-semibold">
+              Áp dụng trong giỏ
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

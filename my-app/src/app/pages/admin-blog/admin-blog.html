@@ -1,0 +1,194 @@
+<section class="admin-page-wrapper">
+
+  <!-- Sidebar — y chang dashboard -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <div class="admin-logo">
+        <div class="admin-logo-icon">
+          <i class="ri-store-2-fill"></i>
+        </div>
+        <span class="admin-logo-text">Trang quản trị</span>
+      </div>
+    </div>
+
+    <nav class="admin-nav-menu">
+      <a class="admin-nav-item" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="ri-dashboard-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/profile" routerLinkActive="active">
+        <i class="ri-user-line"></i>
+        <span>Hồ sơ</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/products" routerLinkActive="active">
+        <i class="ri-shopping-bag-line"></i>
+        <span>Sản phẩm</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/blogs" routerLinkActive="active">
+        <i class="ri-article-line"></i>
+        <span>Blogs</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/orders" routerLinkActive="active">
+        <i class="ri-shopping-cart-line"></i>
+        <span>Đơn hàng</span>
+      </a>
+
+      <div class="admin-nav-divider"></div>
+
+      <button class="admin-nav-item" (click)="onLogout()">
+        <i class="ri-logout-box-line"></i>
+        <span>Đăng xuất</span>
+      </button>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ab-content">
+
+    <!-- Header -->
+    <div class="ab-page-header">
+      <div class="ab-title-section">
+        <div class="ab-title-icon">
+          <i class="ri-article-line"></i>
+        </div>
+        <div>
+          <h1>Quản lý Blog</h1>
+          <p>Danh sách bài viết · thêm, sửa, xóa</p>
+        </div>
+      </div>
+      <div class="ab-header-actions">
+        <button class="ab-btn-add" (click)="onAddBlog()">
+          <i class="ri-add-line"></i>
+          <span>Thêm bài viết</span>
+        </button>
+        <button class="ab-btn-back" (click)="onGoBack()">
+          <i class="ri-arrow-left-line"></i>
+          <span>Quay lại</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="ab-stats-row">
+      <div class="ab-stat-card">
+        <div class="ab-stat-icon green"><i class="ri-article-line"></i></div>
+        <div class="ab-stat-info">
+          <p>Tổng bài viết</p>
+          <h3>{{ blogs.length }}</h3>
+        </div>
+      </div>
+      <div class="ab-stat-card">
+        <div class="ab-stat-icon blue"><i class="ri-checkbox-circle-line"></i></div>
+        <div class="ab-stat-info">
+          <p>Đã xuất bản</p>
+          <h3>{{ publishedCount }}</h3>
+        </div>
+      </div>
+      <div class="ab-stat-card">
+        <div class="ab-stat-icon amber"><i class="ri-draft-line"></i></div>
+        <div class="ab-stat-info">
+          <p>Bản nháp</p>
+          <h3>{{ draftCount }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Card -->
+    <div class="ab-card">
+      <div class="ab-card-header">
+        <h2 class="ab-card-title">
+          <i class="ri-list-check"></i>
+          Danh sách bài viết
+        </h2>
+        <span class="ab-card-count">{{ blogs.length }} bài</span>
+      </div>
+
+      <!-- Filter -->
+      <div class="ab-filter-bar">
+        <div class="ab-search-wrap">
+          <i class="ri-search-line"></i>
+          <input class="ab-search-input" type="text" placeholder="Tìm tiêu đề, tác giả..."
+            [value]="searchText"
+            (input)="onSearchChange($any($event.target).value)">
+        </div>
+        <select class="ab-filter-select" [value]="filterStatus" (change)="onFilterChange($any($event.target).value)">
+          <option value="all">Tất cả trạng thái</option>
+          <option value="published">Đã xuất bản</option>
+          <option value="draft">Bản nháp</option>
+        </select>
+      </div>
+
+      <!-- Table -->
+      <div class="ab-table-wrap">
+        <div *ngIf="!isLoading && filteredBlogs && filteredBlogs.length > 0; else noBlogsBlock">
+          <table class="ab-table">
+            <thead>
+              <tr>
+                <th>Ảnh bìa</th>
+                <th>Tiêu đề</th>
+                <th>Tác giả</th>
+                <th>Tags</th>
+                <th>Ngày tạo</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let blog of filteredBlogs">
+                <td>
+                  <img *ngIf="blog.coverImage" [src]="blog.coverImage" alt="cover" class="ab-cover-thumb">
+                  <div *ngIf="!blog.coverImage" class="ab-no-cover">
+                    <i class="ri-image-line"></i>
+                  </div>
+                </td>
+                <td class="ab-td-title">
+                  <span class="ab-title-cell">{{ blog.title }}</span>
+                  <span class="ab-slug-cell">{{ blog.id }}</span>
+                </td>
+                <td>{{ blog.author }}</td>
+                <td>
+                  <span class="ab-tag-chip" *ngFor="let tag of blog.tags | slice:0:3">{{ tag }}</span>
+                  <span *ngIf="blog.tags.length > 3" style="font-size:11px;color:#9ca3af">+{{ blog.tags.length - 3 }}</span>
+                </td>
+                <td>{{ formatDate(blog.createdAt) }}</td>
+                <td>
+                  <span class="ab-status-badge"
+                    [class.published]="blog.isPublished"
+                    [class.draft]="!blog.isPublished">
+                    {{ blog.isPublished ? 'Xuất bản' : 'Nháp' }}
+                  </span>
+                </td>
+                <td style="white-space:nowrap">
+                  <button class="ab-action-btn ab-btn-edit" (click)="onEditBlog(blog)">
+                    <i class="ri-edit-line"></i> Sửa
+                  </button>
+                  <button class="ab-action-btn ab-btn-delete" (click)="onDeleteBlog(blog.id)">
+                    <i class="ri-delete-bin-line"></i> Xóa
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ng-template #noBlogsBlock>
+          <div *ngIf="isLoading" class="ab-loading-wrap">
+            <i class="ri-loader-4-line ab-spin-icon"></i>
+            <span>Đang tải bài viết...</span>
+          </div>
+          <div *ngIf="!isLoading && blogs.length > 0" class="ab-empty-state">
+            <div class="ab-empty-icon"><i class="ri-search-line"></i></div>
+            <h3>Không tìm thấy kết quả</h3>
+            <p>Thử thay đổi từ khóa hoặc bộ lọc.</p>
+          </div>
+          <div *ngIf="!isLoading && blogs.length === 0" class="ab-empty-state">
+            <div class="ab-empty-icon"><i class="ri-article-line"></i></div>
+            <h3>Chưa có bài viết nào</h3>
+            <p>Nhấn "Thêm bài viết" để bắt đầu tạo nội dung.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+  </main>
+</section>

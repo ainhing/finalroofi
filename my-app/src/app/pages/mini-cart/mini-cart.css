@@ -1,0 +1,12 @@
+.mini-cart {
+  position: relative;
+  display: inline-block;
+}
+
+.mini-cart:hover .cart-dropdown {
+  display: block;
+}
+
+.cart-dropdown {
+  display: none;
+}

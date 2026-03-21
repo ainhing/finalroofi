@@ -1,0 +1,93 @@
+╔══════════════════════════════════════════════════════════════╗
+║           🔐 TÀI KHOẢN TEST - WEBSITE ROOFI                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────┐
+│  🔴 ADMIN ACCOUNT                                            │
+├──────────────────────────────────────────────────────────────┤
+│  Email:    admin@roofi.com                                   │
+│  Password: admin123                                          │
+│  Role:     Administrator                                     │
+│  Access:   /admin (Admin Dashboard)                          │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  🟢 CUSTOMER ACCOUNTS                                        │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│  1️⃣  Nguyễn Văn A                                            │
+│      Email:    khach1@test.com                               │
+│      Password: 123456                                        │
+│                                                              │
+│  2️⃣  Trần Thị B                                              │
+│      Email:    khach2@test.com                               │
+│      Password: 123456                                        │
+│                                                              │
+│  3️⃣  Lê Minh C                                               │
+│      Email:    khach3@test.com                               │
+│      Password: 123456                                        │
+│                                                              │
+│  4️⃣  Customer Demo                                           │
+│      Email:    customer@gmail.com                            │
+│      Password: customer123                                   │
+│                                                              │
+│  Access: /profile (User Profile)                             │
+└──────────────────────────────────────────────────────────────┘
+
+╔══════════════════════════════════════════════════════════════╗
+║  ⚡ COPY NHANH                                               ║
+╚══════════════════════════════════════════════════════════════╝
+
+🔴 ADMIN:
+   admin@roofi.com
+   admin123
+
+🟢 CUSTOMER (Dễ nhớ nhất):
+   khach1@test.com
+   123456
+
+🟢 CUSTOMER (Alternative):
+   customer@gmail.com
+   customer123
+
+╔══════════════════════════════════════════════════════════════╗
+║  🚀 HƯỚNG DẪN SỬ DỤNG                                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+1. Mở: http://localhost:4200/login
+2. Chọn một tài khoản ở trên
+3. Copy email và password
+4. Paste vào form login
+5. Click "Đăng nhập"
+6. Done! ✨
+
+╔══════════════════════════════════════════════════════════════╗
+║  ✅ KIỂM TRA                                                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+✓ Login thành công → Thấy avatar ở header
+✓ Click avatar → Thấy dropdown menu với thông tin user
+✓ Admin → Auto chuyển đến /admin
+✓ Customer → Về trang chủ, có thể vào /profile
+
+╔══════════════════════════════════════════════════════════════╗
+║  🎯 TEST GỢI Ý                                               ║
+╚══════════════════════════════════════════════════════════════╝
+
+TEST 1: Login Customer
+   → Dùng: khach1@test.com / 123456
+   → Vào /profile
+   → Xem thông tin cá nhân
+
+TEST 2: Login Admin  
+   → Dùng: admin@roofi.com / admin123
+   → Tự động vào /admin
+   → Xem dashboard quản trị
+
+TEST 3: Phân quyền
+   → Login customer → Thử vào /admin → BỊ CHẶN ✓
+   → Login admin → Vào /admin → OK ✓
+
+═══════════════════════════════════════════════════════════════
+🎉 CHÚC BẠN TEST VUI VẺ!
+═══════════════════════════════════════════════════════════════

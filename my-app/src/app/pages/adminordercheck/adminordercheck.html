@@ -1,0 +1,211 @@
+<aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <div class="admin-logo">
+        <div class="admin-logo-icon">
+          <i class="ri-store-2-fill"></i>
+        </div>
+        <span class="admin-logo-text">Trang quản trị</span>
+      </div>
+    </div>
+
+    <nav class="admin-nav-menu">
+      <a class="admin-nav-item" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="ri-dashboard-line"></i>
+        <span>Dashboard</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/profile" routerLinkActive="active">
+        <i class="ri-user-line"></i>
+        <span>Hồ sơ</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/products" routerLinkActive="active">
+        <i class="ri-shopping-bag-line"></i>
+        <span>Sản phẩm</span>
+      </a>
+      <a class="admin-nav-item active" routerLink="/admin/blogs" routerLinkActive="active">
+        <i class="ri-article-line"></i>
+        <span>Blogs</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/orders" routerLinkActive="active">
+        <i class="ri-shopping-cart-line"></i>
+        <span>Đơn hàng</span>
+      </a>
+
+      <div class="admin-nav-divider"></div>
+
+      <button class="admin-nav-item" (click)="onLogout()">
+        <i class="ri-logout-box-line"></i>
+        <span>Đăng xuất</span>
+      </button>
+    </nav>
+  </aside>
+<section class="admin-wrap">
+  <main class="admin-main">
+
+    <!-- Header -->
+    <div class="admin-header">
+      <h1>
+        <i class="ri-file-list-3-line"></i>
+        Đơn hàng <span class="header-order-id">{{ orderId }}</span>
+      </h1>
+      <div class="admin-header-actions">
+        <button class="admin-action-btn" (click)="goBack()">
+          <i class="ri-arrow-left-line"></i> Quay lại
+        </button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="admin-empty-state">
+      <i class="ri-loader-4-line spin" style="font-size:28px;margin-bottom:12px"></i>
+      Đang tải đơn hàng...
+    </div>
+
+    <ng-container *ngIf="!isLoading && order">
+
+      <!-- Timeline (ẩn nếu cancelled) -->
+      <div class="timeline-card" *ngIf="order.Status !== 'cancelled'">
+        <div class="timeline">
+          <div class="timeline-step"
+               *ngFor="let step of statusTimeline"
+               [class.done]="isStepDone(step)"
+               [class.current]="order.Status === step">
+            <div class="timeline-dot">
+              <i class="ri-check-line" *ngIf="isStepDone(step) && order.Status !== step"></i>
+              <i class="ri-record-circle-line" *ngIf="order.Status === step"></i>
+            </div>
+            <div class="timeline-label">{{ statusLabel[step] }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cancelled banner -->
+      <div class="cancelled-banner" *ngIf="order.Status === 'cancelled'">
+        <i class="ri-close-circle-line"></i>
+        Đơn hàng này đã bị hủy
+      </div>
+
+      <div class="order-grid">
+
+        <!-- Col trái -->
+        <div class="order-col-left">
+
+          <!-- Card: Thông tin khách hàng -->
+          <div class="detail-card">
+            <h2 class="card-title"><i class="ri-user-line"></i> Thông tin khách hàng</h2>
+            <div class="info-list">
+              <div class="info-row">
+                <span class="info-label">Họ tên</span>
+                <span class="info-value">{{ order.FullName || '-' }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Email</span>
+                <span class="info-value">{{ order.Email }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Điện thoại</span>
+                <span class="info-value">{{ order.Phone || '-' }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Địa chỉ</span>
+                <span class="info-value">{{ order.ShippingAddress || '-' }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Thanh toán</span>
+                <span class="info-value"><strong>{{ order.PaymentMethod?.toUpperCase() }}</strong></span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Đặt lúc</span>
+                <span class="info-value">{{ formatDate(order.CreatedAt) }}</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Cập nhật</span>
+                <span class="info-value">{{ formatDate(order.UpdatedAt) }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Sản phẩm -->
+          <div class="detail-card">
+            <h2 class="card-title"><i class="ri-shopping-bag-line"></i> Sản phẩm ({{ order.Items?.length || 0 }})</h2>
+            <div class="item-list">
+              <div class="order-item" *ngFor="let item of order.Items">
+                <img *ngIf="item.Image" [src]="item.Image" class="item-img" [alt]="item.ProductName">
+                <div class="item-no-img" *ngIf="!item.Image">
+                  <i class="ri-t-shirt-line"></i>
+                </div>
+                <div class="item-info">
+                  <span class="item-name">{{ item.ProductName }}</span>
+                  <span class="item-meta">x{{ item.Quantity }} × {{ formatCurrency(item.Price) }}</span>
+                </div>
+                <span class="item-total">{{ formatCurrency(item.Price * item.Quantity) }}</span>
+              </div>
+              <div *ngIf="!order.Items?.length" class="item-empty">Không có sản phẩm</div>
+            </div>
+
+            <!-- Tổng tiền -->
+            <div class="price-summary">
+              <div class="price-row">
+                <span>Tạm tính</span>
+                <span>{{ formatCurrency(order.SubTotal) }}</span>
+              </div>
+              <div class="price-row" *ngIf="order.Discount > 0">
+                <span>Giảm giá</span>
+                <span style="color:#10b981">-{{ formatCurrency(order.Discount) }}</span>
+              </div>
+              <div class="price-row">
+                <span>Phí vận chuyển</span>
+                <span>{{ order.ShippingFee > 0 ? formatCurrency(order.ShippingFee) : 'Miễn phí' }}</span>
+              </div>
+              <div class="price-row price-row--total">
+                <span>Tổng cộng</span>
+                <span>{{ formatCurrency(order.TotalAmount) }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Col phải: Cập nhật trạng thái -->
+        <div class="order-col-right">
+          <div class="detail-card">
+            <h2 class="card-title"><i class="ri-edit-line"></i> Cập nhật đơn hàng</h2>
+
+            <div class="form-group">
+              <label>Trạng thái</label>
+              <select [(ngModel)]="order.Status" class="status-select">
+                <option *ngFor="let s of statusList" [value]="s">{{ statusLabel[s] }}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Ghi chú nội bộ</label>
+              <textarea [(ngModel)]="order.Note"
+                        rows="4"
+                        placeholder="Ghi chú về đơn hàng này..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="admin-action-btn admin-action-btn-delete"
+                      (click)="delete()"
+                      [disabled]="isDeleting || isSaving">
+                <i class="ri-loader-4-line spin" *ngIf="isDeleting"></i>
+                <i class="ri-delete-bin-line" *ngIf="!isDeleting"></i>
+                {{ isDeleting ? 'Đang xóa...' : 'Xóa đơn' }}
+              </button>
+
+              <button class="admin-action-btn admin-action-btn-edit"
+                      (click)="save()"
+                      [disabled]="isSaving || isDeleting">
+                <i class="ri-loader-4-line spin" *ngIf="isSaving"></i>
+                <i class="ri-save-line" *ngIf="!isSaving"></i>
+                {{ isSaving ? 'Đang lưu...' : 'Lưu' }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </ng-container>
+
+  </main>
+</section>

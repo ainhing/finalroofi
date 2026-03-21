@@ -1,0 +1,304 @@
+<div *ngIf="product">
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="mb-4">
+          <a routerLink="/product" class="inline-flex items-center gap-2 text-gray-500 hover:text-green-600 transition-colors group cursor-pointer">
+              <i class="ri-arrow-left-line text-xl group-hover:-translate-x-1 transition-transform"></i>
+              <span class="font-medium">Quay lại danh sách</span>
+          </a>
+      </div>
+      <div class="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        </div>
+
+      <div class="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <a routerLink="/home" class="hover:text-green-600">Trang chủ</a>
+        <i class="ri-arrow-right-s-line"></i>
+        <a routerLink="/product" class="hover:text-green-600">Sản phẩm</a>
+        <i class="ri-arrow-right-s-line"></i>
+        <span class="capitalize">{{ product.category || 'Chi tiết' }}</span>
+        <i class="ri-arrow-right-s-line"></i>
+        <span class="font-bold text-gray-900">{{ product.name }}</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <div class="space-y-4">
+          <div class="overflow-hidden rounded-lg shadow-md border border-gray-100">
+             <img class="w-full h-96 object-cover transition-transform duration-500 hover:scale-105" 
+                  [src]="mainImage || product.image" 
+                  [alt]="product.name">
+          </div>
+
+          <div class="grid grid-cols-5 gap-2" *ngIf="product.images && product.images.length">
+            <div *ngFor="let img of product.images" 
+                 (click)="selectImage(img)"
+                 class="cursor-pointer rounded overflow-hidden border-2 transition-all box-border"
+                 [ngClass]="{'border-green-600': mainImage === img, 'border-transparent': mainImage !== img}">
+               <img [src]="img" class="w-full h-16 object-cover hover:opacity-80">
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <h1 class="text-3xl font-bold text-gray-900">{{ product.name }}</h1>
+          
+          <div class="flex items-center space-x-4">
+            <p class="text-2xl font-bold text-green-600">{{ product.price | number:'1.0-0' }}đ</p>
+            <span *ngIf="product.originalPrice" class="text-gray-400 line-through text-lg">
+                {{ product.originalPrice | number:'1.0-0' }}đ
+            </span>
+            <span *ngIf="product.originalPrice" class="bg-red-100 text-red-600 px-2 py-1 rounded text-xs font-bold">
+              Giảm {{ ((product.originalPrice - product.price) / product.originalPrice * 100) | number:'1.0-0' }}%
+            </span>
+          </div>
+
+          <!-- <div class="flex items-center space-x-2 text-sm">
+             <div class="flex text-yellow-400">
+                 <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+             </div>
+             <span class="text-gray-500">(Đánh giá từ khách hàng)</span>
+          </div> -->
+
+          <div class="text-gray-600 leading-relaxed space-y-2">
+             <p>{{ product.description || 'Sản phẩm được thiết kế tinh tế, mang lại phong cách thời thượng.' }}</p>
+             <p><strong>Chất liệu:</strong> {{ product.material }}</p>
+          </div>
+
+          <div class="space-y-3 border-t border-b border-gray-100 py-4 my-4">
+    <div class="flex items-center justify-between">
+        <span class="font-semibold text-gray-700">Kích thước: <span class="text-green-600 font-bold">{{ selectedSize }}</span></span>
+        
+        <button (click)="toggleSizeChart()" 
+                class="text-sm font-semibold text-gray-700 hover:text-green-600 flex items-center gap-1 transition-colors cursor-pointer">
+            <i class="ri-ruler-line text-green-600"></i> Bảng quy đổi kích cỡ
+        </button>
+    </div>
+
+    <div class="flex gap-3">
+        <button *ngFor="let size of availableSizes" 
+                (click)="selectSize(size)"
+                class="w-10 h-10 border rounded transition-all duration-200 font-medium flex items-center justify-center"
+                [ngClass]="{
+                    'border-green-600 bg-green-600 text-white shadow-md': selectedSize === size,
+                    'border-gray-300 text-gray-600 hover:border-green-600 hover:text-green-600 bg-white': selectedSize !== size
+                }">
+            {{ size }}
+        </button>
+    </div>
+    
+    <p *ngIf="!selectedSize" class="text-xs text-red-500 italic mt-1">* Vui lòng chọn kích thước</p>
+</div>
+<div *ngIf="showSizeChart" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" (click)="toggleSizeChart()">
+    
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl overflow-hidden animate-fade-in-up" (click)="$event.stopPropagation()">
+        
+        <div class="bg-green-600 px-6 py-4 flex justify-between items-center text-white">
+            <h3 class="text-lg font-bold tracking-wide"><i class="ri-ruler-2-line mr-2"></i>Bảng Quy Đổi Kích Cỡ</h3>
+            <button (click)="toggleSizeChart()" class="hover:bg-green-700 rounded-full w-8 h-8 flex items-center justify-center transition-colors">
+                <i class="ri-close-line text-xl"></i>
+            </button>
+        </div>
+
+        <div class="p-6 overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-600">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                    <tr>
+                        <th class="px-6 py-3 rounded-tl-lg">Size</th>
+                        <th class="px-6 py-3">Chiều cao (cm)</th>
+                        <th class="px-6 py-3">Cân nặng (kg)</th>
+                        <th class="px-6 py-3 rounded-tr-lg">Vòng ngực (cm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white border-b hover:bg-green-50 transition-colors">
+                        <td class="px-6 py-4 font-bold text-green-600">S</td>
+                        <td class="px-6 py-4">150 - 160</td>
+                        <td class="px-6 py-4">40 - 48</td>
+                        <td class="px-6 py-4">78 - 82</td>
+                    </tr>
+                    <tr class="bg-gray-50 border-b hover:bg-green-50 transition-colors">
+                        <td class="px-6 py-4 font-bold text-green-600">M</td>
+                        <td class="px-6 py-4">155 - 165</td>
+                        <td class="px-6 py-4">48 - 54</td>
+                        <td class="px-6 py-4">83 - 86</td>
+                    </tr>
+                    <tr class="bg-white border-b hover:bg-green-50 transition-colors">
+                        <td class="px-6 py-4 font-bold text-green-600">L</td>
+                        <td class="px-6 py-4">160 - 170</td>
+                        <td class="px-6 py-4">55 - 60</td>
+                        <td class="px-6 py-4">87 - 90</td>
+                    </tr>
+                    <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
+                        <td class="px-6 py-4 font-bold text-green-600">XL</td>
+                        <td class="px-6 py-4">165 - 175</td>
+                        <td class="px-6 py-4">60 - 68</td>
+                        <td class="px-6 py-4">91 - 95</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="mt-6 text-xs text-gray-500 italic">
+                * Số liệu chỉ mang tính chất tham khảo. Nếu bạn phân vân giữa 2 size, chúng tôi khuyên bạn nên chọn size lớn hơn để thoải mái hơn.
+            </div>
+        </div>
+
+        <div class="px-6 py-4 bg-gray-50 text-right">
+            <button (click)="toggleSizeChart()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded font-medium transition-colors">
+                Đóng
+            </button>
+        </div>
+    </div>
+</div>
+          <div class="space-y-3">
+            <span class="font-semibold text-gray-700">Số lượng:</span>
+            <div class="flex items-center w-32 border border-gray-300 rounded-lg">
+               <button (click)="updateQuantity(-1)" class="w-10 h-10 hover:bg-gray-100 flex items-center justify-center text-gray-600 text-xl">-</button>
+               <input type="text" [value]="quantity" readonly class="w-12 h-10 text-center border-x border-gray-300 focus:outline-none font-medium">
+               <button (click)="updateQuantity(1)" class="w-10 h-10 hover:bg-gray-100 flex items-center justify-center text-gray-600 text-xl">+</button>
+            </div>
+          </div>
+
+          <div class="flex gap-4 pt-4">
+             <button (click)="addToCart()" class="flex-1 bg-green-600 text-white h-12 rounded-lg font-bold hover:bg-green-700 transition-colors shadow-lg hover:shadow-green-200/50 flex items-center justify-center gap-2">
+                 <i class="ri-shopping-bag-line text-xl"></i> Thêm vào giỏ hàng
+             </button>
+             <button (click)="toggleMainWishlist()" class="w-12 h-12 border border-gray-300 rounded-lg flex items-center justify-center text-gray-600 hover:border-red-500 hover:text-red-500 hover:bg-red-50 transition-colors">
+               <i [class]="mainLiked ? 'ri-heart-fill text-red-500 text-2xl' : 'ri-heart-line text-2xl'"></i>
+             </button>
+          </div>
+          <button (click)="buyNow()" class="w-full bg-red-600 text-white h-12 rounded-lg font-bold hover:bg-red-700 transition-colors shadow-lg hover:shadow-red-200/50 flex items-center justify-center gap-2 uppercase tracking-wide">
+                <i class="ri-money-dollar-circle-line text-xl"></i> Mua ngay
+             </button>
+          </div>
+
+          <div class="pt-6 border-t border-gray-100 space-y-3 text-sm text-gray-500">
+             <div class="flex items-center gap-3">
+                 <i class="ri-truck-line text-xl text-green-600"></i>
+                 <span>Miễn phí vận chuyển cho đơn hàng trên 500k</span>
+             </div>
+             <div class="flex items-center gap-3">
+                 <i class="ri-shield-check-line text-xl text-green-600"></i>
+                 <span>Bảo hành chính hãng 12 tháng</span>
+             </div>
+             <div class="flex items-center gap-3">
+                 <i class="ri-refresh-line text-xl text-green-600"></i>
+                 <span>Đổi trả miễn phí trong 7 ngày</span>
+             </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- <div class="mt-20">
+         <h2 class="text-2xl font-bold text-gray-800 mb-8 border-l-4 border-green-600 pl-4">Sản phẩm liên quan</h2>
+         
+         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow group">
+                <div class="relative overflow-hidden">
+                    <a [routerLink]="['/product-detail', 'hobo-ao-2']"> <img src="assets/images/hobo/hobo_aokieu/Hobo_Aokieu2/Hobo_Aokieu2.1.jpg" alt="Áo Ren" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <button class="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center hover:text-red-500 transition-colors">
+                        <i class="ri-heart-line"></i>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold mb-1 truncate">
+                        <a [routerLink]="['/product-detail', 'hobo-ao-2']" class="hover:text-green-600">Áo Ren EcoLace Satin</a>
+                    </h3>
+                    <div class="flex items-center justify-between mt-2">
+                        <span class="text-green-600 font-bold">520,000đ</span>
+                        <span class="text-gray-400 text-sm line-through">650,000đ</span>
+                    </div>
+                </div>
+            </div> -->
+
+          <!-- Related Products Section -->
+      <div class="related-products-section" *ngIf="relatedProducts.length > 0">
+
+        <h2 class="section-title">Có thể bạn sẽ thích</h2>
+
+        <div class="products-grid">
+          <div *ngFor="let item of relatedProducts" class="product-card">
+
+            <!-- Ảnh -->
+            <div class="product-img-wrapper">
+              <a [routerLink]="['/product-detail', item.id]">
+                <img [src]="item.image" [alt]="item.name">
+              </a>
+
+              <!-- Badge giảm giá -->
+              <span *ngIf="item.originalPrice && item.originalPrice > item.price" class="discount-badge">
+                -{{ ((item.originalPrice - item.price) / item.originalPrice * 100) | number:'1.0-0' }}%
+              </span>
+
+              <!-- Nút yêu thích -->
+              <button (click)="toggleRelatedWishlist($event, item)" class="product-wishlist-btn">
+                <i [class]="item.liked ? 'ri-heart-fill' : 'ri-heart-line'"
+                   [style.color]="item.liked ? '#ef4444' : '#9ca3af'"
+                   style="font-size:15px;"></i>
+              </button>
+
+              <!-- Overlay thêm giỏ -->
+              <div class="product-cart-overlay">
+                <button (click)="addToCart(item)" class="product-cart-btn">
+                  <i class="ri-shopping-bag-3-line"></i> Thêm vào giỏ
+                </button>
+              </div>
+            </div>
+
+            <!-- Thông tin -->
+            <div class="product-info">
+              <a [routerLink]="['/product-detail', item.id]" style="text-decoration:none;">
+                <p class="product-name">{{ item.name }}</p>
+              </a>
+              <div class="product-price">
+                <span class="current-price">{{ item.price | number:'1.0-0' }}đ</span>
+                <span *ngIf="item.originalPrice" class="old-price">{{ item.originalPrice | number:'1.0-0' }}đ</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+<div *ngIf="showNotification" 
+     class="toast-slide-in fixed top-24 right-5 z-[9999] min-w-[350px] max-w-md transition-all duration-300">
+    
+    <div class="relative flex items-start p-4 rounded bg-green-50 shadow-lg border-l-4 border-green-600"
+         [ngClass]="{
+            'border-green-600 bg-green-50': notificationType === 'success',
+            'border-red-600 bg-red-50': notificationType === 'error'
+         }">
+
+        <div class="flex-shrink-0 mr-3">
+            <i *ngIf="notificationType === 'success'" class="ri-checkbox-circle-fill text-2xl text-green-600"></i>
+            <i *ngIf="notificationType === 'error'" class="ri-error-warning-fill text-2xl text-red-600"></i>
+        </div>
+
+        <div class="flex-1 pt-1">
+            <h3 class="font-bold text-sm" 
+                [ngClass]="{'text-green-800': notificationType === 'success', 'text-red-800': notificationType === 'error'}">
+                {{ notificationType === 'success' ? 'Thành công' : 'Lỗi' }}
+            </h3>
+            <p class="mt-1 text-sm text-gray-700 leading-tight">
+                {{ notificationMessage }}
+            </p>
+             <a *ngIf="notificationType === 'success'" routerLink="/cart" class="block mt-2 text-sm font-medium text-green-700 hover:text-green-900 underline">
+                Xem giỏ hàng
+            </a>
+        </div>
+
+        <button (click)="closeToast()" class="ml-4 flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors focus:outline-none">
+            <i class="ri-close-line text-xl"></i>
+        </button>
+    </div>
+</div>
+    
+
+<div *ngIf="!product" class="min-h-screen flex items-center justify-center bg-white">
+    <div class="text-green-600 font-bold text-xl flex items-center gap-2">
+      <i class="ri-loader-4-line animate-spin text-3xl"></i>
+      <span>Đang tải chi tiết sản phẩm...</span>
+    </div>
+</div>

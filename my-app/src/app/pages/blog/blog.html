@@ -1,0 +1,101 @@
+\<!-- ========================= BANNER ========================= -->
+<section class="bg-gradient-to-br from-green-50 to-green-100 py-24 text-center">
+  <div class="max-w-5xl mx-auto px-4">
+    <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">ROOFI JOURNAL</h1>
+    <p class="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto leading-relaxed">
+      Chia sẻ cảm hứng sống xanh & thời trang bền vững mỗi tuần!
+    </p>
+    <button (click)="scrollToBlogSection()"
+      class="inline-block px-8 py-4 bg-green-700 text-white text-lg font-semibold rounded-xl hover:bg-green-800 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300 shadow-lg">
+      Khám phá bài viết ngay <i class="ri-arrow-down-line ml-2"></i>
+    </button>
+  </div>
+</section>
+
+<!-- ========================= BLOG SECTION ========================= -->
+<section id="blog-section" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <!-- Tiêu đề -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Bài viết nổi bật</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Tin tức, mẹo phối đồ, câu chuyện chất liệu và lối sống xanh từ ROOFI
+      </p>
+    </div>
+
+    <!-- Bộ lọc & phân trang -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 p-4 bg-gray-50 rounded-lg border border-green-200">
+      
+      <!-- Dropdown Sắp xếp -->
+      <div class="eco-dropdown" #sortDropdown>
+        <button 
+          type="button" 
+          class="eco-dropdown-btn" 
+          (click)="sortDropdown.classList.toggle('open')">
+          <span id="sortLabel">Mới nhất</span>
+          <i class="ri-arrow-down-s-line"></i>
+        </button>
+
+        <ul class="eco-dropdown-menu">
+          <li (click)="onSortChange('newest'); updateSortLabel('Mới nhất'); sortDropdown.classList.remove('open')">
+            Mới nhất
+          </li>
+          <li (click)="onSortChange('oldest'); updateSortLabel('Cũ nhất'); sortDropdown.classList.remove('open')">
+            Cũ nhất
+          </li>
+          <li (click)="onSortChange('popular'); updateSortLabel('Phổ biến'); sortDropdown.classList.remove('open')">
+            Phổ biến
+          </li>
+        </ul>
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="flex gap-2">
+        <button (click)="scrollLeft()"
+          class="p-3 bg-white border border-gray-300 rounded-lg hover:bg-green-50 hover:border-green-600 transition"
+          aria-label="Trang trước">
+          <i class="ri-arrow-left-s-line text-lg"></i>
+        </button>
+        <button (click)="scrollRight()"
+          class="p-3 bg-white border border-gray-300 rounded-lg hover:bg-green-50 hover:border-green-600 transition"
+          aria-label="Trang sau">
+          <i class="ri-arrow-right-s-line text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Slider blog cards -->
+    <div id="blogTrack" class="overflow-x-auto scrollbar-hide">
+      <div class="flex gap-8 pb-4">
+        <article *ngFor="let b of blogs"
+          class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col w-80 md:w-96 flex-shrink-0 group">
+          <div class="relative overflow-hidden h-64">
+            <img [src]="b.CoverImage || b.coverImage"
+              [alt]="b.Title || b.title"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          </div>
+
+          <div class="p-6 flex flex-col flex-1">
+            <span class="text-sm text-gray-500 mb-2">
+              {{ (b.CreatedAt || b.createdAt) ? ((b.CreatedAt || b.createdAt) | date:'dd/MM/yyyy') : '' }}
+            </span>
+
+            <h3 class="text-xl font-bold text-gray-800 mb-3 leading-tight">
+              {{ b.Title || b.title }}
+            </h3>
+
+            <p class="text-gray-600 text-sm mb-6 flex-1">
+              {{ b.Summary || b.summary }}
+            </p>
+
+            <a [routerLink]="['/blog', (b.Slug || b.slug || b.BlogId || b.id)]"
+              class="mt-auto px-6 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition-all duration-300 shadow hover:shadow-md inline-block text-center w-full">
+              Đọc bài viết <i class="ri-arrow-right-line ml-2"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>

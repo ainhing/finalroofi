@@ -1,0 +1,161 @@
+<section class="py-8">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center gap-2 mb-6 text-sm text-gray-600">
+      <a routerLink="/" class="hover:text-green-600 transition-colors">Trang chủ</a>
+      <i class="ri-arrow-right-s-line"></i>
+      <span>Sản phẩm</span>
+    </div>
+
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 p-4 bg-gray-50 rounded-lg border border-green-200">
+      
+      <div class="eco-dropdown" #categoryDropdown>
+        <button 
+          type="button" 
+          class="eco-dropdown-btn" 
+          (click)="categoryDropdown.classList.toggle('open')">
+          <span id="categoryLabel">Danh mục</span>
+          <i class="ri-arrow-down-s-line"></i>
+        </button>
+
+        <ul class="eco-dropdown-menu">
+          <li (click)="showAllProducts(); updateCategoryLabel('Danh mục'); categoryDropdown.classList.remove('open')">
+            Tất cả
+          </li>
+          <li (click)="scrollToCategory('C001'); updateCategoryLabel('Hobo - Áo'); categoryDropdown.classList.remove('open')">
+            Hobo - Áo
+          </li>
+          <li (click)="scrollToCategory('C002'); updateCategoryLabel('Hobo - Quần'); categoryDropdown.classList.remove('open')">
+            Hobo - Quần
+          </li>
+          <li (click)="scrollToCategory('C003'); updateCategoryLabel('Streetwear - Áo'); categoryDropdown.classList.remove('open')">
+            Streetwear - Áo
+          </li>
+          <li (click)="scrollToCategory('C004'); updateCategoryLabel('Streetwear - Quần'); categoryDropdown.classList.remove('open')">
+            Streetwear - Quần
+          </li>
+          <li (click)="scrollToCategory('C005'); updateCategoryLabel('Casual - Áo'); categoryDropdown.classList.remove('open')">
+            Casual - Áo
+          </li>
+          <li (click)="scrollToCategory('C006'); updateCategoryLabel('Casual - Quần'); categoryDropdown.classList.remove('open')">
+            Casual - Quần
+          </li>
+          <li (click)="scrollToCategory('C007'); updateCategoryLabel('Minimal - Áo'); categoryDropdown.classList.remove('open')">
+            Minimal - Áo
+          </li>
+          <li (click)="scrollToCategory('C008'); updateCategoryLabel('Minimal - Quần'); categoryDropdown.classList.remove('open')">
+            Minimal - Quần
+          </li>
+          <li (click)="scrollToCategory('C009'); updateCategoryLabel('Giày / Sandals'); categoryDropdown.classList.remove('open')">
+            Giày / Sandals
+          </li>
+          <li (click)="scrollToCategory('C010'); updateCategoryLabel('Phụ kiện - Khăn'); categoryDropdown.classList.remove('open')">
+            Phụ kiện - Khăn
+          </li>
+          <li (click)="scrollToCategory('C011'); updateCategoryLabel('Phụ kiện - Mũ'); categoryDropdown.classList.remove('open')">
+            Phụ kiện - Mũ
+          </li>
+          <li (click)="scrollToCategory('C012'); updateCategoryLabel('Phụ kiện - Ví'); categoryDropdown.classList.remove('open')">
+            Phụ kiện - Ví
+          </li>
+        </ul>
+      </div>
+
+      <div class="eco-dropdown" #priceDropdown>
+        <button type="button" class="eco-dropdown-btn" (click)="priceDropdown.classList.toggle('open')">
+          <span id="priceLabel">Mọi loại giá</span>
+          <i class="ri-arrow-down-s-line"></i>
+        </button>
+
+        <ul class="eco-dropdown-menu">
+          <li (click)="onPriceSelect('default'); updateLabel('Mọi loại giá'); priceDropdown.classList.remove('open')">Mọi loại giá</li>
+          <li (click)="onPriceSelect('low-high'); updateLabel('Giá thấp → cao'); priceDropdown.classList.remove('open')">Giá thấp → cao</li>
+          <li (click)="onPriceSelect('high-low'); updateLabel('Giá cao → thấp'); priceDropdown.classList.remove('open')">Giá cao → thấp</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div *ngFor="let section of productSections" class="mb-12" [attr.data-category]="section.category" [attr.data-type]="section.type">
+        
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-bold text-gray-800 uppercase">{{ section.title }}</h2>
+          <div class="flex gap-2" *ngIf="section.products.length >= 5">
+            <button 
+        (click)="scrollSection(productContainer, 'left')"
+        class="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer">
+        <i class="ri-arrow-left-s-line text-xl"></i>
+      </button>
+      <button 
+        (click)="scrollSection(productContainer, 'right')"
+        class="p-2 hover:bg-gray-100 rounded-full transition-colors cursor-pointer">
+        <i class="ri-arrow-right-s-line text-xl"></i>
+      </button>
+    </div>
+  </div>
+
+        <div class="overflow-x-auto scroll-smooth" #productContainer>
+          <div class="flex gap-6 pb-4">
+            
+            <div *ngFor="let product of section.products" 
+                 class="product-item group min-w-[260px] w-[260px]">
+              
+              <div class="relative aspect-square overflow-hidden bg-gray-100">
+                <a [routerLink]="['/product-detail', product.id]">
+                  <img [src]="product.image" [alt]="product.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+                <button (click)="toggleWishlist($event, product)" class="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-50 transition-colors z-10">
+                  <i [class]="product.liked ? 'ri-heart-fill text-red-500' : 'ri-heart-line text-gray-600 hover:text-red-500'"></i>
+                </button>
+              </div>
+
+              <div class="p-4">
+                <h3 class="font-semibold text-gray-800 mb-1 truncate">
+                  <a [routerLink]="['/product-detail', product.id]" class="hover:text-green-600 transition-colors">{{ product.name }}</a>
+                </h3>
+                <span class="text-sm text-gray-600 block mb-3 truncate">{{ product.material }}</span>
+                
+                <div class="flex items-center justify-between mt-2">
+                  <div class="flex flex-col">
+                    <div class="flex items-center gap-2">
+                      <span class="text-lg font-bold text-green-600">{{ product.price | number:'1.0-0' }}đ</span>
+                      <span *ngIf="product.originalPrice" class="text-xs text-gray-400 line-through">{{ product.originalPrice | number:'1.0-0' }}đ</span>
+                    </div>
+                  </div>
+
+                  <button (click)="addToCart($event, product)" class="w-8 h-8 flex items-center justify-center rounded-full bg-green-50 text-green-600 hover:bg-green-600 hover:text-white transition-colors duration-200 shadow-sm" title="Thêm vào giỏ">
+                    <i class="ri-shopping-bag-3-line text-lg"></i>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<div *ngIf="showNotification" 
+     class="toast-slide-in fixed top-24 right-5 z-[9999] min-w-[350px] max-w-md transition-all duration-300">
+    
+    <div class="relative flex items-start p-4 rounded bg-green-50 shadow-lg border-l-4 border-green-600">
+        
+        <div class="flex-shrink-0 mr-3">
+            <i class="ri-checkbox-circle-fill text-2xl text-green-600"></i>
+        </div>
+
+        <div class="flex-1 pt-1">
+            <h3 class="font-bold text-sm text-green-800">
+                Thành công
+            </h3>
+            <p class="mt-1 text-sm text-gray-700 leading-tight">
+                {{ notificationMessage }}
+            </p>
+        </div>
+
+        <button (click)="closeToast()" class="ml-4 flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+            <i class="ri-close-line text-xl"></i>
+        </button>
+    </div>
+</div>

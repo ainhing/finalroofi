@@ -1,0 +1,155 @@
+<aside class="admin-sidebar">
+  <div class="admin-sidebar-header">
+    <div class="admin-logo">
+      <div class="admin-logo-icon">
+        <i class="ri-store-2-fill"></i>
+      </div>
+      <span class="admin-logo-text">Trang quản trị</span>
+    </div>
+  </div>
+
+  <nav class="admin-nav-menu">
+    <a class="admin-nav-item" routerLink="/admin" routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact: true}">
+      <i class="ri-dashboard-line"></i>
+      <span>Dashboard</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/users" routerLinkActive="active">
+      <i class="ri-team-line"></i>
+      <span>Quản lý Users</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/products" routerLinkActive="active">
+      <i class="ri-shopping-bag-line"></i>
+      <span>Sản phẩm</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/blogs" routerLinkActive="active">
+      <i class="ri-article-line"></i>
+      <span>Blogs</span>
+    </a>
+    <a class="admin-nav-item" routerLink="/admin/orders" routerLinkActive="active">
+      <i class="ri-shopping-cart-line"></i>
+      <span>Đơn hàng</span>
+    </a>
+
+    <div class="admin-nav-divider"></div>
+
+    <button class="admin-nav-item" (click)="onLogout()">
+      <i class="ri-logout-box-line"></i>
+      <span>Đăng xuất</span>
+    </button>
+  </nav>
+</aside>
+
+<section class="admin-wrap">
+  <main class="admin-main">
+
+    <!-- Header -->
+    <div class="admin-header">
+      <h1><i class="ri-shopping-cart-line"></i> Quản lý Đơn hàng</h1>
+      <div class="admin-header-actions">
+        <button class="admin-action-btn admin-action-btn-edit"
+                (click)="loadOrders(true)"
+                [disabled]="isLoading">
+          <i class="ri-refresh-line"></i> Tải lại
+        </button>
+      </div>
+    </div>
+
+    <!-- Status tabs -->
+    <div class="status-tabs">
+      <button class="status-tab"
+              [class.active]="filterStatus === ''"
+              (click)="filterStatus = ''; onFilterChange()">
+        Tất cả
+        <span class="tab-count">{{ orders.length }}</span>
+      </button>
+      <button class="status-tab"
+              *ngFor="let s of statusList"
+              [class.active]="filterStatus === s"
+              [class]="'status-tab status-tab--' + s"
+              (click)="filterStatus = s; onFilterChange()">
+        {{ statusLabel[s] }}
+        <span class="tab-count" *ngIf="countByStatus(s) > 0">{{ countByStatus(s) }}</span>
+      </button>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <i class="ri-search-line"></i>
+      <input type="text"
+             [(ngModel)]="filterSearch"
+             (ngModelChange)="onFilterChange()"
+             placeholder="Tìm theo mã đơn, email, tên khách...">
+    </div>
+
+    <!-- Loading -->
+    <div *ngIf="isLoading" class="admin-empty-state">
+      <i class="ri-loader-4-line spin" style="font-size:28px;margin-bottom:12px"></i>
+      Đang tải đơn hàng...
+    </div>
+
+    <!-- Table -->
+    <div class="admin-table-wrap" *ngIf="!isLoading">
+      <table class="admin-table" *ngIf="filteredOrders.length > 0; else noOrders">
+        <thead>
+          <tr>
+            <th>Mã đơn</th>
+            <th>Khách hàng</th>
+            <th>Sản phẩm</th>
+            <th>Tổng tiền</th>
+            <th>Thanh toán</th>
+            <th>Trạng thái</th>
+            <th>Ngày đặt</th>
+            <th>Hành động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of filteredOrders">
+            <td>
+              <span class="order-id">{{ o.OrderId }}</span>
+            </td>
+            <td>
+              <div class="customer-info">
+                <span class="customer-name">{{ o.FullName || '-' }}</span>
+                <span class="customer-email">{{ o.Email }}</span>
+              </div>
+            </td>
+            <td>
+              <span class="items-count">{{ o.Items.length }} sản phẩm</span>
+            </td>
+            <td>
+              <span class="total-amount">{{ formatCurrency(o.TotalAmount) }}</span>
+            </td>
+            <td>
+              <span class="payment-method">{{ o.PaymentMethod.toUpperCase() }}</span>
+            </td>
+            <td>
+              <span class="status-badge" [class]="'status-badge--' + o.Status">
+                {{ statusLabel[o.Status] || o.Status }}
+              </span>
+            </td>
+            <td class="date-cell">{{ formatDate(o.CreatedAt) }}</td>
+            <td>
+              <div class="action-group">
+                <button class="admin-action-btn admin-action-btn-edit" (click)="onViewOrder(o)">
+                  <i class="ri-eye-line"></i> Xem
+                </button>
+                <button class="admin-action-btn admin-action-btn-delete" (click)="onDeleteOrder(o)">
+                  <i class="ri-delete-bin-line"></i> Xóa
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ng-template #noOrders>
+        <div class="admin-empty-state">
+          <div class="admin-empty-icon"><i class="ri-shopping-cart-line"></i></div>
+          <p>{{ filterStatus || filterSearch ? 'Không tìm thấy đơn hàng phù hợp.' : 'Chưa có đơn hàng nào.' }}</p>
+        </div>
+      </ng-template>
+    </div>
+
+  </main>
+</section>
