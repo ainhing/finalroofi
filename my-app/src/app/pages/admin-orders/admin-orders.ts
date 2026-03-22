@@ -85,7 +85,7 @@ export class AdminOrders implements OnInit {
   }
 
   onViewOrder(o: AppOrder) {
-    this.router.navigate(['/admin/orders/fix', o.OrderId]);
+    this.router.navigate(['/admin/orders', o.OrderId]);
   }
 
   onDeleteOrder(o: AppOrder) {

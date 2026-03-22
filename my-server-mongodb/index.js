@@ -500,10 +500,11 @@ function mapOrder(doc) {
 // GET /orders
 app.get('/orders', async (req, res) => {
   try {
-    const { status, userId } = req.query;
+    const { status, userId, email } = req.query;
     const filter = {};
     if (status) filter.Status = status;
     if (userId) filter.UserId = userId;
+    if (email)  filter.Email  = email.toLowerCase();
 
     const docs = await orderCol.find(filter).sort({ CreatedAt: -1 }).toArray();
     res.json({ data: docs.map(mapOrder) });

@@ -7,6 +7,7 @@ import { Notificationservice } from '../../services/notificationservice';
 import { ProvinceService } from '../../services/provinceservice';
 import { Voucherservice } from '../../services/voucherservice';
 import { Orderservice } from '../../services/orderservice';
+import { Authservice } from '../../services/authservice';
 import { Province, District, Ward } from '../../assets/data/province';
 
 interface OrderData {
@@ -111,7 +112,8 @@ export class Cart implements OnInit, OnDestroy {
     private provinceService: ProvinceService,
     private voucherService: Voucherservice,
     private orderService: Orderservice,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private authService: Authservice
   ) {}
 
   ngOnInit() {
@@ -436,8 +438,10 @@ export class Cart implements OnInit, OnDestroy {
     // ✅ Payload đúng format backend (PascalCase, flat)
     const shippingAddress = `${address}, ${ward}, ${district}, ${city}`;
 
+    const currentUser = this.authService.getCurrentUser();
     const payload = {
       OrderId:         this.orderCode,
+      UserId:          currentUser?.UserId || currentUser?.id || '',
       Email:           email.trim(),
       FullName:        name.trim(),
       Phone:           phone.trim(),

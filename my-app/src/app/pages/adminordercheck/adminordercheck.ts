@@ -104,7 +104,9 @@ export class Adminordercheck implements OnInit {
     };
 
     this.orderService.updateOrder(this.orderId, payload).subscribe({
-      next: () => {
+      next: (res) => {
+        const updated = res?.order || { ...this.order, ...payload };
+        this.orderState.updateOrder(updated);
         this.notify.success('Cập nhật đơn hàng thành công');
         this.isSaving = false;
       },
@@ -122,6 +124,7 @@ export class Adminordercheck implements OnInit {
     this.isDeleting = true;
     this.orderService.deleteOrder(this.orderId).subscribe({
       next: () => {
+        this.orderState.deleteOrder(this.orderId);
         this.notify.success('Đã xóa đơn hàng');
         this.isDeleting = false;
         this.router.navigate(['/admin/orders']);

@@ -93,7 +93,7 @@ import { Adminblogfix } from './pages/adminblogfix/adminblogfix';
   imports: [
     BrowserModule,
     CommonModule,
-    RouterModule,       // <-- ĐÃ CÓ RỒI, giữ lại để routerLink hoạt động
+    RouterModule,       
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -103,7 +103,7 @@ import { Adminblogfix } from './pages/adminblogfix/adminblogfix';
     QuickView,
     MiniCart,
     Search,
-    BlogDetail,         // <-- CHỈ BlogDetail mới thêm vào imports (vì là standalone)
+    BlogDetail,         
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

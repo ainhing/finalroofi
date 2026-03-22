@@ -37,7 +37,10 @@ export class OrderHistory implements OnInit {
     this.isLoading = true;
     const user    = this.authService.getCurrentUser();
     // Lọc đơn hàng theo email của user đang đăng nhập
-    const filters = user?.email ? { email: user.email } : undefined;
+    // Admin xem tất cả đơn, customer chỉ xem đơn của mình
+    const filters = (user?.role === 'admin')
+      ? undefined
+      : (user?.email ? { email: user.email } : undefined);
     this.orderService.getOrders(true, filters).subscribe({
       next: orders => {
         this.orders    = orders;
