@@ -7,7 +7,6 @@ import { Notificationservice } from '../../services/notificationservice';
 import { ProvinceService } from '../../services/provinceservice';
 import { Voucherservice } from '../../services/voucherservice';
 import { Orderservice } from '../../services/orderservice';
-import { Authservice } from '../../services/authservice';
 import { Province, District, Ward } from '../../assets/data/province';
 
 interface OrderData {
@@ -112,8 +111,7 @@ export class Cart implements OnInit, OnDestroy {
     private provinceService: ProvinceService,
     private voucherService: Voucherservice,
     private orderService: Orderservice,
-    private cdr: ChangeDetectorRef,
-    private authService: Authservice
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -372,14 +370,18 @@ export class Cart implements OnInit, OnDestroy {
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     
-    const name = formData.get('name') as string;
-    const phone = formData.get('phone') as string;
-    const email = formData.get('email') as string;
-    const city = formData.get('city') as string;
-    const district = formData.get('district') as string;
-    const ward = formData.get('ward') as string;
+    const name    = formData.get('name') as string;
+    const phone   = formData.get('phone') as string;
+    const email   = formData.get('email') as string;
     const address = formData.get('address') as string;
-    const note = formData.get('note') as string;
+    const note    = formData.get('note') as string;
+
+    // ✅ Đọc city/district/ward từ ngModel, KHÔNG dùng formData.get()
+    // vì formData đọc DOM native — browser tự hiển thị option đầu tiên
+    // dù user chưa chọn → luôn ra "Xã Vĩnh Tường" hoặc tương tự
+    const city     = this.selectedCity.trim();
+    const district = this.selectedDistrict.trim();
+    const ward     = this.selectedWard.trim();
 
     // Validate chỉ các field có dấu *
     const missingFields = [];
@@ -438,10 +440,8 @@ export class Cart implements OnInit, OnDestroy {
     // ✅ Payload đúng format backend (PascalCase, flat)
     const shippingAddress = `${address}, ${ward}, ${district}, ${city}`;
 
-    const currentUser = this.authService.getCurrentUser();
     const payload = {
       OrderId:         this.orderCode,
-      UserId:          currentUser?.UserId || currentUser?.id || '',
       Email:           email.trim(),
       FullName:        name.trim(),
       Phone:           phone.trim(),
@@ -469,8 +469,9 @@ export class Cart implements OnInit, OnDestroy {
     } else {
       this.isPlacingOrder = true;
       this.orderService.createOrder(payload).subscribe({
-        next: () => {
-          this._onOrderSuccess();
+        next: (savedOrder) => {
+          // savedOrder đã là AppOrder (orderservice.normalize() rồi)
+          this._onOrderSuccess(savedOrder);
         },
         error: (err: HttpErrorResponse) => {
           const msg = err?.error?.message || err?.message || 'Lỗi không xác định';
@@ -484,7 +485,10 @@ export class Cart implements OnInit, OnDestroy {
   // ========================================
   // QR MODAL METHODS
   // ========================================
-  _onOrderSuccess() {
+  _onOrderSuccess(savedOrder?: any) {
+    if (savedOrder) {
+      localStorage.setItem('lastOrder', JSON.stringify(savedOrder));
+    }
     this.notify.success('Đặt hàng thành công!');
     if (this.appliedVoucher) {
       this.voucherService.consumeVoucher(this.appliedVoucher);
@@ -530,8 +534,8 @@ export class Cart implements OnInit, OnDestroy {
         if (this.pendingOrderData) {
           this.isPlacingOrder = true;
           this.orderService.createOrder(this.pendingOrderData).subscribe({
-            next: () => {
-              this._onOrderSuccess();
+            next: (savedOrder) => {
+              this._onOrderSuccess(savedOrder);
               this.isPlacingOrder = false;
             },
             error: (err: HttpErrorResponse) => {

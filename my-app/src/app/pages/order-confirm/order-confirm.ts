@@ -261,6 +261,86 @@ export class OrderConfirm implements OnInit, AfterViewInit {
   }
 
   downloadOrderPDF() {
-    this.notify.info('Chức năng tải PDF đang được phát triển!');
+    if (!this.orderData) {
+      this.notify.error('Không có dữ liệu đơn hàng để tải!');
+      return;
+    }
+    const content = this.generateInvoiceContent(this.orderData);
+    const blob    = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url     = URL.createObjectURL(blob);
+    const el      = document.createElement('a');
+    el.href       = url;
+    el.download   = `hoadon_${this.orderData.OrderId}.txt`;
+    document.body.appendChild(el);
+    el.click();
+    document.body.removeChild(el);
+    URL.revokeObjectURL(url);
+    this.notify.success('Đã tải hóa đơn!');
+  }
+
+  private generateInvoiceContent(order: AppOrder): string {
+    const lines: string[] = [];
+    const statusLabel: Record<string, string> = {
+      'just-created': 'Đặt hàng thành công',
+      pending:        'Chờ xác nhận',
+      confirmed:      'Đã xác nhận',
+      shipping:       'Đang giao hàng',
+      delivered:      'Đã giao thành công',
+      cancelled:      'Đã hủy',
+    };
+    const status   = statusLabel[this.getOrderStatus()] || 'Chờ xác nhận';
+    const delivery = this.expectedDeliveryDate;
+
+    const formatDate = (d: string) => {
+      if (!d) return 'N/A';
+      try { return new Date(d).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }); }
+      catch { return d; }
+    };
+
+    lines.push('═══════════════════════════════════════');
+    lines.push('         HÓA ĐƠN MUA HÀNG              ');
+    lines.push('═══════════════════════════════════════');
+    lines.push('');
+    lines.push(`Mã đơn hàng:       ${order.OrderId}`);
+    lines.push(`Ngày đặt hàng:     ${formatDate(order.CreatedAt)}`);
+    lines.push(`Ngày giao dự kiến: ${delivery}`);
+    lines.push(`Trạng thái:        ${status}`);
+    lines.push('');
+    lines.push('───────────────────────────────────────');
+    lines.push('         THÔNG TIN KHÁCH HÀNG          ');
+    lines.push('───────────────────────────────────────');
+    lines.push(`Họ và tên: ${order.FullName}`);
+    lines.push(`Email:     ${order.Email}`);
+    lines.push(`SĐT:       ${order.Phone}`);
+    lines.push(`Địa chỉ:   ${order.ShippingAddress}`);
+    if (order.Note) lines.push(`Ghi chú:   ${order.Note}`);
+    lines.push('');
+    lines.push('───────────────────────────────────────');
+    lines.push('           CHI TIẾT ĐƠN HÀNG          ');
+    lines.push('───────────────────────────────────────');
+
+    (order.Items || []).forEach((item, i) => {
+      lines.push(`${i + 1}. ${item.ProductName}`);
+      lines.push(`   Size: ${item.Size || '-'} | Số lượng: ${item.Quantity}`);
+      lines.push(`   Đơn giá: ${item.Price.toLocaleString('vi-VN')}đ`);
+      lines.push(`   Thành tiền: ${(item.Price * item.Quantity).toLocaleString('vi-VN')}đ`);
+      lines.push('');
+    });
+
+    lines.push('───────────────────────────────────────');
+    lines.push('              TỔNG CỘNG                ');
+    lines.push('───────────────────────────────────────');
+    lines.push(`Tạm tính:        ${order.SubTotal.toLocaleString('vi-VN')}đ`);
+    if (order.Discount > 0)
+      lines.push(`Giảm giá:       -${order.Discount.toLocaleString('vi-VN')}đ`);
+    lines.push(`Phí vận chuyển:  ${order.ShippingFee > 0 ? order.ShippingFee.toLocaleString('vi-VN') + 'đ' : 'Miễn phí'}`);
+    lines.push(`TỔNG CỘNG:       ${order.TotalAmount.toLocaleString('vi-VN')}đ`);
+    lines.push(`Thanh toán:      ${order.PaymentMethod === 'qr' ? 'Chuyển khoản QR' : 'COD'}`);
+    lines.push('');
+    lines.push('═══════════════════════════════════════');
+    lines.push('  Cảm ơn bạn đã mua sắm tại ROOFI!    ');
+    lines.push('═══════════════════════════════════════');
+
+    return lines.join('\n');
   }
 }
