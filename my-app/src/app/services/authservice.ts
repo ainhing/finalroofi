@@ -243,7 +243,8 @@ export class Authservice {
     const loginData = JSON.parse(loginDataRaw);
     const users = this.getUsers();
     const user = users.find(u => u.email === loginData.email);
-    return user ? { ...loginData, ...user } : loginData;
+    // ✅ loginData ưu tiên hơn APP_USERS để role/session không bị ghi đè sai
+    return user ? { ...user, ...loginData } : loginData;
   }
 
   isAdmin():    boolean { return this.getCurrentUser()?.role === 'admin'; }

@@ -71,6 +71,10 @@ function stripMongoId(doc) {
 function mapUser(doc) {
   if (!doc) return doc;
   const { _id, Password, ...rest } = doc;
+  // Normalize Role → role để frontend dùng thống nhất chữ thường
+  if (rest.Role !== undefined && rest.role === undefined) {
+    rest.role = rest.Role;
+  }
   return rest;
 }
 

@@ -40,11 +40,6 @@ export class AdminOrders implements OnInit {
 
   ngOnInit() {
     this.user = this.auth.getCurrentUser();
-    if (!this.user || this.user.role !== 'admin') {
-      this.notify.error('Bạn không có quyền truy cập trang này!');
-      this.router.navigate(['/']);
-      return;
-    }
     this.loadOrders();
   }
 
@@ -85,7 +80,7 @@ export class AdminOrders implements OnInit {
   }
 
   onViewOrder(o: AppOrder) {
-    this.router.navigate(['/admin/orders', o.OrderId]);
+    this.router.navigate(['/admin/orders/fix', o.OrderId]);
   }
 
   onDeleteOrder(o: AppOrder) {
