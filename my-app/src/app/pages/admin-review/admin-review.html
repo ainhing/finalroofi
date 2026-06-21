@@ -1,0 +1,126 @@
+<div class="admin-page-root admin-review-page">
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <div class="admin-logo">
+        <div class="admin-logo-icon"><i class="ri-store-2-fill"></i></div>
+        <span class="admin-logo-text">Trang quản trị</span>
+      </div>
+    </div>
+
+    <nav class="admin-nav-menu">
+      <a class="admin-nav-item" routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="ri-dashboard-line"></i><span>Dashboard</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/users" routerLinkActive="active">
+        <i class="ri-team-line"></i><span>Quản lý Users</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/products" routerLinkActive="active">
+        <i class="ri-shopping-bag-line"></i><span>Sản phẩm</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/blogs" routerLinkActive="active">
+        <i class="ri-article-line"></i><span>Blogs</span>
+      </a>
+      <a class="admin-nav-item active" routerLink="/admin/reviews" routerLinkActive="active">
+        <i class="ri-chat-check-line"></i><span>Đánh giá</span>
+      </a>
+      <a class="admin-nav-item" routerLink="/admin/orders" routerLinkActive="active">
+        <i class="ri-shopping-cart-line"></i><span>Đơn hàng</span>
+      </a>
+      <div class="admin-nav-divider"></div>
+      <button class="admin-nav-item" (click)="onLogout()">
+        <i class="ri-logout-box-line"></i><span>Đăng xuất</span>
+      </button>
+    </nav>
+  </aside>
+
+  <section class="admin-wrap">
+    <main class="admin-main">
+      <div class="admin-header">
+        <div>
+          <h1><i class="ri-chat-check-line"></i> Quản lý đánh giá</h1>
+          <p style="margin:0; font-size:13px; color:#6b7280; margin-top:2px;">Duyệt, xóa hoặc lọc các đánh giá sản phẩm</p>
+        </div>
+        <div class="admin-header-actions">
+          <button class="admin-action-btn admin-action-btn-add" (click)="loadReviews(true)" [disabled]="isLoading">
+            <i class="ri-refresh-line"></i> Tải lại
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-table-wrap admin-filter-row">
+        <div class="filter-group">
+          <label>Tìm kiếm</label>
+          <input type="text" placeholder="Tìm sản phẩm, người dùng hoặc bình luận..."
+                 [(ngModel)]="filterSearch"
+                 (ngModelChange)="onFilterChange()" />
+        </div>
+        <div class="filter-group">
+          <label>Trạng thái</label>
+          <select [(ngModel)]="filterStatus" (change)="onFilterChange()">
+            <option value="all">Tất cả</option>
+            <option value="approved">Đã duyệt</option>
+            <option value="unapproved">Chưa duyệt</option>
+          </select>
+        </div>
+      </div>
+
+      <div *ngIf="isLoading" class="admin-empty-state">
+        <i class="ri-loader-4-line spin" style="font-size:28px;margin-bottom:12px"></i>
+        Đang tải đánh giá...
+      </div>
+
+      <div class="admin-table-wrap" *ngIf="!isLoading">
+        <table class="admin-table" *ngIf="filteredReviews.length > 0; else noReviews">
+          <thead>
+            <tr>
+              <th>Sản phẩm</th>
+              <th>Người đánh giá</th>
+              <th>Rating</th>
+              <th>Nhận xét</th>
+              <th>Ngày</th>
+              <th>Trạng thái</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let review of filteredReviews">
+              <td>
+                <div class="review-product">
+                  <strong>{{ review.productName || review.productId }}</strong>
+                  <div class="review-product-id">{{ review.productId }}</div>
+                </div>
+              </td>
+              <td>{{ review.userName || 'Khách' }}</td>
+              <td>{{ formatRating(review.rating) }}</td>
+              <td class="review-comment">{{ review.comment || '-' }}</td>
+              <td>{{ formatDate(review.date) }}</td>
+              <td>
+                <span class="status-badge" [class.approved]="review.isApproved" [class.unapproved]="!review.isApproved">
+                  {{ review.isApproved ? 'Đã duyệt' : 'Chưa duyệt' }}
+                </span>
+              </td>
+              <td>
+                <div class="action-group">
+                  <button class="admin-action-btn admin-action-btn-edit" (click)="toggleApproval(review)">
+                    <i class="ri-checkbox-circle-line"></i>
+                    {{ review.isApproved ? 'Bỏ duyệt' : 'Duyệt' }}
+                  </button>
+                  <button class="admin-action-btn admin-action-btn-delete" (click)="deleteReview(review)">
+                    <i class="ri-delete-bin-line"></i> Xóa
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <ng-template #noReviews>
+          <div class="admin-empty-state">
+            <div class="admin-empty-icon"><i class="ri-chat-check-line"></i></div>
+            <p>{{ filterSearch || filterStatus !== 'all' ? 'Không tìm thấy đánh giá phù hợp.' : 'Chưa có đánh giá nào.' }}</p>
+          </div>
+        </ng-template>
+      </div>
+    </main>
+  </section>
+</div>

@@ -262,6 +262,62 @@
         </div>
       </div>
 
+      <div class="mt-12 bg-white rounded-3xl shadow-lg border border-gray-100 p-6">
+        <div class="flex flex-col gap-6">
+          <div class="border-b border-gray-100 pb-4">
+            <h2 class="text-2xl font-bold text-gray-900">Đánh giá sản phẩm</h2>
+            <p class="text-sm text-gray-500 mt-1">Xem nhận xét từ khách hàng và gửi đánh giá của bạn.</p>
+          </div>
+
+          <div *ngIf="approvedReviews.length === 0" class="p-4 rounded-lg bg-gray-50 text-gray-600">
+            Chưa có đánh giá nào cho sản phẩm này. Hãy là người đầu tiên nhận xét!
+          </div>
+
+          <div class="space-y-4" *ngIf="approvedReviews.length > 0">
+            <div *ngFor="let review of approvedReviews" class="p-4 rounded-3xl border border-gray-100 bg-white shadow-sm">
+              <div class="flex items-center justify-between gap-4 mb-3">
+                <div>
+                  <p class="font-semibold text-gray-900">{{ review.userName || 'Khách' }}</p>
+                  <p class="text-xs text-gray-500">{{ review.date | date:'dd/MM/yyyy' }}</p>
+                </div>
+                <div class="flex items-center gap-1 text-yellow-400">
+                  <ng-container *ngFor="let star of [1,2,3,4,5]">
+                    <i [class]="star <= review.rating ? 'ri-star-fill' : 'ri-star-line'" class="text-lg"></i>
+                  </ng-container>
+                </div>
+              </div>
+              <p class="text-gray-700 leading-relaxed">{{ review.comment }}</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-gray-100">
+            <h3 class="text-xl font-semibold text-gray-900">Gửi đánh giá của bạn</h3>
+            <div class="mt-4 grid gap-4 md:grid-cols-2">
+              <label class="space-y-2 text-sm text-gray-700">
+                <span>Họ tên</span>
+                <input type="text" [(ngModel)]="reviewForm.userName" name="reviewUserName" placeholder="Tên của bạn" class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-green-500 focus:outline-none" />
+              </label>
+              <label class="space-y-2 text-sm text-gray-700">
+                <span>Đánh giá</span>
+                <select [(ngModel)]="reviewForm.rating" name="reviewRating" class="w-full rounded-xl border border-gray-200 px-4 py-3 focus:border-green-500 focus:outline-none">
+                  <option *ngFor="let rate of [5,4,3,2,1]" [value]="rate">{{ rate }} sao</option>
+                </select>
+              </label>
+            </div>
+            <label class="block mt-4 text-sm text-gray-700">
+              <span>Nội dung nhận xét</span>
+              <textarea [(ngModel)]="reviewForm.comment" name="reviewComment" rows="4" placeholder="Chia sẻ cảm nhận của bạn về sản phẩm" class="mt-2 w-full rounded-3xl border border-gray-200 px-4 py-3 focus:border-green-500 focus:outline-none"></textarea>
+            </label>
+            <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <button (click)="submitReview()" [disabled]="isReviewSubmitting" class="inline-flex items-center justify-center rounded-full bg-green-600 px-6 py-3 text-white font-semibold hover:bg-green-700 transition-colors disabled:cursor-not-allowed disabled:bg-gray-300">
+                {{ isReviewSubmitting ? 'Đang gửi...' : 'Gửi đánh giá' }}
+              </button>
+              <p class="text-xs text-gray-500">Đánh giá sẽ được duyệt bởi quản trị viên trước khi hiển thị.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
 <div *ngIf="showNotification" 
      class="toast-slide-in fixed top-24 right-5 z-[9999] min-w-[350px] max-w-md transition-all duration-300">
     

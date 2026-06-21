@@ -1,0 +1,92 @@
+.admin-review-page .admin-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.admin-review-page .filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 240px;
+}
+
+.admin-review-page .filter-group label {
+  font-size: 13px;
+  color: #374151;
+}
+
+.admin-review-page .filter-group input,
+.admin-review-page .filter-group select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color .2s ease;
+}
+
+.admin-review-page .filter-group input:focus,
+.admin-review-page .filter-group select:focus {
+  border-color: #60a5fa;
+}
+
+.admin-review-page .review-product {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-review-page .review-product-id {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.admin-review-page .review-comment {
+  max-width: 320px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.admin-review-page .status-badge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  color: white;
+}
+
+.admin-review-page .status-badge.approved {
+  background: #10b981;
+}
+
+.admin-review-page .status-badge.unapproved {
+  background: #f59e0b;
+}
+
+.admin-review-page .action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-review-page .action-group .admin-action-btn {
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.admin-review-page .admin-action-btn.admin-action-btn-edit {
+  background: #2563eb;
+  color: white;
+}
+
+.admin-review-page .admin-action-btn.admin-action-btn-delete {
+  background: #dc2626;
+  color: white;
+}
+
+.admin-review-page .admin-action-btn.admin-action-btn-add {
+  min-width: 120px;
+}

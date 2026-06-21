@@ -44,6 +44,7 @@ import { AdminProducts } from './pages/admin-products/admin-products';
 import { AdminOrders } from './pages/admin-orders/admin-orders';
 import { SavedVouchers } from './pages/saved-vouchers/saved-vouchers';
 import { AdminBlog } from './pages/admin-blog/admin-blog';
+import { AdminReview } from './pages/admin-review/admin-review';
 import { AdminProductFix } from './pages/admin-product-fix/admin-product-fix';
 import { Adminprofilefix } from './pages/adminprofilefix/adminprofilefix';
 import { Adminordercheck } from './pages/adminordercheck/adminordercheck';
@@ -84,6 +85,7 @@ import { Adminblogfix } from './pages/adminblogfix/adminblogfix';
     AdminOrders,
     SavedVouchers,
     AdminBlog,
+    AdminReview,
     AdminProductFix,
     Adminprofilefix,
     Adminordercheck,

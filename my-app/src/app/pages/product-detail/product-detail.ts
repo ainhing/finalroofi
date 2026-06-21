@@ -5,6 +5,7 @@ import { ProductStateService } from '../../services/product-state.service';
 import { Cartservice } from '../../services/cartservice';
 import { Buynowservice } from '../../services/buynowservice';
 import { Wishlistservice } from '../../services/wishlistservice';
+import { Reviewservice, Review } from '../../services/reviewservice';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -27,6 +28,15 @@ export class ProductDetail implements OnInit, OnDestroy {
   relatedProducts: Product[] = [];
   mainLiked = false;
 
+  reviews: Review[] = [];
+  approvedReviews: Review[] = [];
+  reviewForm = {
+    userName: '',
+    rating: 5,
+    comment: '',
+  };
+  isReviewSubmitting = false;
+
   showNotification: boolean = false;
   notificationMessage: string = '';
   notificationType: 'success' | 'error' = 'success';
@@ -41,6 +51,7 @@ export class ProductDetail implements OnInit, OnDestroy {
     private stateService: ProductStateService,
     private cartService: Cartservice,
     private buyNowService: Buynowservice,
+    private reviewService: Reviewservice,
     private cdr: ChangeDetectorRef,
     private wishlistService: Wishlistservice
   ) {}
@@ -57,6 +68,7 @@ export class ProductDetail implements OnInit, OnDestroy {
         this.selectedSize = '';
         this.mainLiked = this.wishlistService.isInWishlist(product.id);
         this.getRelatedProducts(product);
+        this.loadReviews(product.id);
         this.cdr.detectChanges();
       }
     });
@@ -77,8 +89,8 @@ export class ProductDetail implements OnInit, OnDestroy {
         this.selectedSize = '';
         this.mainLiked = this.wishlistService.isInWishlist(data.id);
         this.stateService.setSingleProduct(data); // Broadcast tới subscribers
-        // Gọi hàm lấy sản phẩm tương tự
         this.getRelatedProducts(data);
+        this.loadReviews(data.id);
       }
     });
   }
@@ -179,6 +191,50 @@ export class ProductDetail implements OnInit, OnDestroy {
     event.stopPropagation();
     const nowLiked = this.wishlistService.toggle(product.id);
     product.liked = nowLiked;
+  }
+
+  loadReviews(productId: string) {
+    this.reviewService.getReviews({ productId, isApproved: true }).subscribe({
+      next: (list) => {
+        this.approvedReviews = list || [];
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.error('Không thể tải đánh giá', err);
+      }
+    });
+  }
+
+  submitReview() {
+    if (!this.product) return;
+    if (!this.reviewForm.comment.trim()) {
+      this.showToast('Vui lòng nhập nhận xét của bạn', 'error');
+      return;
+    }
+
+    this.isReviewSubmitting = true;
+    const payload = {
+      productId: this.product.id,
+      productName: this.product.name,
+      userName: this.reviewForm.userName || 'Khách',
+      rating: Number(this.reviewForm.rating || 5),
+      comment: this.reviewForm.comment.trim(),
+      isApproved: false,
+      date: new Date().toISOString(),
+    };
+
+    this.reviewService.createReview(payload).subscribe({
+      next: () => {
+        this.showToast('Cảm ơn! Đánh giá sẽ được duyệt sớm.', 'success');
+        this.reviewForm = { userName: '', rating: 5, comment: '' };
+        this.isReviewSubmitting = false;
+      },
+      error: (err) => {
+        console.error('Gửi đánh giá thất bại', err);
+        this.showToast('Gửi đánh giá thất bại, thử lại sau.', 'error');
+        this.isReviewSubmitting = false;
+      }
+    });
   }
 
   addToCart(product?: Product): void {

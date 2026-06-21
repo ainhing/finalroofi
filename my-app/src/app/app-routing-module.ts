@@ -31,6 +31,7 @@ import { SavedVouchers } from './pages/saved-vouchers/saved-vouchers';
 import { customerGuard, adminGuard } from './guards/auth.guard';
 import { AdminProductFix } from './pages/admin-product-fix/admin-product-fix';
 import { AdminBlog } from './pages/admin-blog/admin-blog';
+import { AdminReview } from './pages/admin-review/admin-review';
 import { Adminblogfix } from './pages/adminblogfix/adminblogfix';
 import { Adminprofilefix } from './pages/adminprofilefix/adminprofilefix';
 import { Adminordercheck } from './pages/adminordercheck/adminordercheck';
@@ -112,6 +113,11 @@ const routes: Routes = [
   { 
     path: 'admin/blogs',
     component: AdminBlog,
+    canActivate: [adminGuard]
+  },
+  { 
+    path: 'admin/reviews',
+    component: AdminReview,
     canActivate: [adminGuard]
   },
   { 
